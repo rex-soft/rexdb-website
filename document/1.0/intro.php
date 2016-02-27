@@ -10,7 +10,11 @@ include_once('../../include/import.php');
 </head>
 <body>
 <? include_once('../../include/navbar.php'); ?>
-<? include_once('_contents.php'); ?>
+<section id="header" class="top-div">
+	<div class="container">	
+		<? include_once('_contents.php'); ?>
+	</div>
+</section>
 <div class="container">
 <div class="row">
 

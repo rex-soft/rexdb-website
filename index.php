@@ -12,8 +12,12 @@ include_once('include/import.php');
 <section id="header" class="top-div">
 <div class="container" >
 	<div class="page-header lead">
-		<h1 align="center" style="font-size: 50px;margin-bottom: 30px">Rexdb是一个开源的持久层框架</h1>
-		<p>Try and purchase HTML5, JS, Ruby, PHP-MySQL based web apps to enhance your productivity at affordable price. is a library of popular server applications and development environments that can be installed with one click, either in your laptop, in a virtual machine or hosted in the cloud. We take care of compiling and configuring the applications and all of their dependencies (third-party libraries, language runtimes, databases) so they work out-of-the-box. </p>
+		<h1 align="center" style="font-size: 50px;margin-bottom: 30px">Rexdb是一个开源持久层框架</h1>
+		<p>
+		Rexdb是一款使用Java语言编写的，开放源代码的持久层框架。它可以处理数据库查询、更新、批处理、函数和存储过程调用、事物和JTA事物等，
+		可以使用多种类型的Java对象作为预编译参数，也可以自动将结果集转换为Map和Java对象。
+		使用Rexdb时，不需要编写繁琐的代码和数据映射配置文件，将SQL语句和Java对象等参数传递至框架接口，即可获取需要的结果。 
+		</p>
 		<div style="margin-top: 30px; text-align:center"><a href="/account/sign_up" class="btn-lg btn-primary btn-outline">下载最新版本 (v1.0.0-m1)</a></div>
 	</div>
 </div>
@@ -72,7 +76,12 @@ include_once('include/import.php');
 			<p> is used by millions of developers and business users all over the world, all the way from teaching themselves how to code to running non-profits to deploying and managing business-critical apps and servers. The following are some common use cases:</p>
 		</div>
 	</div>
-	<dl id="learning">
+	
+<?
+$docPath = 'document/1.0/';
+include_once('document/1.0/_contents.php'); 
+?>
+<!-- 	<dl id="learning">
 		<dt><a href="document/1.0/intro.php">简介 - Rexdb框架的功能和特点</a></dt><dd></dd>			
 		<dt><a href="document/1.0/download.php" >下载 - 下载压缩包和编译源代码</a></dt><dd></dd>
 		<dt><a href="document/1.0/download.php" >三分钟入门 - 如果您使用过其它持久层框架，请阅读本文档</a></dt><dd></dd>	
@@ -80,7 +89,7 @@ include_once('include/import.php');
 		<dt><a href="document/1.0/user-manual.php">用户手册 - 完整的开发人员参考文档，包含详细的示例、配置和接口说明</a></dt><dd></dd>
 		<dt><a href="#">常见问题 - 我们搜集整理了一些使用Rexdb过程中经常遇到的问题和解决方法</a></dt><dd></dd>
 		<dt><a href="#">API - Rexdb Java API文档</a></dt><dd></dd>
-	</dl>
+	</dl> -->
 </div>
 
 
