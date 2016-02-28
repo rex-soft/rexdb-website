@@ -14,19 +14,21 @@ include_once('include/import.php');
 	<div class="page-header lead">
 		<h1 align="center" style="font-size: 50px;margin-bottom: 30px">Rexdb是一个开源持久层框架</h1>
 		<p>
-		Rexdb是一款使用Java语言编写的，开放源代码的持久层框架。它可以处理数据库查询、更新、批处理、函数和存储过程调用、事物和JTA事物等，
-		可以使用多种类型的Java对象作为预编译参数，也可以自动将结果集转换为Map和Java对象。
-		使用Rexdb时，不需要编写繁琐的代码和数据映射配置文件，将SQL语句和Java对象等参数传递至框架接口，即可获取需要的结果。 
+		Rexdb是一款使用Java语言编写的，开放源代码的持久层框架。它可以处理查询、更新、批处理、函数和存储过程调用等数据库操作。
+		它可以执行复杂的SQL语句，支持多种类型的对象作为预编译参数，并自动将执行结果转换为Map和自定义的对象。
+		Rexdb具有接口设计灵活、使用简单、性能良好等特点，非常适合数据结构复杂、需要快速迭代或是对性能要求严苛的开发场景。
 		</p>
-		<div style="margin-top: 30px; text-align:center"><a href="/account/sign_up" class="btn-lg btn-primary btn-outline">下载最新版本 (v1.0.0-m1)</a></div>
+		<div style="margin-top: 50px; text-align:center"><a href="/account/sign_up" class="btn-lg btn-primary btn-outline">下载最新版本 (v1.0.0-m1)</a></div>
 	</div>
 </div>
 </section>
 <div class="container">
 	<div class="row">
 		<div class="col-md-6">
-			<h2>为什么需要rexdb？</h2>
-			<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.Donec id elit non mi porta gravida at eget metus. </p>			
+			<h2>特点</h2>
+			<p>
+			不需要编写繁琐的代码和映射文件，直接将SQL语句和Java对象传递至框架接口，即可获得需要的结果。 
+			</p>			
 		</div>
 		<div class="col-md-6 thumbnail" style="height:220px">
 			<img src="bootstrap/docs/assets/img/components.png" ></img>
@@ -34,22 +36,36 @@ include_once('include/import.php');
 	</div>	
 	<div class="row">
 		<div class="col-md-6">
-			<h3>特性1</h3>
-			<p>Our applications are completely self contained and bundle all of the libraries, databases, and runtimes required to run on any platform.</p>
+			<h3>功能</h3>
+			<p>
+				提供了O/R映射功能，支持查询、更新、批处理、调用、事物和JTA事物等数据库操作；
+				可以同时管理多个数据源，并根据数据库类型自动封装分页查询；
+				可以通过监听SQL执行事件和耗时，有针对性的进行系统调优。
+				更多功能请参见简介。
+			</p>
 		</div>
 		<div class="col-md-6">
-			<h3>特性2</h3>
-			<p>Whenever vulnerabilities or serious security issues are discovered, we provide new versions of the apps as soon as possible, often within hours of the availability of a fix.</p>
+			<h3>接口</h3>
+			<p>
+				为方便调用，Rexdb将所有数据库操作接口集中在一个类中，并且这些方法都是静态的。
+				开发人员不需要耗费时间记忆繁琐的配置和使用方法，也不需要额外关注线程安全等问题。
+			</p>		
 		</div>
 	</div>	
 	<div class="row">
 		<div class="col-md-6">
-			<h3>特性3</h3>
-			<p>We have automated processes to track the latest release of all of the applications we support and will provide a new version as soon as it becomes available.</p>
+			<h3>性能</h3>
+			<p>
+				Rexdb使用了多种技术优化O/R映射性能，与直接调用JDBC接口相比，在执行查询、更新、调用等操作时的性能损耗极小，均在?%以内（需要启用相应的配置选项）。
+			</p>
 		</div>
 		<div class="col-md-6">
-			<h3>特性4</h3>
-			<p>Our applications are configured optimally for most common scenarios out of the box. We fine tune compression and caching settings and bundle third-party technology like Google PageSpeed.</p>
+			<h3>兼容性和扩展能力</h3>
+			<p>
+				内置Oracle、Mysql、SQLServer等10余种数据库方言，
+				兼容多种类型的数据源和日志实现，
+				还可以通过监听接口扩展更多功能。
+			</p>
 		</div>
 	</div>
 </div>	
@@ -61,8 +77,8 @@ include_once('include/import.php');
 				<img src="#"></img>
 			</div>
 			<div class="col-md-6">
-				<h2>代码量与性能</h2>
-				<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.Donec id elit non mi porta gravida at eget metus. </p>			
+				<h2>代码量与查询耗时</h2>
+				<p>Rexdb力求通过最短的代码，实现最高的查询效率。</p>			
 			</div>
 		</div>	
 	</div>
@@ -70,17 +86,19 @@ include_once('include/import.php');
 
 
 <div class="container">	
-	<div class="row" style="margin-bottom: 0px">
+	<div class="row" style="margin-bottom: 0px; margin-top: 40px">
 		<div class="col-md-12">
-			<h2>开始使用Rexdb</h2>
-			<p> is used by millions of developers and business users all over the world, all the way from teaching themselves how to code to running non-profits to deploying and managing business-critical apps and servers. The following are some common use cases:</p>
-		</div>
-	</div>
-	
+			<h2>开始使用</h2>
+			<p>以下文档有助于您快速部署和使用Rexdb。</p>
+			
 <?
 $docPath = 'document/1.0/';
 include_once('document/1.0/_contents.php'); 
 ?>
+		</div>
+	</div>
+	
+
 <!-- 	<dl id="learning">
 		<dt><a href="document/1.0/intro.php">简介 - Rexdb框架的功能和特点</a></dt><dd></dd>			
 		<dt><a href="document/1.0/download.php" >下载 - 下载压缩包和编译源代码</a></dt><dd></dd>
@@ -95,33 +113,21 @@ include_once('document/1.0/_contents.php');
 
 <section id="header2">
 	<div class="container">
-		<div class="row" style="margin-bottom: 30px;">
-			<div class="col-md-12">
-			<h2>技术支持</h2>
-			<p>Get started with a free plan or learn more about .</p>
-			</div>
-		</div>
-		<div class="row" style="margin-top: 30px;">
+		<div class="row support" style="margin-top: 60px;">
 			<div class="col-md-4">
-				<div class="thumbnail" style="height:170px">
-					<img alt="Cloud-icon" src="bootstrap/docs/assets/img/expo-riot.jpg" width="350" height="30"/>
-					</div>
-				<h3><a href="#">用户协议</a></h3>
-				<p>Ready to get started? Download an app and install it locally, or launch a cloud server in minutes.</p>
+				<img alt="agreement" src="style/images/agreement.png" width="120" height="120"/>
+				<h3>用户协议</h3>
+				<p>Rexdb基于<a href="http://www.apache.org/licenses/LICENSE-2.0.html" target="_blank">Apache2.0协议</a>，是免费、开源的软件，您可以将其用于个人和商业用途。</p>
 			</div>
 			<div class="col-md-4">
-				<div class="thumbnail" style="height:170px">
-					<img alt="Cloud-icon" src="bootstrap/docs/assets/img/expo-riot.jpg" width="350" height="30"/>
-					</div>
-					<h3><a href="#">发现BUG</a></h3>
-					<p>Do you want to offer the  library to your cloud customers? Learn more about our Cloud Partner Program.</p>
-				</div>
+				<img alt="agreement" src="style/images/agreement.png" width="120" height="120"/>
+				<h3>发现BUG</h3>
+				<p>在发布每一个版本前，我们都会进行完整的测试。尽管如此，如果您发现了BUG，请填写<a href="#">BUG反馈单</a>，或者发送邮件至<a href="#">技术支持邮箱</a>，我们会尽快处理。</p>
+			</div>
 			<div class="col-md-4">
-				<div class="thumbnail" style="height:170px">
-					<img alt="Isv-icon" src="bootstrap/docs/assets/img/expo-riot.jpg" width="350" height="30"/>
-				</div>
-				<h3><a href="#">改进建议</a></h3>
-				<p>Would you like to distribute your software to millions of users globally? Learn more about our Software Partner Program.</p>
+				<img alt="agreement" src="style/images/agreement.png" width="120" height="120"/>
+				<h3>改进建议</h3>
+				<p>我们会不断完善和升级，如果您有任何改进建议，请<a href="#">告知我们</a>。</p>
 			</div>
 		</div>
 	</div>

@@ -2,46 +2,48 @@
 	<div class="container" id="footer">
 		<div class="row" id="jump">
 			<div class="col-md-2">
-				<h5 class="h5">Apps</h5>
+				<h5 class="h5">下载</h5>
 				<ul class="ul">
-					<li><a href="#">Applications</a></li>
-					<li><a href="#">Add-ons</a></li>
-					<li><a href="#">Vote!</a></li>
+					<li><a href="#">最新稳定版</a></li>
+					<li><a href="#">历史版本</a></li>
+					<li><a href="#">更新日志</a></li>
 				</ul>
 			</div>
 			<div class="col-md-2">
-				<h5 class="h5">What we do</h5>
+				<h5 class="h5">文档</h5>
 				<ul class="ul">
-					<li><a href="#">Cloud Hosting</a></li>
-					<li><a href="#">Pricing</a></li>
-					<li><a href="#">Enterprise</a></li>
-					<li><a href="#">Cloud Partners</a></li>
-					<li><a href="#">Software Partners</a></li>
-					<li><a href="#">Customers</a></li>
-					<li><a href="#">FAQs</a></li>
+					<li><a href="#">简介</a></li>
+					<li><a href="#">如何下载和编译</a></li>
+					<li><a href="#">新手快速入门</a></li>
+					<li><a href="#">老手快速入门</a></li>
+					<li><a href="#">用户手册</a></li>
+					<li><a href="#">常见问题</a></li>
+					<li><a href="#">API</a></li>
 				</ul>
 			</div>
 			<div class="col-md-2">
-					<h5 class="h5">Who we are</h5>
-					<ul class="ul">
-						<li><a href="#">About</a></li>
-						<li><a href="#">Contact</a></li>
-						<li><a href="#">Careers</a></li>
-						<li><a href="#">What&#x27;s New?</a></li>
-						<li><a href="#">Press</a></li>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#">Legal</a></li>
-					</ul>
+				<h5 class="h5">性能测试</h5>
+				<ul class="ul">
+					<li><a href="#">写入性能</a></li>
+					<li><a href="#">查询性能</a></li>
+				</ul>
 			</div>
 			<div class="col-md-2">
-				<h5 class="h5">Support</h5>
+				<h5 class="h5">服务与支持</h5>
 				<ul class="ul">
-					<li><a href="#">Overview</a></li>
-					<li><a href="#">Forums</a></li>
-					<li><a href="#">Wiki</a></li>
-					<li><a href="#">Helpdesk</a></li>
+					<li><a href="#">使用协议</a></li>
+					<li><a href="#">BUG反馈</a></li>
+					<li><a href="#">改进建议</a></li>
+					<li><a href="#">技术支持邮箱</a></li>
+					<li><a href="#">致谢</a></li>
 				</ul>
+			</div>
+			
+			<div id ="copyright" class="col-md-2">
+				<a href="http://www.rex-soft.org"><img alt="rex-soft.org" src="style/images/rex.png"></a>
+				<h5>© rex-soft.org</h5>
 			</div>
 		</div>
+
 	</div>
 </footer>
