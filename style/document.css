@@ -22,10 +22,16 @@ body {
 /* BLOCKS
 =============================================================================*/
 
+.container .row {
+    margin-top: 40px;
+    margin-bottom: 80px;
+}
+
 p, blockquote, ul, ol, dl, table, pre {
   margin: 15px 0;
   font-size: 18px;
   color: #333;
+  line-height: 1.75;
 }
 
 /* HEADERS

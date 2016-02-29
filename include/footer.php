@@ -22,10 +22,11 @@
 				</ul>
 			</div>
 			<div class="col-md-2">
-				<h5 class="h5">性能测试</h5>
+				<h5 class="h5">性能</h5>
 				<ul class="ul">
 					<li><a href="#">写入性能</a></li>
 					<li><a href="#">查询性能</a></li>
+					<li><a href="#">连接池性能</a></li>
 				</ul>
 			</div>
 			<div class="col-md-2">

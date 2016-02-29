@@ -1,23 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>intro</title>
-<?
-$basePath = '../../';
-include_once('../../include/import.php'); 
-?>
-<link rel="stylesheet" href="../../style/document.css" type="text/css"></link>
-</head>
-<body>
-<? include_once('../../include/navbar.php'); ?>
-<section id="header" class="top-div">
-	<div class="container">	
-		<? include_once('_contents.php'); ?>
-	</div>
-</section>
-<div class="container">
-<div class="row">
-
 	<h1>简介 - Rexdb框架的功能和特点</h1>
 	
 	<h2>概述</h2>
@@ -59,9 +39,3 @@ include_once('../../include/import.php');
 	<p>Rexdb基于Apache 2.0协议，可以免费用于个人或商业用途。</p>
 	
 	<p>协议详情请见：<a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Lisence, Version 2.0</a></p>
-
-</div>
-</div>
-<? include_once('../../include/footer.php'); ?>
-</body>
-</html>

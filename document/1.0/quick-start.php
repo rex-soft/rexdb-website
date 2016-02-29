@@ -1,24 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>quick-start</title>
-<?
-$basePath = '../../';
-include_once('../../include/import.php'); 
-?>
-<link rel="stylesheet" href="../../style/document.css" type="text/css"></link>
-</head>
-<body>
-<? include_once('../../include/navbar.php'); ?>
-<section id="header" class="top-div">
-	<div class="container">	
-		<? include_once('_contents.php'); ?>
-	</div>
-</section>
-<div class="container">
-<div class="row">
-
-
 <h1>快速入门 - 在最短的时间内学会安装、配置和使用Rexdb</h1>
 
 <p>本文档可以帮助您在最短的时间内了解Rexdb的使用方法。</p>
@@ -530,8 +509,3 @@ ps<span class="pl-k">.</span>addOutInt();<span class="pl-c">//声明为输出参
 <li>动态字节码：Rexdb支持javassist的动态字节码功能，当运行环境中具有javassist的Jar包，并且启用了相关配置时，Rexdb将使用动态字节码方式读写Java对象，此时，调用<em>DB.get</em>接口和<em>DB.getList</em>接口时，将会获得更高效的性能。</li>
 </ul>
 
-</div>
-</div>
-<? include_once('../../include/footer.php'); ?>
-</body>
-</html>

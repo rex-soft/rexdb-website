@@ -1,23 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>download</title>
-<?
-$basePath = '../../';
-include_once('../../include/import.php'); 
-?>
-<link rel="stylesheet" href="../../style/document.css" type="text/css"></link>
-</head>
-<body>
-<? include_once('../../include/navbar.php'); ?>
-<section id="header" class="top-div">
-	<div class="container">	
-		<? include_once('_contents.php'); ?>
-	</div>
-</section>
-<div class="container">
-<div class="row">
-
 <h1>下载 - 下载压缩包和编译源代码</h1>
 
 <h2>下载地址</h2>
@@ -46,8 +26,3 @@ include_once('../../include/import.php');
 
 <h2>在Eclipse中编译源代码</h2>
 
-</div>
-</div>
-<? include_once('../../include/footer.php'); ?>
-</body>
-</html>
