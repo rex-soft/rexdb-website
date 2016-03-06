@@ -7,7 +7,7 @@
 					 <span class="icon-bar"></span>
 					 <span class="icon-bar"></span>
 					 <span class="icon-bar"></span>
-				 </button><a class="navbar-brand" href="http://db.rex-soft.org"><img src="<?=$basePath?>style/images/logo.png" width="160" height="40" alt="Rexdb"/></a>
+				 </button><a class="navbar-brand" href="http://db.rex-soft.org"><img src="<?=$basePath?>style/images/logo.png" width="175" height="40" alt="Rexdb"/></a>
 	  		 </div>
 			<div id="nav" class="collapse navbar-collapse" aria-expanded="true">
 				<ul class="nav navbar-nav navbar-right" style="margin-right: 5px;">

@@ -6,6 +6,8 @@
 include_once('include/import.php'); 
 ?>
 <link rel="stylesheet" href="style/document.css" type="text/css"></link>
+<link rel="stylesheet" href="style/docs.min.css" type="text/css"></link>
+<script type="text/javascript" src="<?=$basePath?>style/docs.min.js"></script>
 </head>
 <body>
 <? 
@@ -19,6 +21,7 @@ $documentId = $_GET["doc"] ? $_GET["doc"] : 'intro';
 $dirPath = 'document/' . $version;
 $contentFile = $dirPath . '/_contents.php';
 $pathFile = $dirPath . '/' . $documentId . '.php';
+$navFile = $dirPath . '/content/' . $documentId . '.php';
 
 echo '-------------------------'.$pathFile
 ?>
@@ -30,9 +33,27 @@ echo '-------------------------'.$pathFile
 <div class="container">
 <div class="row">
 
+<div class="col-md-9" role="main">
 <?
 	include_once($pathFile);
 ?>
+</div>
+
+      <div class="col-md-3" role="complementary">
+          <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm">
+            
+<?
+	include_once($navFile);
+?>
+            
+            <a class="back-to-top" href="#top">
+              返回顶部
+            </a>
+            
+          </nav>
+        </div>
+
+
 
 </div>
 </div>
