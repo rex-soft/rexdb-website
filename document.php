@@ -10,7 +10,7 @@ $navFile = $dirPath . '/content/' . $documentId . '.php';
 <!DOCTYPE html>
 <html>
 <head>
-<title>download</title>
+<title>文档 - Rexdb</title>
 <?
 include_once('include/import.php'); 
 ?>
@@ -42,7 +42,11 @@ $(document).ready(function(){
 		if(src.indexOf('http') != 0)
 			$(this).attr('src', basePath + '/' + src);
 	});
-	
+	//总目录
+	var href = window.location.href;
+	var uri = href.substr(href.indexOf('document.php'));
+	var a = $('#learning').find('a[href=\''+uri+'\']');
+	a.before('<blockquote>'+a.html()+'</blockquote>').remove();
 });
 </script>
 </head>

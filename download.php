@@ -5,6 +5,14 @@
 <?
 include_once('include/import.php'); 
 ?>
+<style>
+p{
+	font-size: 16px;
+}
+li {
+    list-style-type: disc;
+}
+</style>
 </head>
 <body>
 <? 
@@ -13,111 +21,73 @@ include_once('include/navbar.php');
 ?>
 
 <div class="container top-div">
-	<div class="row" style="margin-bottom: 30px">
+	<div class="row" style="margin-top: 20px; margin-bottom: 20px">
 		<div class="col-md-12">
-			<h2>下载最新版本</h2>
-			<p>感谢您选择Rexdb:</p>
-		</div>
-	</div>
-	<div class="row" style="margin-top: 30px">
-		<div class="col-md-6">
-			<h3>稳定版本</h3>
-			<p>通过了完整的测试，预计可以稳定运行于生产环境，但有可能包含少量的BUG。</p>
+			<h3>最新版本</h3>
+			<p>以下是Rexdb发布的第一个稳定版。已经通过了测试，预计可以稳定运行于生产环境。</p>
+			<p>编译好的包：</p>
 			<ul>
 				<li>
 					<p>
-						<strong>More users:</strong> By removing complexities associated
-						with deploying applications in the cloud and by providing more
-						applications for users to run. Bitnami also helps to drive new
-						users to our cloud partner’s platforms. We connect the millions
-						of Bitnami users who are increasingly deploying applications in
-						the cloud to our cloud platform partners to ensure a seamless
-						transition.
+						<a href="#"><b>rexdb-1.0.0.zip</b></a>
+						(<a href="#">pgp</a>, <a href="#">md5</a>, <a href="#">sha1</a>)
 					</p>
 				</li>
 				<li>
 					<p>
-						<strong>More consumption per user:</strong> By enabling a higher
-						success rate for new deployments and by attracting more business
-						users, who tend to run applications for longer periods of time on
-						bigger servers.
+						<a href="#"><b>rexdb-1.0.0.tar.gz</b></a>
+						(<a href="#">pgp</a>, <a href="#">md5</a>, <a href="#">sha1</a>)
+					</p>
+				</li>
+			</ul>
+			
+			<p>源代码：</p>
+			<ul>
+				<li>
+					<p>
+						<a href="#"><b>rexdb-source-1.0.0.zip</b></a>
+						(<a href="#">pgp</a>, <a href="#">md5</a>, <a href="#">sha1</a>)
 					</p>
 				</li>
 				<li>
 					<p>
-						<strong>More use cases:</strong> By making it much easier for
-						users to evaluate, develop and test applications in the cloud.
+						<a href="#"><b>rexdb-source-1.0.0.tar.gz</b></a>
+						(<a href="#">pgp</a>, <a href="#">md5</a>, <a href="#">sha1</a>)
+					</p>
+				</li>
+			</ul>
+			<p>运行环境要求：</p>
+			<ul>
+				<li>
+					<p>
+						JDK-1.5 及以上版本
+					</p>
+				</li>
+				<li>
+					<p>
+						支持JDBC
 					</p>
 				</li>
 			</ul>
 		</div>
-		<div class="col-md-6">
-			<h3>测试版本</h3>
-			<p>With Bitnami, users can begin running applications and stacks in
-				the cloud in minutes. Bitnami cloud images are:</p>
-			<ul>
-				<li>Free for users</li>
-				<li>Fast and easy to run</li>
-				<li>Always the latest production-ready version</li>
-				<li>Pre-configured and optimized for your cloud environment</li>
-				<li>Easily ported from local server or virtual environments to your
-					cloud platform</li>
-			</ul>
-			<p>Bitnami makes it significantly easier for users to get up and
-				running on your cloud platform. No longer do users need to research
-				version numbers and related dependencies, integrate and configure
-				components, and optimize settings. Bitnami images are fully tested
-				and proven to work in cloud environments, allowing users to begin
-				running their preferred open source applications and stacks in your
-				cloud platform in only a few clicks.</p>
+	</div>
+	
+	<div class="row" style="margin-top: 20px; margin-bottom: 20px">
+		<div class="col-md-12">
+			<h3>Github库</h3>
+			<p>Rexdb的代码托管在Github库中，您可以下载到几乎所有版本的源文件和二进制发行文件。</p>
+			<pre>clone https://github.com/rex-soft/rexdb.git</pre>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-md-6">
-			<h3>Enable a vibrant ecosystem</h3>
-			<p>Let's face it. Convincing software vendors to invest engineering
-				resources to create and support cloud images for multiple cloud
-				platforms can be a tricky sell. Fortunately, this is one of the
-				problems that Bitnami solves for our cloud partners.</p>
-			<p>
-				Not only does Bitnami provide cloud-ready images of more than 130
-				popular applications and developer stacks, we regularly add new
-				open source and commercial options to our library. Want to add new
-				ISVs to your cloud portfolio? Simply connect them with Bitnami and
-				let us take care of the rest. The <strong>Bitnami Software Partner</strong>
-				program was created to help ISVs expand the addressable market for
-				their applications by making it easier to run their applications in
-				the cloud and everywhere else.
-			</p>
-			<p>Bitnami also helps to attract developers to our partner's cloud
-				platforms by making it much easier to develop and test applications
-				in the cloud. In minutes, users can launch complete, standardized
-				development stacks and tool sets for a single developer or a
-				complete development team.</p>
-		</div>
-		<div class="col-md-6">
-			<h3>Supercharge your marketplace</h3>
-			<p>Bitnami is the leading provider of cloud-ready images to many of
-				the industry’s leading marketplaces, including Amazon Web Services,
-				Microsoft Azure, Google Cloud Platform and VMware.</p>
-			<p>
-				When we partner with cloud providers we ensure that every image is
-				ported tested and optimized for your cloud platform. It means
-				providing your users with instant access to a rapidly growing
-				library of ready-to-run images for more than 130 popular
-				applications such as <a href="/stack/alfresco">Alfresco</a>, <a
-					href="/stack/drupal">Drupal</a>, <a href="/stack/ghost">Ghost</a>,
-				<a href="/stack/joomla">Joomla</a>, <a href="/stack/liferay">Liferay</a>,
-				<a href="/stack/magento">Magento</a>, <a href="/stack/moodle">Moodle</a>,
-				<a href="/stack/redmine">Redmine</a>, <a href="/stack/sugarcrm">SugarCRM</a>,
-				<a href="/stack/jasperserver">JasperReports</a> and <a
-					href="/stack/wordpress">WordPress</a> and popular developer tools
-				and stacks such as <a href="/stack/solr">Apache Solr</a>, <a
-					href="/stack/jboss">JBoss AS</a>, <a href="/stack/django">Django</a>,
-				<a href="/stack/gitlab">Gitlab</a>, <a href="/stack/jenkins">Jenkins</a>,
-				<a href="/stack/lamp">LAMP</a>, <a href="/stack/node">Node.js</a>,
-				<a href="/stack/ruby">Ruby on Rails</a>, <a href="/stack/tomcat">Tomcat</a>,
-				<a href="/stack/wamp">WAMP</a> and <a href="/stack/xampp">XAMPP</a>.
+	
+	<div class="row" style="margin-top: 20px;">
+		<div class="col-md-12">
+			<h3>版本历史</h3>
+			<blockquote>Rexdb 1.0.0 （最新版本）</blockquote>
+			<p>经过漫长的程序编写、重构和测试，第1个版本终于发布了。
+			实际上至少在8年以前，框架就有了首个版本，从那时开始，框架便主要用于团队内部的项目研发，也不叫这个名字。
+			历经多年改版后和更名后，我终于意识到，只有开源软件才有可能具备长期的生命力，于是决定将它重构和开源。
+			不管过去和未来怎样，至少现在已经发布了。
 			</p>
 		</div>
 	</div>
