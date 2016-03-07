@@ -11,7 +11,7 @@
 	  		 </div>
 			<div id="nav" class="collapse navbar-collapse" aria-expanded="true">
 				<ul class="nav navbar-nav navbar-right" style="margin-right: 5px;">
-					<li menuid='download'><a href="#"><strong>下载</strong></a></li>
+					<li menuid='download'><a href="download.php"><strong>下载</strong></a></li>
 					<li menuid='document'><a href="document.php"><strong>文档</strong></a></li>
 					<li menuid='performance'><a href="#"><strong>性能</strong></a></li>
 					<li menuid='feedback'><a href="#"><strong>反馈</strong></a></li>
