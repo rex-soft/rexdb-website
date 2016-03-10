@@ -13,9 +13,8 @@
 				<ul class="nav navbar-nav navbar-right" style="margin-right: 5px;">
 					<li menuid='download'><a href="download.php"><strong>下载</strong></a></li>
 					<li menuid='document'><a href="document.php"><strong>文档</strong></a></li>
-					<li menuid='performance'><a href="#"><strong>性能</strong></a></li>
-					<li menuid='feedback'><a href="#"><strong>反馈</strong></a></li>
-					<li menuid='thank'><a href="#"><strong>致谢</strong></a></li>
+					<li menuid='performance'><a href="performance.php"><strong>性能</strong></a></li>
+					<li menuid='feedback'><a href="feedback.php"><strong>反馈</strong></a></li>
 				</ul>
 			</div>
 			<script type="text/javascript">
@@ -26,3 +25,12 @@
 		</div>
 	</div>
 </header>
+<script>
+$(document).scroll(function(){
+	if($(document).scrollTop() == 0){
+		$('#lead').removeClass('navbar-shadow');
+	}else
+		$('#lead').addClass('navbar-shadow');
+		
+})
+</script>

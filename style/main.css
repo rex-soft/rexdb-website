@@ -81,6 +81,12 @@ h3 {
 	margin-bottom: 22px;
 }
 
+.navbar-shadow{
+	-webkit-box-shadow: 0 0 20px rgba(37,45,51, .5);
+    box-shadow: 0 0 20px rgba(37,45,51, .5);
+    -webkit-transition: top .1s, background .1s, padding .1s;
+}
+
 .container .row {
 	margin-top: 60px;
 	margin-bottom: 60px;
