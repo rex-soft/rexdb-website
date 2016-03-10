@@ -5,6 +5,10 @@
 <?
 include_once('include/import.php'); 
 ?>
+<script type="text/javascript" src="<?=$basePath?>style/highcharts-4.2.3/highcharts.js"></script>
+<script type="text/javascript" src="<?=$basePath?>style/highcharts-4.2.3/highcharts-3d.js"></script>
+<script type="text/javascript" src="<?=$basePath?>style/highcharts-4.2.3/modules/exporting.js"></script>
+<script type="text/javascript" src="<?=$basePath?>style/performance.js"></script>
 <style>
 p {
 	font-size: 16px;
@@ -30,9 +34,17 @@ include_once('include/navbar.php');
 		<div class="row" style="margin-top: 20px; margin-bottom: 20px">
 			<div class="col-md-12">
 				<h3>性能测试</h3>
-				<p>我们执行了一系列性能检测，确保了框架的性能。</p>
+				<p>我们执行了一系列性能检测，并且与同类框架进行了多方面的比较。</p>
+			</div>
+			
+			<div class="col-md-6">
+				<div id="overview-performace" style="height: 350px"></div>
+			</div>
+			<div class="col-md-6">
+				<div id="overview-code" style="height: 350px"></div>
 			</div>
 		</div>
+		
 		
 		<div class="row">
 			<div class="col-md-6">
