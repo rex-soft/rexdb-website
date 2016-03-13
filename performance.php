@@ -34,7 +34,7 @@ include_once('include/navbar.php');
 		<div class="row" style="margin-top: 20px; margin-bottom: 20px">
 			<div class="col-md-12">
 				<h3>性能测试</h3>
-				<p>我们执行了一系列性能检测，并且与同类框架进行了多方面的比较。</p>
+				<p>我们执行了一系列检测，并且与同类框架进行了性能和其它方面的比较。</p>
 			</div>
 		</div>
 		
@@ -53,73 +53,52 @@ include_once('include/navbar.php');
 		<div class="row">
 			<div class="col-md-12">
 				<h3>查询性能</h3>
-				<p>查询性能取决于多方面因素，包括需要读取的字段数量、映射对象类型、是否启用了优化选项等，我们按照映射对象类型分别进行了测试。</p>
+				<p>查询性能取决于多方面因素，包括软硬件环境、需要读取的字段数量、映射对象类型、是否启用了优化选项等，我们按照查询结果分别进行了测试。</p>
 			</div>
 			<div class="col-md-6">
-				<h4>查询为对象</h4>
+				<h4>对象</h4>
 				<p>
-					查询为指定对象时，配置中的“动态字节码”选项对性能影响最为明显，启用后可以大幅提升查询性能。
+					查询对象列表时，Rexdb全局配置中的“动态字节码”选项对性能影响最为明显，禁用后会降低查询性能。
 				</p>
 				
 				<div id="getlist-dynamic" style="height: 300px"></div>
+				
+				<div id="getlist-reflect" style="height: 300px; margin-top: 30px"></div>
 			</div>
 			<div class="col-md-6">
-				<h4>查询为Map</h4>
+				<h4>Map</h4>
 				<p>
-					当您认为Rexdb需要改进时，包括功能、性能、接口设计等方面，可以向我们提出改进建议。
-					例如，您可以提出类似以下建议：
+					查询Map列表会有一定的性能损耗。另外，在完成查询后并取值时，可能需要转换值的类型，因此还需要考虑转换过程中的性能损耗。
 				</p>
-				<ul>
-					<li><p>建议为批量更新接口增加分批提交功能，并在全局选项中增加一个“每n条数据提交一次”的选项；</p></li>
-					<li><p>建议增加监听框架初始化和销毁的监听接口；</p></li>
-				</ul>
-				<p>在制定下一版本的升级计划时，我们通常会对收到的建议进行评估。</p>
+				
+				<div id="getmaplist" style="height: 300px"></div>
 			</div>
 		</div>
 
-		<div class="row" style="margin-top: 20px; margin-bottom: 20px">
+		<div class="row">
 			<div class="col-md-12">
-				<h3>反馈表单</h3>
-				<p>请填写下面的反馈表，并点击“提交表单”按钮发送给我们。如果您留下了称谓和邮箱，我们可能还会向您发送邮件。</p>
+				<h3>更新性能</h3>
+				<p>数据库的插入、修改和删除等均属于更新操作，以下以插入记录为例，更新性能测试结果如下。</p>
 			</div>
-			<div class="col-md-10 col-md-push-1">
-				<form accept-charset="UTF-8" action="/partners/contact" method="post">
-					<div class="row">
-						<div class="col-md-7">
-							<div class="form-group">
-								<textarea class="form-control" cols="40" name="message"
-									placeholder="请尽量详细描述您发现的BUG，或者您希望Rexdb作出的改进"
-									rows="8"></textarea>
-							</div>
-						</div>
-						<div class="col-md-5">
-							<div class="form-group">
-								<input class="form-control" id="msg_name" name="name" placeholder="您的称谓" size="30" type="text" />
-							</div>
-							<div class="form-group">
-								<input class="form-control" id="msg_email" name="email" placeholder="您的邮箱" size="30" type="text" />
-							</div>
-							<div class="form-group">
-								<input class="form-control pull-left" id="msg_val" name="validate" placeholder="验证码" size="4" type="text" style="width: auto;"/>
-								<button class="btn btn-cta btn-default pull-right" name="button" type="submit">提交表单</button>
-							</div>
-						</div>
-					</div>
-				</form>
-
+			<div class="col-md-6">
+				<div id="insert" style="height: 300px"></div>
 			</div>
-
 		</div>
-
-		<div class="row" style="margin-top: 20px;">
+		
+		<div class="row">
 			<div class="col-md-12">
-				<h3>处理流程</h3>
-				<p>我们会认真阅读每一份反馈表单，但碍于资源有限，我们可能不会向您发送处理进度和结果信息。</p>
-			</div>
-			<div class="col-md-12 text-center" style="margin-top: 30px">
-				<img alt="反馈流程" src="style/images/feedback-workflow.png">
+				<h3>批量更新性能</h3>
+				<p>与逐条写入记录相比，分批提交数据可以获得更好的性能。</p>
 			</div>
 		</div>
+		
+		<div class="row">
+			<div class="col-md-12">
+				<h3>调用性能</h3>
+				<p>——</p>
+			</div>
+		</div>
+
 	</div>
 
 <? include_once('include/footer.php'); ?>
