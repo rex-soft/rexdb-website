@@ -34,7 +34,12 @@ include_once('include/navbar.php');
 		<div class="row" style="margin-top: 20px; margin-bottom: 20px">
 			<div class="col-md-12">
 				<h3>性能测试</h3>
-				<p>我们执行了一系列检测，并且与同类框架进行了性能和其它方面的比较。</p>
+				<p>我们执行了一系列检测，并且与同类框架进行了性能和其它方面的比较。完整的测试程序可以<a href="#">点击这里</a>下载。</p>
+				<ul>
+					<li><p><b>硬件环境：</b>Xeon E3-1231 / DDR3 16GB / Plextor M6S SSD </p></li>
+					<li><p><b>软件环境：</b>Windows 10 pro x64 / JDK 1.7.0 / Mysql 5.7</p></li>
+					<li><p><b>框架版本：</b>Rexdb-1.0.0-beta / Hibernate 5.1.0 Final / Mybatis 3.3.1</p></li>
+				</ul>
 			</div>
 		</div>
 		
@@ -88,7 +93,21 @@ include_once('include/navbar.php');
 		<div class="row">
 			<div class="col-md-12">
 				<h3>批量更新性能</h3>
-				<p>与逐条写入记录相比，分批提交数据可以获得更好的性能。</p>
+				<p>
+				与逐条更新记录相比，调用批量接口可以获得更高的性能。
+				各框架的批量更新方式不同，所以测试结果也有着较大的差距，实现方式分别为：
+				</p>
+				<ul>
+					<li><p><b>Hibernate</b>：在同一事物中提交多个插入操作；</p></li>
+					<li><p><b>Mybatis</b>：生成并执行一个较长的插入SQL，一次提交所有的预编译参数；</p></li>
+					<li><p><b>Rexdb</b>：调用JDBC的批量更新接口；</p></li>
+				</ul>
+				<p>需要注意的是，在某些数据库驱动中，可能需要开启相关选项才能真正实现真正的批量更新。
+				例如，Mysql的JDBC驱动默认关闭了批量接口，需要在驱动连接字符中设置“rewriteBatchedStatements=true”才能实现高性能的批量操作。
+				</p>
+			</div>
+			<div class="col-md-6">
+				<div id="batch" style="height: 300px"></div>
 			</div>
 		</div>
 		
@@ -99,6 +118,33 @@ include_once('include/navbar.php');
 			</div>
 		</div>
 
+		<div class="row">
+			<div class="col-md-12">
+				<h3>低配置服务器运行性能</h3>
+				<p>我们还在低配置服务器中执行了性能测试，以下以树莓派（raspberry pi）卡式电脑为例，主要测试结果如下：</p>
+				<ul>
+					<li><p><b>硬件环境：</b>Raspberry Pi 2代B型 / Class10 TF 16GB</p></li>
+					<li><p><b>软件环境：</b>CentOS 7 armv7hl 1511 / JDK 1.7.0 / MariaDB 5.5</p></li>
+					<li><p><b>框架版本：</b>Rexdb-1.0.0-beta / Hibernate 5.1.0 Final / Mybatis 3.3.1</p></li>
+				</ul>
+			</div>
+			<div class="col-md-6">
+				<div id="pi-insert" style="height: 300px"></div>
+			</div>
+			<div class="col-md-6">
+				<div id="pi-getlist" style="height: 300px"></div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-12">
+				<h3>声明</h3>
+				<p>以上所有测试结论只代表某一次的测试结果，且测试结果与可能是不准确的，甚至与实际生产环境中有较大的偏差。
+				且由于我们对Hibernate/Mybatis框架的使用水平有限，并未进行有针对性的优化，所以测试结果可能也是不准确的。
+				</p>
+				<p>以上测试结果仅供参考。</p>
+			</div>
+		</div>
 	</div>
 
 <? include_once('include/footer.php'); ?>

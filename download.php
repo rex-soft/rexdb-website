@@ -59,16 +59,26 @@ include_once('include/navbar.php');
 					</p>
 				</li>
 			</ul>
-			<p>运行环境要求：</p>
+			<p>性能测试程序：</p>
 			<ul>
 				<li>
 					<p>
-						JDK-1.5 及以上版本
+						<a href="#"><b>rexdb-performance-1.0.0.zip</b></a>
+						(<a href="#">pgp</a>, <a href="#">md5</a>, <a href="#">sha1</a>)
 					</p>
 				</li>
 				<li>
 					<p>
-						支持JDBC
+						<a href="#"><b>rexdb-performance-1.0.0.tar.gz</b></a>
+						(<a href="#">pgp</a>, <a href="#">md5</a>, <a href="#">sha1</a>)
+					</p>
+				</li>
+			</ul>
+			<p>运行环境要求：</p>
+			<ul>
+				<li>
+					<p>
+						JDK 1.5 及以上版本
 					</p>
 				</li>
 			</ul>
