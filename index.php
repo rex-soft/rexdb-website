@@ -8,15 +8,17 @@ include_once('include/import.php');
 ?>
 </head>
 <body>
-<? include_once('include/navbar.php'); ?>
+<? 
+include_once('include/navbar.php'); 
+?>
 <section id="header" class="top-div">
 <div class="container" >
 	<div class="page-header lead">
 		<h1 align="center" style="font-size: 50px;margin-bottom: 30px">Rexdb是一个开源持久层框架</h1>
 		<p>
-		Rexdb是一款使用Java语言编写的，开放源代码的持久层框架。它可以处理查询、更新、批处理、函数和存储过程调用等数据库操作。
-		它可以执行复杂的SQL语句，支持多种类型的对象作为预编译参数，并自动将执行结果转换为Map和自定义的对象。
-		Rexdb具有接口设计灵活、使用简单、性能良好等特点，非常适合数据结构复杂、需要快速迭代或是对性能要求严苛的开发场景。
+		Rexdb是一款使用Java语言编写的，开放源代码的持久层框架。
+		它可以处理查询、更新、批处理、调用、事物和JTA事物等数据库操作，支持多种类型的对象作为预编译参数，并自动完成结果集到对象的映射。
+		Rexdb具有功能完善、使用简单、性能良好等特点，非常适合数据结构复杂、需要快速迭代，或是对性能要求严苛的应用场景。
 		</p>
 		<div style="margin-top: 50px; text-align:center"><a href="/account/sign_up" class="btn-lg btn-primary btn-outline">下载最新版本 (v1.0.0-m1)</a></div>
 	</div>
@@ -27,7 +29,7 @@ include_once('include/import.php');
 		<div class="col-md-6">
 			<h2>特点</h2>
 			<p>
-			不需要编写繁琐的代码和映射文件，直接将SQL语句和Java对象传递至框架接口，即可获得需要的结果。 
+			不需要编写繁琐的代码和映射文件，直接将SQL语句和对象传递至框架接口，即可获取需要的结果。 
 			</p>			
 		</div>
 		<div class="col-md-6 thumbnail" style="height:220px">
@@ -38,15 +40,14 @@ include_once('include/import.php');
 		<div class="col-md-6">
 			<h3>功能</h3>
 			<p>
-				支持查询、更新、批处理、调用、事物和JTA事物等数据库操作，并自动进行结果集的O/R映射；
-				还支持多数据源管理、数据库方言、监听、异常信息国际化等功能。
+				支持查询、更新、批处理、调用、事物和JTA事物等数据库操作，可以自动完成OR映射；
+				还具有数据源管理、方言、监听等功能。
 			</p>
 		</div>
 		<div class="col-md-6">
 			<h3>接口</h3>
 			<p>
-				为方便调用，Rexdb的数据库操作接口都是静态，并且集中在一个类中。
-				开发人员不需要耗费时间记忆繁琐的配置和使用方法，也不需要额外关注线程安全等问题。
+				Rexdb的接口设计简洁，并且不需要映射配置文件。开发人员不需要记忆繁琐的配置和使用方法，也不需要关注线程安全等问题。
 			</p>		
 		</div>
 	</div>	
