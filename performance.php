@@ -9,6 +9,92 @@ include_once('include/import.php');
 <script type="text/javascript" src="<?=$basePath?>style/highcharts-4.2.3/highcharts-3d.js"></script>
 <script type="text/javascript" src="<?=$basePath?>style/highcharts-4.2.3/modules/exporting.js"></script>
 <script type="text/javascript" src="<?=$basePath?>style/performance.js"></script>
+<script>
+$(document).ready(function(){
+	$("a[data-toggle='popover']").popover({
+		html: true,
+		content: function(){
+			return $($(this).attr('ref')).html();
+		}
+	});
+});
+
+var testResult = {
+	    "insert-100": {
+	        "hibernate": 3,
+	        "mybatis": 2,
+	        "jdbc": 2,
+	        "rexdb": 2
+	    },
+	    "insert-200": {
+	        "hibernate": 6,
+	        "mybatis": 4,
+	        "jdbc": 4,
+	        "rexdb": 4
+	    },
+	    "insert-500": {
+	        "hibernate": 18,
+	        "mybatis": 12,
+	        "jdbc": 11,
+	        "rexdb": 11
+	    },
+	    "batchInsert-10k": {
+	        "hibernate": 43,
+	        "mybatis": 10,
+	        "jdbc": 4,
+	        "rexdb": 4
+	    },
+	    "batchInsert-50k": {
+	        "hibernate": 196,
+	        "mybatis": 37,
+	        "jdbc": 11,
+	        "rexdb": 12
+	    },
+	    "batchInsert-100k": {
+	        "hibernate": 388,
+	        "mybatis": 75,
+	        "jdbc": 23,
+	        "rexdb": 25
+	    },
+	    "getList-10k": {
+	        "hibernate": 30,
+	        "mybatis": 16,
+	        "jdbc": 19,
+	        "rexdb": 12
+	    },
+	    "getMapList-10k": {
+	        "hibernate": 3,
+	        "mybatis": 2,
+	        "jdbc": 2,
+	        "rexdb": 2
+	    },
+	    "getList-50k": {
+	        "hibernate": 6,
+	        "mybatis": 5,
+	        "jdbc": 3,
+	        "rexdb": 3
+	    },
+	    "getMapList-50k": {
+	        "hibernate": 3,
+	        "mybatis": 2,
+	        "jdbc": 2,
+	        "rexdb": 2
+	    },
+	    "getList-100k": {
+	        "hibernate": 11,
+	        "mybatis": 10,
+	        "jdbc": 5,
+	        "rexdb": 7
+	    },
+	    "getMapList-100k": {
+	        "hibernate": 3,
+	        "mybatis": 2,
+	        "jdbc": 2,
+	        "rexdb": 2
+	    }
+	}
+	
+</script>
 <style>
 p {
 	font-size: 16px;
@@ -20,6 +106,9 @@ blockquote {
 
 li {
 	list-style-type: disc;
+}
+.popover{
+	max-width: 500px
 }
 </style>
 </head>
@@ -34,12 +123,15 @@ include_once('include/navbar.php');
 		<div class="row" style="margin-top: 20px; margin-bottom: 20px">
 			<div class="col-md-12">
 				<h3>性能测试</h3>
-				<p>我们执行了一系列检测，并且与同类框架进行了性能和其它方面的比较。完整的测试程序可以<a href="#">点击这里</a>下载。</p>
-				<ul>
-					<li><p><b>硬件环境：</b>Xeon E3-1231 / DDR3 16GB / Plextor M6S SSD </p></li>
-					<li><p><b>软件环境：</b>Windows 10 pro x64 / JDK 1.7.0 / Mysql 5.7</p></li>
-					<li><p><b>框架版本：</b>Rexdb-1.0.0-beta / Hibernate 5.1.0 Final / Mybatis 3.3.1</p></li>
-				</ul>
+				<p>我们执行了一系列检测，并且与同类框架进行了性能和其它方面的比较。各项测试均运行于<a href="#" 
+					data-toggle="popover" data-placement="auto bottom" data-trigger="hover" title="台式机电脑系统" ref="#env-pc">台式机电脑系统</a>中，完整的测试程序可以<a href="#">点击这里</a>下载。</p>
+				<div id="env-pc" style="display: none">
+					<ul style="margin-left: -30px">
+						<li><b>硬件环境：</b>Xeon E3-1231 / DDR3 16GB / SSD </li>
+						<li><b>软件环境：</b>Windows 10 pro x64 / JDK 1.7.0 / Mysql 5.7.10</li>
+						<li><b>框架版本：</b>Rexdb-1.0.0-beta / Hibernate 5.1.0 Final / Mybatis 3.3.1</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 		
@@ -113,20 +205,16 @@ include_once('include/navbar.php');
 		
 		<div class="row">
 			<div class="col-md-12">
-				<h3>调用性能</h3>
-				<p>——</p>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-md-12">
-				<h3>低配置服务器运行性能</h3>
-				<p>我们还在低配置服务器中执行了性能测试，以下以树莓派（raspberry pi）卡式电脑为例，主要测试结果如下：</p>
-				<ul>
-					<li><p><b>硬件环境：</b>Raspberry Pi 2代B型 / Class10 TF 16GB</p></li>
-					<li><p><b>软件环境：</b>CentOS 7 armv7hl 1511 / JDK 1.7.0 / MariaDB 5.5</p></li>
-					<li><p><b>框架版本：</b>Rexdb-1.0.0-beta / Hibernate 5.1.0 Final / Mybatis 3.3.1</p></li>
-				</ul>
+				<h3>低配置服务器测试</h3>
+				<p>我们还在低配置服务器中执行了性能测试，以下以<a href="#" 
+					data-toggle="popover" data-placement="auto bottom" data-trigger="hover" title="树莓派（raspberry pi）卡式电脑系统" ref="#env-pi">树莓派（raspberry pi）卡式电脑系统</a>为例，主要测试结果如下：</p>
+				<div id="env-pi" style="display: none">
+					<ul style="margin-left: -30px">
+						<li><b>硬件环境：</b>Raspberry Pi 2代B型 / Class10 TF Card</li>
+						<li><b>软件环境：</b>CentOS 7 armv7hl 1511 / JDK 1.7.0 / MariaDB 5.5</li>
+						<li><b>框架版本：</b>Rexdb-1.0.0-beta / Hibernate 5.1.0 Final / Mybatis 3.3.1</li>
+					</ul>
+				</div>
 			</div>
 			<div class="col-md-6">
 				<div id="pi-insert" style="height: 300px"></div>
@@ -138,11 +226,12 @@ include_once('include/navbar.php');
 		
 		<div class="row">
 			<div class="col-md-12">
-				<h3>声明</h3>
-				<p>以上所有测试结论只代表某一次的测试结果，且测试结果与可能是不准确的，甚至与实际生产环境中有较大的偏差。
-				且由于我们对Hibernate/Mybatis框架的使用水平有限，并未进行有针对性的优化，所以测试结果可能也是不准确的。
+				<h3>说明</h3>
+				<p>性能测试结论与软硬件环境、框架版本、配置选项等相关，并不是每一次测试都能得出相同的结论。
+				以上各项数字为某一次的测试结果，有可能是不准确的，甚至与生产环境中的结论有较大的偏差。
+				您可以下载性能测试程序，在您的生产环境中运行。
 				</p>
-				<p>以上测试结果仅供参考。</p>
+				<p>由于我们的Hibernate/Mybatis使用水平有限，并未进行有针对性的优化，所以以上测试数值仅供参考。</p>
 			</div>
 		</div>
 	</div>

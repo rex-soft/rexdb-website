@@ -25,12 +25,3 @@
 		</div>
 	</div>
 </header>
-<script>
-$(document).scroll(function(){
-	if($(document).scrollTop() == 0){
-		$('#lead').removeClass('navbar-shadow');
-	}else
-		$('#lead').addClass('navbar-shadow');
-		
-})
-</script>
