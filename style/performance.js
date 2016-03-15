@@ -21,10 +21,10 @@ $(function() {
 			}
 		},
 		xAxis: {
-			categories: ['Query 100k rows', 'Batch Insert 10k rows', 'Insert 100 rows']
+			categories: ['Query 100k rows', 'Query 100k rows for Map']
 		},
 		yAxis: {
-			max: 1500,
+//			max: 1500,
 //			type: 'logarithmic',
 			title: {
 				text: 'millisecond (ms)'
@@ -58,16 +58,16 @@ $(function() {
         },
 		series : [ {
 			name : 'Hibernate',
-			data : [ 1494, 1550, 281]//3954
+			data : [ testResult["getList-100k"].hibernate, testResult["getMapList-100k"].hibernate]
 		}, {
 			name : 'Mybatis',
-			data : [ 1008, 745, 221]
+			data : [ testResult["getList-100k"].mybatis, testResult["getMapList-100k"].mybatis]
 		}, {
 			name : 'JDBC',
-			data : [ 555, 193, 217]
+			data : [ testResult["getList-100k"].jdbc, testResult["getMapList-100k"].jdbc]
 		}, {
 			name : 'Rexdb',
-			data : [ 513, 212, 217]
+			data : [ testResult["getList-100k"].rexdb, testResult["getMapList-100k"].rexdb]
 		} ]
 	});
 	
@@ -93,7 +93,7 @@ $(function() {
 			}
 		},
 		xAxis: {
-			categories: ['Query', 'Insert']
+			categories: ['Insert 500 rows', 'Batch insert 50k rows']
 		},
 		yAxis: {
 			title: {
@@ -124,16 +124,16 @@ $(function() {
         },
 		series : [ {
 			name : 'Hibernate',
-			data : [ 19, 21]
-		}, {
-			name : 'JDBC',
-			data : [ 27, 19]
+			data : [ testResult["insert-500"].hibernate, testResult["batchInsert-50k"].hibernate]
 		}, {
 			name : 'Mybatis',
-			data : [ 9, 9]
+			data : [ testResult["insert-500"].mybatis, testResult["batchInsert-50k"].mybatis]
+		}, {
+			name : 'JDBC',
+			data : [ testResult["insert-500"].jdbc, testResult["batchInsert-50k"].jdbc]
 		}, {
 			name : 'Rexdb',
-			data : [ 2, 2]
+			data : [ testResult["insert-500"].rexdb, testResult["batchInsert-50k"].rexdb]
 		} ]
 	});
 	

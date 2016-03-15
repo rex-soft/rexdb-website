@@ -20,79 +20,97 @@ $(document).ready(function(){
 });
 
 var testResult = {
-	    "insert-100": {
-	        "hibernate": 3,
-	        "mybatis": 2,
-	        "jdbc": 2,
-	        "rexdb": 2
-	    },
-	    "insert-200": {
-	        "hibernate": 6,
-	        "mybatis": 4,
-	        "jdbc": 4,
-	        "rexdb": 4
-	    },
-	    "insert-500": {
-	        "hibernate": 18,
-	        "mybatis": 12,
-	        "jdbc": 11,
-	        "rexdb": 11
-	    },
-	    "batchInsert-10k": {
-	        "hibernate": 43,
-	        "mybatis": 10,
-	        "jdbc": 4,
-	        "rexdb": 4
-	    },
-	    "batchInsert-50k": {
-	        "hibernate": 196,
-	        "mybatis": 37,
-	        "jdbc": 11,
-	        "rexdb": 12
-	    },
-	    "batchInsert-100k": {
-	        "hibernate": 388,
-	        "mybatis": 75,
-	        "jdbc": 23,
-	        "rexdb": 25
-	    },
-	    "getList-10k": {
-	        "hibernate": 30,
-	        "mybatis": 16,
-	        "jdbc": 19,
-	        "rexdb": 12
-	    },
-	    "getMapList-10k": {
-	        "hibernate": 3,
-	        "mybatis": 2,
-	        "jdbc": 2,
-	        "rexdb": 2
-	    },
-	    "getList-50k": {
-	        "hibernate": 6,
-	        "mybatis": 5,
-	        "jdbc": 3,
-	        "rexdb": 3
-	    },
-	    "getMapList-50k": {
-	        "hibernate": 3,
-	        "mybatis": 2,
-	        "jdbc": 2,
-	        "rexdb": 2
-	    },
-	    "getList-100k": {
-	        "hibernate": 11,
-	        "mybatis": 10,
-	        "jdbc": 5,
-	        "rexdb": 7
-	    },
-	    "getMapList-100k": {
-	        "hibernate": 3,
-	        "mybatis": 2,
-	        "jdbc": 2,
-	        "rexdb": 2
-	    }
-	}
+    "insert-100": {
+        "hibernate": 454,
+        "mybatis": 264,
+        "jdbc": 267,
+        "rexdb": 251
+    },
+    "insert-200": {
+        "hibernate": 738,
+        "mybatis": 533,
+        "jdbc": 492,
+        "rexdb": 495
+    },
+    "insert-500": {
+        "hibernate": 1743,
+        "mybatis": 1217,
+        "jdbc": 1161,
+        "rexdb": 1210
+    },
+    "batchInsert-10k": {
+        "hibernate": 481,
+        "mybatis": 379,
+        "jdbc": 229,
+        "rexdb": 249
+    },
+    "batchInsert-50k": {
+        "hibernate": 1761,
+        "mybatis": 1576,
+        "jdbc": 1224,
+        "rexdb": 1428
+    },
+    "batchInsert-100k": {
+        "hibernate": 4246,
+        "mybatis": 2861,
+        "jdbc": 2374,
+        "rexdb": 2573
+    },
+    "getList-10k": {
+        "hibernate": 472,
+        "mybatis": 240,
+        "jdbc": 747,
+        "rexdb": 832
+    },
+    "getMapList-10k": {
+        "hibernate": 197,
+        "mybatis": 200,
+        "jdbc": 684,
+        "rexdb": 128
+    },
+    "getList-disableDynamic-10k": {
+        "hibernate": 209,
+        "mybatis": 175,
+        "jdbc": 123,
+        "rexdb": 100
+    },
+    "getList-50k": {
+        "hibernate": 704,
+        "mybatis": 596,
+        "jdbc": 459,
+        "rexdb": 310
+    },
+    "getMapList-50k": {
+        "hibernate": 426,
+        "mybatis": 595,
+        "jdbc": 397,
+        "rexdb": 307
+    },
+    "getList-disableDynamic-50k": {
+        "hibernate": 748,
+        "mybatis": 609,
+        "jdbc": 325,
+        "rexdb": 436
+    },
+    "getList-100k": {
+        "hibernate": 1758,
+        "mybatis": 1216,
+        "jdbc": 782,
+        "rexdb": 607
+    },
+    "getMapList-100k": {
+        "hibernate": 904,
+        "mybatis": 1114,
+        "jdbc": 911,
+        "rexdb": 711
+    },
+    "getList-disableDynamic-100k": {
+        "hibernate": 1472,
+        "mybatis": 1312,
+        "jdbc": 591,
+        "rexdb": 595
+    }
+};
 	
 </script>
 <style>
@@ -122,7 +140,7 @@ include_once('include/navbar.php');
 
 		<div class="row" style="margin-top: 20px; margin-bottom: 20px">
 			<div class="col-md-12">
-				<h3>性能测试</h3>
+				<h2>性能测试</h2>
 				<p>我们执行了一系列检测，并且与同类框架进行了性能和其它方面的比较。各项测试均运行于<a href="#" 
 					data-toggle="popover" data-placement="auto bottom" data-trigger="hover" title="台式机电脑系统" ref="#env-pc">台式机电脑系统</a>中，完整的测试程序可以<a href="#">点击这里</a>下载。</p>
 				<div id="env-pc" style="display: none">
