@@ -8,7 +8,7 @@ $(function() {
 			enabled : false
 		},
 		chart : {
-			renderTo : 'overview-performace',
+			renderTo : 'overview-query',
 			type : 'column',
 			marginTop : 55,
 			marginLeft: 70,
@@ -31,7 +31,7 @@ $(function() {
 			}
 		},
 		title : {
-			text : '执行耗时',
+			text : '查询性能',
 			style: {
 				fontFamily: "Tahoma,'Microsoft Yahei','Simsun'"
 			}
@@ -80,7 +80,7 @@ $(function() {
 			enabled : false
 		},
 		chart : {
-			renderTo : 'overview-code',
+			renderTo : 'overview-update',
 			type : 'column',
 			marginTop : 55,
 			marginLeft: 50,
@@ -101,7 +101,7 @@ $(function() {
 			}
 		},
 		title : {
-			text : '代码量（包括配置）',
+			text : '更新性能',
 			style: {
 				fontFamily: "Tahoma,'Microsoft Yahei','Simsun'"
 			}

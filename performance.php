@@ -137,10 +137,10 @@ include_once('include/navbar.php');
 		
 		<div class="row" style="margin-top: 20px; margin-bottom: 20px">
 			<div class="col-md-6">
-				<div id="overview-performace" style="height: 350px"></div>
+				<div id="overview-query" style="height: 350px"></div>
 			</div>
 			<div class="col-md-6">
-				<div id="overview-code" style="height: 350px"></div>
+				<div id="overview-update" style="height: 350px"></div>
 			</div>
 			<div class="col-md-12 text-right">
 			* 根据软硬件环境的不同，您的测试结果可能与图示有所不同
@@ -155,7 +155,7 @@ include_once('include/navbar.php');
 			<div class="col-md-6">
 				<h4>对象</h4>
 				<p>
-					查询对象列表时，Rexdb全局配置中的“动态字节码”选项对性能影响最为明显，禁用后会降低查询性能。
+					查询对象列表时，Rexdb全局配置中的“动态字节码”选项对性能影响显著，禁用后会降低查询性能。
 				</p>
 				
 				<div id="getlist-dynamic" style="height: 300px"></div>
@@ -231,7 +231,7 @@ include_once('include/navbar.php');
 				以上各项数字为某一次的测试结果，有可能是不准确的，甚至与生产环境中的结论有较大的偏差。
 				您可以下载性能测试程序，在您的生产环境中运行。
 				</p>
-				<p>由于我们的Hibernate/Mybatis使用水平有限，并未进行有针对性的优化，所以以上测试数值仅供参考。</p>
+				<p>我们的Hibernate/Mybatis使用水平有限，并未进行有针对性的优化，以上测试数值仅供参考。</p>
 			</div>
 		</div>
 	</div>
