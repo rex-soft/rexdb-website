@@ -76,11 +76,8 @@ include_once('include/navbar.php');
 			</ul>
 			<p>运行环境要求：</p>
 			<ul>
-				<li>
-					<p>
-						JDK 1.5 及以上版本
-					</p>
-				</li>
+				<li><p>JDK 1.5 及以上版本</p></li>
+				<li><p>支持JDBC的运行环境</p></li>
 			</ul>
 		</div>
 	</div>

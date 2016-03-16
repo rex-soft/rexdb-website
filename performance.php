@@ -125,8 +125,25 @@ blockquote {
 li {
 	list-style-type: disc;
 }
+h4 {
+    font-size: 18px;
+    color: #333;
+}
+input[type="radio"], input[type="checkbox"] {
+    margin: 6px 0 0;
+}
 .popover{
 	max-width: 500px
+}
+.bs-callout {
+    padding: 10px 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+.bs-callout-info {
+    border-left-color: #1b809e;
 }
 </style>
 </head>
@@ -141,17 +158,50 @@ include_once('include/navbar.php');
 		<div class="row" style="margin-top: 20px; margin-bottom: 20px">
 			<div class="col-md-12">
 				<h2>性能测试</h2>
-				<p>我们执行了一系列检测，并且与同类框架进行了性能和其它方面的比较。各项测试均运行于<a href="#" 
-					data-toggle="popover" data-placement="auto bottom" data-trigger="hover" title="台式机电脑系统" ref="#env-pc">台式机电脑系统</a>中，完整的测试程序可以<a href="#">点击这里</a>下载。</p>
+				<p>
+				我们进行了一系列检测，并且与JDBC和同类框架进行了比较。
+				由于Rexdb封装了JDBC，并且扩展了额外的功能，因此理论上性能不会好于直接调用JDBC的接口。但可以通过代码优化，尽可能的降低不必要的性能损耗。
+				</p>
+				<p>
+				性能测试结果与软硬件环境、框架版本、配置选项等相关，并不是每一次测试都能得出相同的结论，但可以作为性能对比的参考。
+				以下均为某一次的测试结果，具体数值可能是不准确的，与您自行测试的结果也可能有较大的偏差。
+				您可以自行运行测试程序，以获得准确的数值。
+				我们的测试环境为<a href="#" data-toggle="popover" data-placement="auto bottom" data-trigger="hover" title="台式机电脑系统" ref="#env-pc">台式机电脑系统</a>，完整的测试程序请<a href="#">点击这里</a>下载。
+				</p>
+				<p>
+				测试程序中的Hibernate等框架并未进行有针对性的优化，因此它们的测试结果仅供参考。默认图示中没有显示这些框架的性能，您可以从下面选择查看。
+				</p>
+				<div class="bs-callout bs-callout-info">
+    				<h4>查看测试结论（<a href="#">全部显示</a>）</h4>
+    				<p>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="rexdb" value="rexdb" checked="checked" disabled="disabled"> Rexdb
+						</label>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="jdbc" value="jdbc" checked="checked" disabled="disabled"> JDBC
+						</label>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="hibernate" value="hibernate"> Hibernate
+						</label>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="mybatis" value="mybatis"> Mybatis
+						</label>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="spring" value="spring"> Spring JDBC
+						</label>
+    				</p>
+  				</div>
+				
 				<div id="env-pc" style="display: none">
-					<ul style="margin-left: -30px">
-						<li><b>硬件环境：</b>Xeon E3-1231 / DDR3 16GB / SSD </li>
+					<ul style="margin-left: -30px; width: 480px">
+						<li><b>硬件环境：</b>Xeon E3 / DDR3 16GB / SSD </li>
 						<li><b>软件环境：</b>Windows 10 pro x64 / JDK 1.7.0 / Mysql 5.7.10</li>
 						<li><b>框架版本：</b>Rexdb-1.0.0-beta / Hibernate 5.1.0 Final / Mybatis 3.3.1</li>
 					</ul>
 				</div>
 			</div>
 		</div>
+		
 		
 		<div class="row" style="margin-top: 20px; margin-bottom: 20px">
 			<div class="col-md-6">
@@ -242,16 +292,6 @@ include_once('include/navbar.php');
 			</div>
 		</div>
 		
-		<div class="row">
-			<div class="col-md-12">
-				<h3>说明</h3>
-				<p>性能测试结论与软硬件环境、框架版本、配置选项等相关，并不是每一次测试都能得出相同的结论。
-				以上各项数字为某一次的测试结果，有可能是不准确的，甚至与生产环境中的结论有较大的偏差。
-				您可以下载性能测试程序，在您的生产环境中运行。
-				</p>
-				<p>我们的Hibernate/Mybatis使用水平有限，并未进行有针对性的优化，以上测试数值仅供参考。</p>
-			</div>
-		</div>
 	</div>
 
 <? include_once('include/footer.php'); ?>
