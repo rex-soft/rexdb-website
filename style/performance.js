@@ -21,13 +21,17 @@ $(function() {
 			}
 		},
 		xAxis: {
-			categories: ['Query 100k rows', 'Query 100k rows for Map']
+			categories: ['Query List', 'Query Map List']
 		},
 		yAxis: {
 //			max: 1500,
 //			type: 'logarithmic',
 			title: {
-				text: 'millisecond (ms)'
+				text: '每秒查询记录数',
+				style: {
+					fontFamily: "Tahoma,'Microsoft Yahei','Simsun'",
+					letterSpacing: '1px'
+				}
 			}
 		},
 		title : {
@@ -46,29 +50,28 @@ $(function() {
 		},
         tooltip: {
         	formatter: function(){
-        		if(this.series.name == 'Hibernate' && this.y == 1550)
-        			return '<b>' + this.series.name + ': </b>more than 3000 (ms)'
-        		else{
-        			var s = '<b>' + this.series.name + ': </b>';
-        			s += this.y;
-        			s += ' (ms)';
-        			return s;
-        		}
+    			var s = '<b>' + this.series.name + ': </b>';
+    			s += Math.ceil(this.y);
+    			s += ' rows/s';
+    			return s;
             }
         },
 		series : [ {
-			name : 'Hibernate',
-			data : [ testResult["getList-100k"].hibernate, testResult["getMapList-100k"].hibernate]
-		}, {
-			name : 'Mybatis',
-			data : [ testResult["getList-100k"].mybatis, testResult["getMapList-100k"].mybatis]
+			name : 'Rexdb',
+			data : [ testResult["getList"].rexdb, testResult["getMapList"].rexdb]
 		}, {
 			name : 'JDBC',
-			data : [ testResult["getList-100k"].jdbc, testResult["getMapList-100k"].jdbc]
+			data : [ testResult["getList"].jdbc, testResult["getMapList"].jdbc]
 		}, {
-			name : 'Rexdb',
-			data : [ testResult["getList-100k"].rexdb, testResult["getMapList-100k"].rexdb]
-		} ]
+			name : 'Hibernate',
+			data : [ testResult["getList"].hibernate, testResult["getMapList"].hibernate]
+		}, {
+			name : 'Mybatis',
+			data : [ testResult["getList"].mybatis, testResult["getMapList"].mybatis]
+		}, {
+			name : 'Spring jdbc',
+			data : [ testResult["getList"].spring, testResult["getMapList"].spring]
+		}]
 	});
 	
 	//总览-代码量
@@ -83,7 +86,7 @@ $(function() {
 			renderTo : 'overview-update',
 			type : 'column',
 			marginTop : 55,
-			marginLeft: 50,
+			marginLeft: 60,
 			options3d : {
 				enabled : true,
 				alpha : 6,
@@ -93,11 +96,15 @@ $(function() {
 			}
 		},
 		xAxis: {
-			categories: ['Insert 500 rows', 'Batch insert 50k rows']
+			categories: ['Insert', 'Batch Insert (hundred rows)']
 		},
 		yAxis: {
 			title: {
-				text: 'line count'
+				text: '每秒写入记录数',
+				style: {
+					fontFamily: "Tahoma,'Microsoft Yahei','Simsun'",
+					letterSpacing: '1px'
+				}
 			}
 		},
 		title : {
@@ -117,24 +124,27 @@ $(function() {
 		tooltip: {
         	formatter: function(){
     			var s = '<b>' + this.series.name + ': </b>';
-    			s += this.y;
-    			s += ' (ms)';
+    			s += Math.ceil(this.x.indexOf('Batch') == -1 ? this.y : this.y * 100);
+    			s += ' rows/s';
     			return s;
             }
         },
 		series : [ {
-			name : 'Hibernate',
-			data : [ testResult["insert-500"].hibernate, testResult["batchInsert-50k"].hibernate]
-		}, {
-			name : 'Mybatis',
-			data : [ testResult["insert-500"].mybatis, testResult["batchInsert-50k"].mybatis]
+			name : 'Rexdb',
+			data : [ testResult["insert"].rexdb, testResult["batchInsert"].rexdb/100]
 		}, {
 			name : 'JDBC',
-			data : [ testResult["insert-500"].jdbc, testResult["batchInsert-50k"].jdbc]
+			data : [ testResult["insert"].jdbc, testResult["batchInsert"].jdbc/100]
 		}, {
-			name : 'Rexdb',
-			data : [ testResult["insert-500"].rexdb, testResult["batchInsert-50k"].rexdb]
-		} ]
+			name : 'Hibernate',
+			data : [ testResult["insert"].hibernate, testResult["batchInsert"].hibernate/100]
+		}, {
+			name : 'Mybatis',
+			data : [ testResult["insert"].mybatis, testResult["batchInsert"].mybatis/100]
+		}, {
+			name : 'Spring jdbc',
+			data : [ testResult["insert"].spring, testResult["batchInsert"].spring/100]
+		}]
 	});
 	
 	//性能-对象-启用动态字节码
@@ -152,20 +162,30 @@ $(function() {
 			marginLeft: 70
 		},
 		xAxis: {
-			categories: ['10k rows', '50k rows', '100k rows']
+			labels: {
+				enabled: false
+			}
 		},
 		yAxis: {
 			title: {
-				text: 'millisecond (ms)'
+				text: 'Affected Rows Per Second'
 			}
 		},
 		title : {
-			text : '查询对象性能耗时',
+			text : '查询Java对象性能',
 			style: {
 				fontFamily: "Tahoma,'Microsoft Yahei','Simsun'",
 				fontSize: "16px"
 			}
 		},
+        tooltip: {
+        	formatter: function(){
+    			var s = '<b>' + this.series.name + ': </b>';
+    			s += Math.ceil(this.y);
+    			s += ' rows/s';
+    			return s;
+            }
+        },
 		subtitle : {
 			text : null
 		},
@@ -175,17 +195,20 @@ $(function() {
 			}
 		},
 		series : [ {
-			name : 'Hibernate',
-			data : [ 108, 654, 1494]
-		}, {
-			name : 'Mybatis',
-			data : [ 93, 516, 1008]
+			name : 'Rexdb',
+			data : [ testResult["getList"].rexdb]
 		}, {
 			name : 'JDBC',
-			data : [ 52, 292, 555]
+			data : [ testResult["getList"].jdbc]
 		}, {
-			name : 'Rexdb',
-			data : [ 50, 274, 513]
+			name : 'Hibernate',
+			data : [ testResult["getList"].hibernate]
+		}, {
+			name : 'Mybatis',
+			data : [ testResult["getList"].mybatis]
+		}, {
+			name : 'Spring jdbc',
+			data : [ testResult["getList"].spring]
 		}]
 	});
 	
@@ -204,15 +227,25 @@ $(function() {
 			marginLeft: 70
 		},
 		xAxis: {
-			categories: ['10k rows', '50k rows', '100k rows']
+			labels: {
+				enabled: false
+			}
 		},
 		yAxis: {
 			title: {
-				text: 'millisecond (ms)'
+				text: 'Affected Rows Per Second'
 			}
 		},
+        tooltip: {
+        	formatter: function(){
+    			var s = '<b>' + this.series.name + ': </b>';
+    			s += Math.ceil(this.y);
+    			s += ' rows/s';
+    			return s;
+            }
+        },
 		title : {
-			text : '查询对象性能耗时（禁用动态字节码选项）',
+			text : '查询Java对象性能（禁用动态字节码选项）',
 			style: {
 				fontFamily: "Tahoma,'Microsoft Yahei','Simsun'",
 				fontSize: "16px"
@@ -227,17 +260,20 @@ $(function() {
 			}
 		},
 		series : [ {
-			name : 'Hibernate',
-			data : [ 110, 642, 1510]
-		}, {
-			name : 'Mybatis',
-			data : [ 100, 514, 999]
+			name : 'Rexdb',
+			data : [ testResult["getList-disableDynamicClass"].rexdb]
 		}, {
 			name : 'JDBC',
-			data : [ 53, 285, 565]
+			data : [ testResult["getList-disableDynamicClass"].jdbc]
 		}, {
-			name : 'Rexdb',
-			data : [ 69, 358, 700]
+			name : 'Hibernate',
+			data : [ testResult["getList-disableDynamicClass"].hibernate]
+		}, {
+			name : 'Mybatis',
+			data : [ testResult["getList-disableDynamicClass"].mybatis]
+		}, {
+			name : 'Spring jdbc',
+			data : [ testResult["getList-disableDynamicClass"].spring]
 		}]
 	});
 	
@@ -256,15 +292,17 @@ $(function() {
 			marginLeft: 70
 		},
 		xAxis: {
-			categories: [ '10k rows', '50k rows', '100k rows']
+			labels: {
+				enabled: false
+			}
 		},
 		yAxis: {
 			title: {
-				text: 'millisecond (ms)'
+				text: 'Affected Rows Per Second'
 			}
 		},
 		title : {
-			text : '查询Map性能耗时',
+			text : '查询Map性能',
 			style: {
 				fontFamily: "Tahoma,'Microsoft Yahei','Simsun'",
 				fontSize: "16px"
@@ -278,18 +316,29 @@ $(function() {
 				depth : 25
 			}
 		},
+        tooltip: {
+        	formatter: function(){
+    			var s = '<b>' + this.series.name + ': </b>';
+    			s += Math.ceil(this.y);
+    			s += ' rows/s';
+    			return s;
+            }
+        },
 		series : [ {
-			name : 'Hibernate',
-			data : [ 73, 433, 887]
-		}, {
-			name : 'Mybatis',
-			data : [ 98, 565, 1063]
+			name : 'Rexdb',
+			data : [ testResult["getMapList"].rexdb]
 		}, {
 			name : 'JDBC',
-			data : [ 58, 378, 728]
+			data : [ testResult["getMapList"].jdbc]
 		}, {
-			name : 'Rexdb',
-			data : [ 56, 335, 673]
+			name : 'Hibernate',
+			data : [ testResult["getMapList"].hibernate]
+		}, {
+			name : 'Mybatis',
+			data : [ testResult["getMapList"].mybatis]
+		}, {
+			name : 'Spring jdbc',
+			data : [ testResult["getMapList"].spring]
 		}]
 	});
 	
@@ -308,15 +357,17 @@ $(function() {
 			marginLeft: 70
 		},
 		xAxis: {
-			categories: ['100 rows', '500 rows', '1000 rows']
+			labels: {
+				enabled: false
+			}
 		},
 		yAxis: {
 			title: {
-				text: 'millisecond (ms)'
+				text: 'Affected Rows Per Second'
 			}
 		},
 		title : {
-			text : '写入耗时',
+			text : '写入Java对象性能',
 			style: {
 				fontFamily: "Tahoma,'Microsoft Yahei','Simsun'",
 				fontSize: "16px"
@@ -330,21 +381,96 @@ $(function() {
 				depth : 25
 			}
 		},
+        tooltip: {
+        	formatter: function(){
+    			var s = '<b>' + this.series.name + ': </b>';
+    			s += Math.ceil(this.y);
+    			s += ' rows/s';
+    			return s;
+            }
+        },
 		series : [ {
-			name : 'Hibernate',
-			data : [ 281, 1462, 2806]
-		}, {
-			name : 'Mybatis',
-			data : [ 221, 1109, 2204]
+			name : 'Rexdb',
+			data : [ testResult["insert"].rexdb]
 		}, {
 			name : 'JDBC',
-			data : [ 217, 1246, 2263]
+			data : [ testResult["insert"].jdbc]
 		}, {
-			name : 'Rexdb',
-			data : [ 217, 1121, 2233]
+			name : 'Hibernate',
+			data : [ testResult["insert"].hibernate]
+		}, {
+			name : 'Mybatis',
+			data : [ testResult["insert"].mybatis]
+		}, {
+			name : 'Spring jdbc',
+			data : [ testResult["insert"].spring]
 		}]
 	});
 	
+	//性能-插入PS
+	var insert = new Highcharts.Chart({
+		credits : {
+			enabled : false
+		},
+		exporting : {
+			enabled : false
+		},
+		chart : {
+			renderTo : 'insertps',
+			type : 'column',
+			marginTop : 50,
+			marginLeft: 70
+		},
+		xAxis: {
+			labels: {
+				enabled: false
+			}
+		},
+		yAxis: {
+			title: {
+				text: 'Affected Rows Per Second'
+			}
+		},
+		title : {
+			text : '写入Ps对象性能',
+			style: {
+				fontFamily: "Tahoma,'Microsoft Yahei','Simsun'",
+				fontSize: "16px"
+			}
+		},
+		subtitle : {
+			text : null
+		},
+		plotOptions : {
+			column : {
+				depth : 25
+			}
+		},
+        tooltip: {
+        	formatter: function(){
+    			var s = '<b>' + this.series.name + ': </b>';
+    			s += Math.ceil(this.y);
+    			s += ' rows/s';
+    			return s;
+            }
+        },
+		series : [ {
+			name : 'Rexdb',
+			data : [ testResult["insertPs"].rexdb]
+		}, {
+			name : 'JDBC',
+			data : [ testResult["insertPs"].jdbc]
+		}, {
+			name : 'Hibernate',
+			data : [ testResult["insertPs"].hibernate]
+		}, {
+			name : 'Mybatis',
+			data : [ testResult["insertPs"].mybatis]
+		}, {
+			name : 'Spring jdbc',
+			data : [ testResult["insertPs"].spring]
+		}]
+	});
 	
 	//性能-批量
 	var batch = new Highcharts.Chart({
@@ -361,15 +487,17 @@ $(function() {
 			marginLeft: 70
 		},
 		xAxis: {
-			categories: ['1000 rows', '5000 rows', '10k rows']
+			labels: {
+				enabled: false
+			}
 		},
 		yAxis: {
 			title: {
-				text: 'millisecond (ms)'
+				text: 'Affected Rows Per Second'
 			}
 		},
 		title : {
-			text : '批量写入耗时',
+			text : '批量写入Java对象性能',
 			style: {
 				fontFamily: "Tahoma,'Microsoft Yahei','Simsun'",
 				fontSize: "16px"
@@ -383,18 +511,162 @@ $(function() {
 				depth : 25
 			}
 		},
+        tooltip: {
+        	formatter: function(){
+    			var s = '<b>' + this.series.name + ': </b>';
+    			s += Math.ceil(this.y);
+    			s += ' rows/s';
+    			return s;
+            }
+        },
 		series : [ {
-			name : 'Hibernate',
-			data : [ 403, 1961, 3954]
-		}, {
-			name : 'Mybatis',
-			data : [ 67, 366, 745]
+			name : 'Rexdb',
+			data : [ testResult["batchInsert"].rexdb]
 		}, {
 			name : 'JDBC',
-			data : [ 20, 94, 193]
+			data : [ testResult["batchInsert"].jdbc]
 		}, {
+			name : 'Hibernate',
+			data : [ testResult["batchInsert"].hibernate]
+		}, {
+			name : 'Mybatis',
+			data : [ testResult["batchInsert"].mybatis]
+		}, {
+			name : 'Spring jdbc',
+			data : [ testResult["batchInsert"].spring]
+		}]
+	});
+	
+	//性能-批量PS
+	var batch = new Highcharts.Chart({
+		credits : {
+			enabled : false
+		},
+		exporting : {
+			enabled : false
+		},
+		chart : {
+			renderTo : 'batchps',
+			type : 'column',
+			marginTop : 50,
+			marginLeft: 70
+		},
+		xAxis: {
+			labels: {
+				enabled: false
+			}
+		},
+		yAxis: {
+			title: {
+				text: 'Affected Rows Per Second'
+			}
+		},
+		title : {
+			text : '批量写入Ps对象性能',
+			style: {
+				fontFamily: "Tahoma,'Microsoft Yahei','Simsun'",
+				fontSize: "16px"
+			}
+		},
+		subtitle : {
+			text : null
+		},
+		plotOptions : {
+			column : {
+				depth : 25
+			}
+		},
+        tooltip: {
+        	formatter: function(){
+    			var s = '<b>' + this.series.name + ': </b>';
+    			s += Math.ceil(this.y);
+    			s += ' rows/s';
+    			return s;
+            }
+        },
+		series : [ {
 			name : 'Rexdb',
-			data : [ 22, 106, 212]
+			data : [ testResult["batchInsertPs"].rexdb]
+		}, {
+			name : 'JDBC',
+			data : [ testResult["batchInsertPs"].jdbc]
+		}, {
+			name : 'Hibernate',
+			data : [ testResult["batchInsertPs"].hibernate]
+		}, {
+			name : 'Mybatis',
+			data : [ testResult["batchInsertPs"].mybatis]
+		}, {
+			name : 'Spring jdbc',
+			data : [ testResult["batchInsertPs"].spring]
+		}]
+	});
+	
+	//性能-树莓派-对象-启用动态字节码
+	var piGetList = new Highcharts.Chart({
+		credits : {
+			enabled : false
+		},
+		exporting : {
+			enabled : false
+		},
+		chart : {
+			renderTo : 'pi-getlist',
+			type : 'column',
+			marginTop : 50,
+			marginLeft: 70
+		},
+		xAxis: {
+			categories: ['Query List', 'Query Map List']
+		},
+		yAxis: {
+//			max: 1500,
+//			type: 'logarithmic',
+			title: {
+				text: '每秒查询记录数',
+				style: {
+					fontFamily: "Tahoma,'Microsoft Yahei','Simsun'",
+					letterSpacing: '1px'
+				}
+			}
+		},
+		title : {
+			text : '查询性能（树莓派）',
+			style: {
+				fontFamily: "Tahoma,'Microsoft Yahei','Simsun'"
+			}
+		},
+		subtitle : {
+			text : null
+		},
+		plotOptions : {
+			column : {
+				depth : 30
+			}
+		},
+        tooltip: {
+        	formatter: function(){
+    			var s = '<b>' + this.series.name + ': </b>';
+    			s += Math.ceil(this.y);
+    			s += ' rows/s';
+    			return s;
+            }
+        },
+		series : [ {
+			name : 'Rexdb',
+			data : [ testResultPi["getList"].rexdb, testResultPi["getMapList"].rexdb]
+		}, {
+			name : 'JDBC',
+			data : [ testResultPi["getList"].jdbc, testResultPi["getMapList"].jdbc]
+		}, {
+			name : 'Hibernate',
+			data : [ testResultPi["getList"].hibernate, testResultPi["getMapList"].hibernate]
+		}, {
+			name : 'Mybatis',
+			data : [ testResultPi["getList"].mybatis, testResultPi["getMapList"].mybatis]
+		}, {
+			name : 'Spring jdbc',
+			data : [ testResultPi["getList"].spring, testResultPi["getMapList"].spring]
 		}]
 	});
 	
@@ -413,18 +685,21 @@ $(function() {
 			marginLeft: 70
 		},
 		xAxis: {
-			categories: ['50 rows', '200 rows', '500 rows']
+			categories: ['Insert', 'Batch Insert (hundred rows)']
 		},
 		yAxis: {
 			title: {
-				text: 'millisecond (ms)'
+				text: '每秒写入记录数',
+				style: {
+					fontFamily: "Tahoma,'Microsoft Yahei','Simsun'",
+					letterSpacing: '1px'
+				}
 			}
 		},
 		title : {
-			text : '写入耗时（树莓派2代B型）',
+			text : '更新性能（树莓派）',
 			style: {
-				fontFamily: "Tahoma,'Microsoft Yahei','Simsun'",
-				fontSize: "16px"
+				fontFamily: "Tahoma,'Microsoft Yahei','Simsun'"
 			}
 		},
 		subtitle : {
@@ -435,71 +710,29 @@ $(function() {
 				depth : 25
 			}
 		},
+		tooltip: {
+        	formatter: function(){
+    			var s = '<b>' + this.series.name + ': </b>';
+    			s += Math.ceil(this.x.indexOf('Batch') == -1 ? this.y : this.y * 100);
+    			s += ' rows/s';
+    			return s;
+            }
+        },
 		series : [ {
-			name : 'Hibernate',
-			data : [ 518, 1942, 4374]
-		}, {
-			name : 'Mybatis',
-			data : [ 290, 1236, 2762]
+			name : 'Rexdb',
+			data : [ testResultPi["insert"].rexdb, testResultPi["batchInsert"].rexdb/100]
 		}, {
 			name : 'JDBC',
-			data : [ 285, 1160, 2635]
+			data : [ testResultPi["insert"].jdbc, testResultPi["batchInsert"].jdbc/100]
 		}, {
-			name : 'Rexdb',
-			data : [ 289, 1200, 2734]
-		}]
-	});
-	
-	
-	//性能-树莓派-对象-启用动态字节码
-	var piGetList = new Highcharts.Chart({
-		credits : {
-			enabled : false
-		},
-		exporting : {
-			enabled : false
-		},
-		chart : {
-			renderTo : 'pi-getlist',
-			type : 'column',
-			marginTop : 50,
-			marginLeft: 70
-		},
-		xAxis: {
-			categories: ['10k rows', '50k rows', '100k rows']
-		},
-		yAxis: {
-			title: {
-				text: 'millisecond (ms)'
-			}
-		},
-		title : {
-			text : '查询耗时（树莓派2代B型）',
-			style: {
-				fontFamily: "Tahoma,'Microsoft Yahei','Simsun'",
-				fontSize: "16px"
-			}
-		},
-		subtitle : {
-			text : null
-		},
-		plotOptions : {
-			column : {
-				depth : 25
-			}
-		},
-		series : [ {
 			name : 'Hibernate',
-			data : [ 108, 654, 1494]
+			data : [ testResultPi["insert"].hibernate, testResultPi["batchInsert"].hibernate/100]
 		}, {
 			name : 'Mybatis',
-			data : [ 93, 516, 1008]
+			data : [ testResultPi["insert"].mybatis, testResultPi["batchInsert"].mybatis/100]
 		}, {
-			name : 'JDBC',
-			data : [ 52, 292, 555]
-		}, {
-			name : 'Rexdb',
-			data : [ 50, 274, 513]
+			name : 'Spring jdbc',
+			data : [ testResultPi["insert"].spring, testResultPi["batchInsert"].spring/100]
 		}]
 	});
 });
