@@ -1,3 +1,13 @@
+Highcharts.theme = {
+//	colors: ["#2e363f", "#707b88", "#7cb5ec", "#40aba4", "#27a9e3"]	
+//		colors: ["#2c3e50", "#578ebe", "#36d7b7", "#1bbc9b", "#1ba39c"]	
+		colors: ["#2c3e50", "#00a5de", "#d3d3d3", "#b3b3b3", "#95a5a6"]	
+};
+
+// Apply the theme
+Highcharts.setOptions(Highcharts.theme);
+
+
 $(function() {
 	//总览-性能
 	var overviewPerformace = new Highcharts.Chart({
@@ -167,6 +177,19 @@ $(function() {
 			}
 		},
 		yAxis: {
+			 plotLines: [{
+	                color: 'red',
+	                label: {
+	                	text: '性能对比',
+	                	style: {
+	                		color: 'red',
+	                		fontFamily: "Tahoma,'Microsoft Yahei','Simsun'"
+	                	}
+	                },
+	                width: 0.5,
+	                zIndex: 999,
+	                value: testResult["getList"].rexdb
+	        }],
 			title: {
 				text: 'Affected Rows Per Second'
 			}
@@ -196,19 +219,84 @@ $(function() {
 		},
 		series : [ {
 			name : 'Rexdb',
-			data : [ testResult["getList"].rexdb]
+			data : [ testResult["getList"].rexdb],
+			dataLabels: {
+                enabled: true,
+                formatter: function(){
+                	return 'Rexdb';
+                },
+                y: 30,
+                style: {
+                    fontSize: '10px',
+                    color: '#fff',
+                    fontWeight: 'normal',
+                    fontFamily: 'Arial'
+                }
+            }
 		}, {
 			name : 'JDBC',
-			data : [ testResult["getList"].jdbc]
+			data : [ testResult["getList"].jdbc],
+			dataLabels: {
+                enabled: true,
+                formatter: function(){
+                	return ((testResult["getList"].rexdb - testResult["getList"].jdbc)*100/testResult["getList"].rexdb).toFixed(1) + '%';
+                },
+                y: 30,
+                style: {
+                    fontSize: '10px',
+                    color: '#fff',
+                    fontWeight: 'normal',
+                    fontFamily: 'Arial'
+                }
+            }
 		}, {
 			name : 'Hibernate',
-			data : [ testResult["getList"].hibernate]
+			data : [ testResult["getList"].hibernate],
+			dataLabels: {
+                enabled: true,
+                formatter: function(){
+                	return ((testResult["getList"].hibernate - testResult["getList"].jdbc)*100/testResult["getList"].rexdb).toFixed(1) + '%';
+                },
+                y: 30,
+                style: {
+                    fontSize: '10px',
+                    color: '#fff',
+                    fontWeight: 'normal',
+                    fontFamily: 'Arial'
+                }
+            }
 		}, {
 			name : 'Mybatis',
-			data : [ testResult["getList"].mybatis]
+			data : [ testResult["getList"].mybatis],
+			dataLabels: {
+                enabled: true,
+                formatter: function(){
+                	return ((testResult["getList"].mybatis - testResult["getList"].jdbc)*100/testResult["getList"].rexdb).toFixed(1) + '%';
+                },
+                y: 30,
+                style: {
+                    fontSize: '10px',
+                    color: '#fff',
+                    fontWeight: 'normal',
+                    fontFamily: 'Arial'
+                }
+            }
 		}, {
 			name : 'Spring jdbc',
-			data : [ testResult["getList"].spring]
+			data : [ testResult["getList"].spring],
+			dataLabels: {
+                enabled: true,
+                formatter: function(){
+                	return ((testResult["getList"].spring - testResult["getList"].jdbc)*100/testResult["getList"].rexdb).toFixed(1) + '%';
+                },
+                y: 30,
+                style: {
+                    fontSize: '10px',
+                    color: '#fff',
+                    fontWeight: 'normal',
+                    fontFamily: 'Arial'
+                }
+            }
 		}]
 	});
 	
