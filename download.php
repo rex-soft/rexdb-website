@@ -3,6 +3,7 @@
 <head>
 <title>下载 - Rexdb</title>
 <?
+$basePath = '';
 include_once('include/import.php'); 
 ?>
 <style>

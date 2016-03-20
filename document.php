@@ -1,6 +1,6 @@
 <?php 
-$version = $_GET["version"] ? $_GET["version"] : '1.0';
-$documentId = $_GET["doc"] ? $_GET["doc"] : 'intro';
+$version = !empty($_GET["version"] )? $_GET["version"] : '1.0';
+$documentId = !empty($_GET["doc"]) ? $_GET["doc"] : 'intro';
 
 $dirPath = 'document/' . $version;
 $contentFile = $dirPath . '/_contents.php';
@@ -12,6 +12,7 @@ $navFile = $dirPath . '/content/' . $documentId . '.php';
 <head>
 <title>文档 - Rexdb</title>
 <?
+$basePath = '';
 include_once('include/import.php'); 
 ?>
 <link rel="stylesheet" href="style/document.css" type="text/css"></link>

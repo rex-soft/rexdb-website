@@ -3,6 +3,7 @@
 <head>
 <title>性能 - Rexdb</title>
 <?
+$basePath = '';
 include_once('include/import.php'); 
 ?>
 <script type="text/javascript" src="<?=$basePath?>style/highcharts-4.2.3/highcharts.js"></script>
