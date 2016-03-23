@@ -102,7 +102,13 @@ Highcharts.theme = {
 Highcharts.setOptions(Highcharts.theme);
 
 function compare(a, b){
-	return ((a - b)*100/b).toFixed(1) + '%';
+	var com = ((a - b)*100/b).toFixed(1);
+	if(com < 0)
+		return '- ' + (com.substr(1)) + '%';
+	else if(com > 0)
+		return '+ ' + com + '%';
+	else
+		return '0%';
 }
 
 function genSeries(data){
