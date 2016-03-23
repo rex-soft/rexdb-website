@@ -1,5 +1,19 @@
 var overviewPerformace, overviewCode, getListDynamic, getListReflect, getMapList, insert, insertPs, batch, batchPs;
 var piGetList, piInsert;
+var result;
+
+$(document).ready(function(){
+	$('#showall').click(showAll);
+	$('input[name=framework]').change(function(){
+		refreshChart(this);
+	})
+	$('input[name=database]').change(function(){
+		reloadDatabase(this);
+	})
+	
+	result = testResults['mysql'];
+	renderAllCharts();
+});
 
 function showAll(){
 	var chks = ['hibernate', 'mybatis', 'spring'];
@@ -32,9 +46,11 @@ function refreshChart(chk){
 	}
 }
 
-$(document).ready(function(){
-	$('#showall').click(showAll);
-});
+function reloadDatabase(rdo){
+	if(!rdo.checked) return;
+	result = testResults[rdo.value];
+	renderAllCharts();
+}
 
 Highcharts.theme = {
 	credits : {
@@ -151,7 +167,7 @@ function genSeries(data){
             }
         }
 	}, {
-		name : 'Spring jdbc',
+		name : 'Spring',
 		visible: false,
 		data : [ data.spring],
 		dataLabels: {
@@ -178,7 +194,7 @@ function genPlotLines(data){
 	}];
 }
 
-$(function() {
+function renderAllCharts(){
 	// 总览-性能
 	overviewPerformace = new Highcharts.Chart({
 		chart : {
@@ -214,22 +230,22 @@ $(function() {
 		},
 		series : [ {
 			name : 'Rexdb',
-			data : [ testResult["getList"].rexdb, testResult["getMapList"].rexdb]
+			data : [ result["getList"].rexdb, result["getMapList"].rexdb]
 		}, {
 			name : 'JDBC',
-			data : [ testResult["getList"].jdbc, testResult["getMapList"].jdbc]
+			data : [ result["getList"].jdbc, result["getMapList"].jdbc]
 		}, {
 			name : 'Hibernate',
 			visible: false,
-			data : [ testResult["getList"].hibernate, testResult["getMapList"].hibernate]
+			data : [ result["getList"].hibernate, result["getMapList"].hibernate]
 		}, {
 			name : 'Mybatis',
 			visible: false,
-			data : [ testResult["getList"].mybatis, testResult["getMapList"].mybatis]
+			data : [ result["getList"].mybatis, result["getMapList"].mybatis]
 		}, {
-			name : 'Spring jdbc',
+			name : 'Spring',
 			visible: false,
-			data : [ testResult["getList"].spring, testResult["getMapList"].spring]
+			data : [ result["getList"].spring, result["getMapList"].spring]
 		}]
 	});
 	
@@ -283,22 +299,22 @@ $(function() {
         },
 		series : [ {
 			name : 'Rexdb',
-			data : [ testResult["insert"].rexdb, testResult["batchInsert"].rexdb/100]
+			data : [ result["insert"].rexdb, result["batchInsert"].rexdb/100]
 		}, {
 			name : 'JDBC',
-			data : [ testResult["insert"].jdbc, testResult["batchInsert"].jdbc/100]
+			data : [ result["insert"].jdbc, result["batchInsert"].jdbc/100]
 		}, {
 			name : 'Hibernate',
 			visible: false,
-			data : [ testResult["insert"].hibernate, testResult["batchInsert"].hibernate/100]
+			data : [ result["insert"].hibernate, result["batchInsert"].hibernate/100]
 		}, {
 			name : 'Mybatis',
 			visible: false,
-			data : [ testResult["insert"].mybatis, testResult["batchInsert"].mybatis/100]
+			data : [ result["insert"].mybatis, result["batchInsert"].mybatis/100]
 		}, {
-			name : 'Spring jdbc',
+			name : 'Spring',
 			visible: false,
-			data : [ testResult["insert"].spring, testResult["batchInsert"].spring/100]
+			data : [ result["insert"].spring, result["batchInsert"].spring/100]
 		}]
 	});
 	
@@ -313,7 +329,7 @@ $(function() {
 			}
 		},
 		yAxis: {
-			plotLines: genPlotLines(testResult["getList"]),
+			plotLines: genPlotLines(result["getList"]),
 			title: {
 				text: 'Affected Rows Per Second'
 			}
@@ -321,7 +337,7 @@ $(function() {
 		title : {
 			text : '查询Java对象性能'
 		},
-		series : genSeries(testResult["getList"])
+		series : genSeries(result["getList"])
 	});
 	
 	//性能-对象-禁用动态字节码
@@ -335,7 +351,7 @@ $(function() {
 			}
 		},
 		yAxis: {
-			plotLines: genPlotLines(testResult["getList-disableDynamicClass"]),
+			plotLines: genPlotLines(result["getList-disableDynamicClass"]),
 			title: {
 				text: 'Affected Rows Per Second'
 			}
@@ -343,7 +359,7 @@ $(function() {
 		title : {
 			text : '查询Java对象性能（禁用动态字节码选项）'
 		},
-		series : genSeries(testResult["getList-disableDynamicClass"])
+		series : genSeries(result["getList-disableDynamicClass"])
 	});
 	
 	//性能-Map
@@ -357,7 +373,7 @@ $(function() {
 			}
 		},
 		yAxis: {
-			plotLines: genPlotLines(testResult["getMapList"]),
+			plotLines: genPlotLines(result["getMapList"]),
 			title: {
 				text: 'Affected Rows Per Second'
 			}
@@ -365,7 +381,7 @@ $(function() {
 		title : {
 			text : '查询Map性能'
 		},
-		series : genSeries(testResult["getMapList"])
+		series : genSeries(result["getMapList"])
 	});
 	
 	//性能-插入
@@ -379,7 +395,7 @@ $(function() {
 			}
 		},
 		yAxis: {
-			plotLines: genPlotLines(testResult["insert"]),
+			plotLines: genPlotLines(result["insert"]),
 			title: {
 				text: 'Affected Rows Per Second'
 			}
@@ -387,7 +403,7 @@ $(function() {
 		title : {
 			text : '写入Java对象性能'
 		},
-		series : genSeries(testResult["insert"])
+		series : genSeries(result["insert"])
 	});
 	
 	//性能-插入PS
@@ -401,7 +417,7 @@ $(function() {
 			}
 		},
 		yAxis: {
-			plotLines: genPlotLines(testResult["insertPs"]),
+			plotLines: genPlotLines(result["insertPs"]),
 			title: {
 				text: 'Affected Rows Per Second'
 			}
@@ -409,7 +425,7 @@ $(function() {
 		title : {
 			text : '写入Ps对象性能'
 		},
-		series : genSeries(testResult["insertPs"])
+		series : genSeries(result["insertPs"])
 	});
 	
 	//性能-批量
@@ -423,7 +439,7 @@ $(function() {
 			}
 		},
 		yAxis: {
-			plotLines: genPlotLines(testResult["batchInsert"]),
+			plotLines: genPlotLines(result["batchInsert"]),
 			title: {
 				text: 'Affected Rows Per Second'
 			}
@@ -431,7 +447,7 @@ $(function() {
 		title : {
 			text : '批量写入Java对象性能'
 		},
-		series : genSeries(testResult["batchInsert"])
+		series : genSeries(result["batchInsert"])
 	});
 	
 	//性能-批量PS
@@ -445,7 +461,7 @@ $(function() {
 			}
 		},
 		yAxis: {
-			plotLines: genPlotLines(testResult["batchInsertPs"]),
+			plotLines: genPlotLines(result["batchInsertPs"]),
 			title: {
 				text: 'Affected Rows Per Second'
 			}
@@ -453,7 +469,7 @@ $(function() {
 		title : {
 			text : '批量写入Ps对象性能'
 		},
-		series : genSeries(testResult["batchInsertPs"])
+		series : genSeries(result["batchInsertPs"])
 	});
 	
 	
@@ -489,7 +505,7 @@ $(function() {
 			visible: false,
 			data : [ testResultPi["getList"].mybatis, testResultPi["getMapList"].mybatis]
 		}, {
-			name : 'Spring jdbc',
+			name : 'Spring',
 			visible: false,
 			data : [ testResultPi["getList"].spring, testResultPi["getMapList"].spring]
 		}]
@@ -526,9 +542,9 @@ $(function() {
 			visible: false,
 			data : [ testResultPi["insert"].mybatis, testResultPi["batchInsert"].mybatis/100]
 		}, {
-			name : 'Spring jdbc',
+			name : 'Spring',
 			visible: false,
 			data : [ testResultPi["insert"].spring, testResultPi["batchInsert"].spring/100]
 		}]
 	});
-});
+}

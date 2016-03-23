@@ -20,57 +20,11 @@ $(document).ready(function(){
 	});
 });
 
-var testResult = {
-	    "insert": {
-	        "rexdb": 424.43,
-	        "jdbc": 425.81,
-	        "hibernate": 308.77,
-	        "mybatis": 416.14,
-	        "spring": 412.39
-	    },
-	    "insertPs": {
-	        "rexdb": 422.71,
-	        "jdbc": 429.52,
-	        "hibernate": 308.04,
-	        "mybatis": 429.82,
-	        "spring": 418.2
-	    },
-	    "batchInsert": {
-	        "rexdb": 41685.48,
-	        "jdbc": 42464.46,
-	        "hibernate": 28349.99,
-	        "mybatis": 34476.77,
-	        "spring": 36615.6
-	    },
-	    "batchInsertPs": {
-	        "rexdb": 36982.52,
-	        "jdbc": 39608.39,
-	        "hibernate": 26391.94,
-	        "mybatis": 32015.82,
-	        "spring": 33937.33
-	    },
-	    "getList": {
-	        "rexdb": 105148.03,
-	        "jdbc": 99283.86,
-	        "hibernate": 45355.86,
-	        "mybatis": 55912.52,
-	        "spring": 97885.09
-	    },
-	    "getList-disableDynamicClass": {
-	        "rexdb": 121310.21,
-	        "jdbc": 153370.58,
-	        "hibernate": 64887.03,
-	        "mybatis": 84423.43,
-	        "spring": 154554.5
-	    },
-	    "getMapList": {
-	        "rexdb": 132920,
-	        "jdbc": 121131.36,
-	        "hibernate": 107455.76,
-	        "mybatis": 84687.86,
-	        "spring": 84359.46
-	    }
-	};	
+var testResults = [];
+testResults.mysql = {"insert":{"rexdb":388.63,"jdbc":391.78,"hibernate":268.53,"mybatis":399.38,"spring":405.83},"insertPs":{"rexdb":409.31,"jdbc":421.86,"hibernate":309.22,"mybatis":408.26,"spring":419.51},"batchInsert":{"rexdb":37140.64,"jdbc":39253.81,"hibernate":26377.43,"mybatis":32205.82,"spring":33675.81},"batchInsertPs":{"rexdb":36305,"jdbc":38859.23,"hibernate":26630.06,"mybatis":32110.28,"spring":33935.79},"getList":{"rexdb":135323.36,"jdbc":115784.64,"hibernate":54927.82,"mybatis":70004.24,"spring":107648.35},"getList-disableDynamicClass":{"rexdb":126041.82,"jdbc":146807.06,"hibernate":64354.03,"mybatis":76905.21,"spring":144454.29},"getMapList":{"rexdb":121254.06,"jdbc":100083.89,"hibernate":107899.85,"mybatis":84324.14,"spring":76343.2}};
+testResults.h2 = {"insert":{"rexdb":4231.63,"jdbc":4646.44,"hibernate":1242.16,"mybatis":3706.56,"spring":3953.29},"insertPs":{"rexdb":4340.21,"jdbc":4703.94,"hibernate":1532.33,"mybatis":4055.18,"spring":4360.54},"batchInsert":{"rexdb":8622.47,"jdbc":8927.83,"hibernate":6931.79,"mybatis":7904.66,"spring":8342.87},"batchInsertPs":{"rexdb":8531.47,"jdbc":8590.51,"hibernate":6964.48,"mybatis":7847.62,"spring":8074.42},"getList":{"rexdb":42904.08,"jdbc":44127.27,"hibernate":30526.46,"mybatis":32225.33,"spring":42809.49},"getList-disableDynamicClass":{"rexdb":39068.06,"jdbc":44301.39,"hibernate":29575.46,"mybatis":32566.42,"spring":44181.26},"getMapList":{"rexdb":39253.07,"jdbc":41218.01,"hibernate":37974.52,"mybatis":32563.32,"spring":32281.92}}; 
+testResults.postgresql={"insert":{"rexdb":2495.19,"jdbc":2504.69,"hibernate":1243.42,"mybatis":2236.2,"spring":1582.27},"insertPs":{"rexdb":2713.02,"jdbc":2542.56,"hibernate":1312.35,"mybatis":2619.13,"spring":1549.62},"batchInsert":{"rexdb":16664.95,"jdbc":16861.99,"hibernate":15555.33,"mybatis":16005.13,"spring":3928.56},"batchInsertPs":{"rexdb":16384.68,"jdbc":16755.16,"hibernate":15817.72,"mybatis":16056.13,"spring":3909.84},"getList":{"rexdb":121268.9,"jdbc":130431.11,"hibernate":51713.31,"mybatis":72537.33,"spring":94581.25},"getList-disableDynamicClass":{"rexdb":100540.63,"jdbc":164024.06,"hibernate":52070.23,"mybatis":81134.21,"spring":94065.03},"getMapList":{"rexdb":101411.22,"jdbc":121183.97,"hibernate":91340.49,"mybatis":70785.26,"spring":70401.8}}
+
 
 	var testResultPi = {
 		    "insert": {
@@ -192,21 +146,24 @@ include_once('include/navbar.php');
 						  <input type="checkbox" id="jdbc" value="jdbc" checked="checked" disabled="disabled"> JDBC
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" id="hibernate" value="hibernate" onchange="refreshChart(this)"> Hibernate 5.1.0
+						  <input type="checkbox" id="hibernate" name="framework" value="hibernate"> Hibernate 5.1.0
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" id="mybatis" value="mybatis" onchange="refreshChart(this)"> Mybatis 3.3.1
+						  <input type="checkbox" id="mybatis" name="framework" value="mybatis"> Mybatis 3.3.1
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" id="spring" value="spring" onchange="refreshChart(this)"> Spring jdbc 4.2.5
+						  <input type="checkbox" id="spring" name="framework" value="spring"> Spring jdbc 4.2.5
 						</label>
     				</p>
     				<p>
 						<label class="radio-inline">
-						  <input type="radio" id="mysql" name ="database" value="mysql" checked="checked"> Mysql
+						  <input type="radio" id="mysql" name ="database" value="mysql" checked="checked"> Mysql 5.7
 						</label>
 						<label class="radio-inline">
-						  <input type="radio" id="oracle" name ="database" value="oracle"> Oracle
+						  <input type="radio" id="h2" name ="database" value="h2"> h2 1.4
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" id="postgresql" name ="database" value="postgresql"> Postgresql 9.5
 						</label>
     				</p>
   				</div>
