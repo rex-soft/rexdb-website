@@ -183,7 +183,7 @@ include_once('include/navbar.php');
 				测试程序中的Hibernate等第三方框架并未进行有针对性的优化，因此它们的测试结果仅供参考。默认图示中没有显示这些框架的性能，您可以从下面选择查看。
 				</p>
 				<div class="bs-callout bs-callout-info">
-    				<h4>查看测试结论（<a href="#">全部显示</a>）</h4>
+    				<h4>查看测试结论（<a  id="showall" href="#">全部显示</a>）</h4>
     				<p>
 						<label class="checkbox-inline">
 						  <input type="checkbox" id="rexdb" value="rexdb" checked="checked" disabled="disabled"> Rexdb 1.0.0-beta
@@ -192,13 +192,21 @@ include_once('include/navbar.php');
 						  <input type="checkbox" id="jdbc" value="jdbc" checked="checked" disabled="disabled"> JDBC
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" id="hibernate" value="hibernate"> Hibernate 5.1.0
+						  <input type="checkbox" id="hibernate" value="hibernate" onchange="refreshChart(this)"> Hibernate 5.1.0
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" id="mybatis" value="mybatis"> Mybatis 3.3.1
+						  <input type="checkbox" id="mybatis" value="mybatis" onchange="refreshChart(this)"> Mybatis 3.3.1
 						</label>
 						<label class="checkbox-inline">
-						  <input type="checkbox" id="spring" value="spring"> Spring jdbc 4.2.5
+						  <input type="checkbox" id="spring" value="spring" onchange="refreshChart(this)"> Spring jdbc 4.2.5
+						</label>
+    				</p>
+    				<p>
+						<label class="radio-inline">
+						  <input type="radio" id="mysql" name ="database" value="mysql" checked="checked"> Mysql
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" id="oracle" name ="database" value="oracle"> Oracle
 						</label>
     				</p>
   				</div>
@@ -299,7 +307,7 @@ include_once('include/navbar.php');
 		
 		<div class="row">
 			<div class="col-md-12">
-				<h3>低配置服务器测试</h3>
+				<h3>低配置设备测试</h3>
 				<p>我们还在低配置服务器中执行了性能测试，以下以<a href="#" 
 					data-toggle="popover" data-placement="auto bottom" data-trigger="hover" title="树莓派（raspberry pi）卡式电脑系统" ref="#env-pi">树莓派（raspberry pi）卡式电脑系统</a>为例，主要测试结果如下：</p>
 				<div id="env-pi" style="display: none">

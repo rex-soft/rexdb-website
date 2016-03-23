@@ -1,3 +1,41 @@
+var overviewPerformace, overviewCode, getListDynamic, getListReflect, getMapList, insert, insertPs, batch, batchPs;
+var piGetList, piInsert;
+
+function showAll(){
+	var chks = ['hibernate', 'mybatis', 'spring'];
+	for(var i = 0; i < chks.length; i++){
+		if($('#'+chks[i]).attr('checked') == null){
+			var chk = $('#'+chks[i]).attr('checked', true);
+			refreshChart(chk.get(0))
+		}
+	}	
+}
+
+function refreshChart(chk){
+	var value = chk.value;
+	var show = chk.checked;
+	var idx = {
+		rexdb: 0,
+		jdbc: 1,
+		hibernate: 2,
+		mybatis: 3,
+		spring: 4
+	};
+	var charts = [overviewPerformace, overviewCode, getListDynamic, getListReflect, getMapList, insert, insertPs, batch, batchPs,
+	              piGetList, piInsert];
+	
+	for(var i = 0; i < charts.length; i++){
+		if(show)
+			charts[i].series[idx[value]].show();
+		else
+			charts[i].series[idx[value]].hide();
+	}
+}
+
+$(document).ready(function(){
+	$('#showall').click(showAll);
+});
+
 Highcharts.theme = {
 	credits : {
 		enabled : false
@@ -60,6 +98,7 @@ Highcharts.theme = {
 		}
 	},
 };
+
 Highcharts.setOptions(Highcharts.theme);
 
 function compare(a, b){
@@ -87,6 +126,7 @@ function genSeries(data){
         }
 	}, {
 		name : 'Hibernate',
+		visible: false,
 		data : [ data.hibernate],
 		dataLabels: {
             enabled: true,
@@ -96,6 +136,7 @@ function genSeries(data){
         }
 	}, {
 		name : 'Mybatis',
+		visible: false,
 		data : [ data.mybatis],
 		dataLabels: {
             enabled: true,
@@ -105,6 +146,7 @@ function genSeries(data){
         }
 	}, {
 		name : 'Spring jdbc',
+		visible: false,
 		data : [ data.spring],
 		dataLabels: {
             enabled: true,
@@ -132,7 +174,7 @@ function genPlotLines(data){
 
 $(function() {
 	// 总览-性能
-	var overviewPerformace = new Highcharts.Chart({
+	overviewPerformace = new Highcharts.Chart({
 		chart : {
 			renderTo : 'overview-query',
 			type : 'column',
@@ -172,18 +214,21 @@ $(function() {
 			data : [ testResult["getList"].jdbc, testResult["getMapList"].jdbc]
 		}, {
 			name : 'Hibernate',
+			visible: false,
 			data : [ testResult["getList"].hibernate, testResult["getMapList"].hibernate]
 		}, {
 			name : 'Mybatis',
+			visible: false,
 			data : [ testResult["getList"].mybatis, testResult["getMapList"].mybatis]
 		}, {
 			name : 'Spring jdbc',
+			visible: false,
 			data : [ testResult["getList"].spring, testResult["getMapList"].spring]
 		}]
 	});
 	
 	//总览-代码量
-	var overviewCode = new Highcharts.Chart({
+	overviewCode = new Highcharts.Chart({
 		credits : {
 			enabled : false
 		},
@@ -238,18 +283,21 @@ $(function() {
 			data : [ testResult["insert"].jdbc, testResult["batchInsert"].jdbc/100]
 		}, {
 			name : 'Hibernate',
+			visible: false,
 			data : [ testResult["insert"].hibernate, testResult["batchInsert"].hibernate/100]
 		}, {
 			name : 'Mybatis',
+			visible: false,
 			data : [ testResult["insert"].mybatis, testResult["batchInsert"].mybatis/100]
 		}, {
 			name : 'Spring jdbc',
+			visible: false,
 			data : [ testResult["insert"].spring, testResult["batchInsert"].spring/100]
 		}]
 	});
 	
 	//性能-对象-启用动态字节码
-	var getListDynamic = new Highcharts.Chart({
+	getListDynamic = new Highcharts.Chart({
 		chart : {
 			renderTo : 'getlist-dynamic'
 		},
@@ -271,7 +319,7 @@ $(function() {
 	});
 	
 	//性能-对象-禁用动态字节码
-	var getListReflect = new Highcharts.Chart({
+	getListReflect = new Highcharts.Chart({
 		chart : {
 			renderTo : 'getlist-reflect'
 		},
@@ -293,7 +341,7 @@ $(function() {
 	});
 	
 	//性能-Map
-	var getMapList = new Highcharts.Chart({
+	getMapList = new Highcharts.Chart({
 		chart : {
 			renderTo : 'getmaplist'
 		},
@@ -315,7 +363,7 @@ $(function() {
 	});
 	
 	//性能-插入
-	var insert = new Highcharts.Chart({
+	insert = new Highcharts.Chart({
 		chart : {
 			renderTo : 'insert'
 		},
@@ -337,7 +385,7 @@ $(function() {
 	});
 	
 	//性能-插入PS
-	var insert = new Highcharts.Chart({
+	insertPs = new Highcharts.Chart({
 		chart : {
 			renderTo : 'insertps'
 		},
@@ -359,7 +407,7 @@ $(function() {
 	});
 	
 	//性能-批量
-	var batch = new Highcharts.Chart({
+	batch = new Highcharts.Chart({
 		chart : {
 			renderTo : 'batch'
 		},
@@ -381,7 +429,7 @@ $(function() {
 	});
 	
 	//性能-批量PS
-	var batch = new Highcharts.Chart({
+	batchPs = new Highcharts.Chart({
 		chart : {
 			renderTo : 'batchps'
 		},
@@ -405,7 +453,7 @@ $(function() {
 	
 	//-----------------------------------pi
 	//性能-树莓派-对象-启用动态字节码
-	var piGetList = new Highcharts.Chart({
+	piGetList = new Highcharts.Chart({
 		chart : {
 			renderTo : 'pi-getlist'
 		},
@@ -428,18 +476,21 @@ $(function() {
 			data : [ testResultPi["getList"].jdbc, testResultPi["getMapList"].jdbc]
 		}, {
 			name : 'Hibernate',
+			visible: false,
 			data : [ testResultPi["getList"].hibernate, testResultPi["getMapList"].hibernate]
 		}, {
 			name : 'Mybatis',
+			visible: false,
 			data : [ testResultPi["getList"].mybatis, testResultPi["getMapList"].mybatis]
 		}, {
 			name : 'Spring jdbc',
+			visible: false,
 			data : [ testResultPi["getList"].spring, testResultPi["getMapList"].spring]
 		}]
 	});
 	
 	//性能-树莓派-插入
-	var piInsert = new Highcharts.Chart({
+	piInsert = new Highcharts.Chart({
 		chart : {
 			renderTo : 'pi-insert'
 		},
@@ -462,12 +513,15 @@ $(function() {
 			data : [ testResultPi["insert"].jdbc, testResultPi["batchInsert"].jdbc/100]
 		}, {
 			name : 'Hibernate',
+			visible: false,
 			data : [ testResultPi["insert"].hibernate, testResultPi["batchInsert"].hibernate/100]
 		}, {
 			name : 'Mybatis',
+			visible: false,
 			data : [ testResultPi["insert"].mybatis, testResultPi["batchInsert"].mybatis/100]
 		}, {
 			name : 'Spring jdbc',
+			visible: false,
 			data : [ testResultPi["insert"].spring, testResultPi["batchInsert"].spring/100]
 		}]
 	});
