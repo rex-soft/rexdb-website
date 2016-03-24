@@ -25,7 +25,7 @@ testResults.mysql = {"insert":{"rexdb":388.63,"jdbc":391.78,"hibernate":268.53,"
 testResults.h2 = {"insert":{"rexdb":4231.63,"jdbc":4646.44,"hibernate":1242.16,"mybatis":3706.56,"spring":3953.29},"insertPs":{"rexdb":4340.21,"jdbc":4703.94,"hibernate":1532.33,"mybatis":4055.18,"spring":4360.54},"batchInsert":{"rexdb":8622.47,"jdbc":8927.83,"hibernate":6931.79,"mybatis":7904.66,"spring":8342.87},"batchInsertPs":{"rexdb":8531.47,"jdbc":8590.51,"hibernate":6964.48,"mybatis":7847.62,"spring":8074.42},"getList":{"rexdb":42904.08,"jdbc":44127.27,"hibernate":30526.46,"mybatis":32225.33,"spring":42809.49},"getList-disableDynamicClass":{"rexdb":39068.06,"jdbc":44301.39,"hibernate":29575.46,"mybatis":32566.42,"spring":44181.26},"getMapList":{"rexdb":39253.07,"jdbc":41218.01,"hibernate":37974.52,"mybatis":32563.32,"spring":32281.92}}; 
 testResults.postgresql={"insert":{"rexdb":2495.19,"jdbc":2504.69,"hibernate":1243.42,"mybatis":2236.2,"spring":1582.27},"insertPs":{"rexdb":2713.02,"jdbc":2542.56,"hibernate":1312.35,"mybatis":2619.13,"spring":1549.62},"batchInsert":{"rexdb":16664.95,"jdbc":16861.99,"hibernate":15555.33,"mybatis":16005.13,"spring":3928.56},"batchInsertPs":{"rexdb":16384.68,"jdbc":16755.16,"hibernate":15817.72,"mybatis":16056.13,"spring":3909.84},"getList":{"rexdb":121268.9,"jdbc":130431.11,"hibernate":51713.31,"mybatis":72537.33,"spring":94581.25},"getList-disableDynamicClass":{"rexdb":100540.63,"jdbc":164024.06,"hibernate":52070.23,"mybatis":81134.21,"spring":94065.03},"getMapList":{"rexdb":101411.22,"jdbc":121183.97,"hibernate":91340.49,"mybatis":70785.26,"spring":70401.8}}
 testResults.derby={"insert":{"rexdb":1563.15,"jdbc":1742.7,"hibernate":0,"mybatis":0,"spring":1542.73},"insertPs":{"rexdb":1657.65,"jdbc":1740.5,"hibernate":0,"mybatis":0,"spring":1665.64},"batchInsert":{"rexdb":12797.72,"jdbc":12794.34,"hibernate":0,"mybatis":0,"spring":12404.35},"batchInsertPs":{"rexdb":12576.55,"jdbc":12502,"hibernate":0,"mybatis":0,"spring":12270.56},"getList":{"rexdb":8335.68,"jdbc":8380.58,"hibernate":0,"mybatis":0,"spring":8459.89},"getList-disableDynamicClass":{"rexdb":8210.19,"jdbc":8544.63,"hibernate":0,"mybatis":0,"spring":8488.53},"getMapList":{"rexdb":8319.7,"jdbc":8312.03,"hibernate":0,"mybatis":0,"spring":8223.39}};
-
+testResults.hsqldb={"insert":{"rexdb":3782.54,"jdbc":4176.54,"hibernate":1680.04,"mybatis":3096.73,"spring":3933.32},"insertPs":{"rexdb":5264.31,"jdbc":5324.3,"hibernate":3149.39,"mybatis":3900.14,"spring":5206.27},"batchInsert":{"rexdb":182980.56,"jdbc":174466.69,"hibernate":67869.24,"mybatis":129850.72,"spring":179767.42},"batchInsertPs":{"rexdb":160713.43,"jdbc":200481.73,"hibernate":124639.84,"mybatis":116095.48,"spring":193596.74},"getList":{"rexdb":495486.78,"jdbc":480205.93,"hibernate":240487.12,"mybatis":297032.03,"spring":523321.66},"getList-disableDynamicClass":{"rexdb":484881.82,"jdbc":547459.79,"hibernate":251269.04,"mybatis":397917.33,"spring":555738.54},"getMapList":{"rexdb":492261.66,"jdbc":419311.26,"hibernate":388148.66,"mybatis":378964.55,"spring":284008.24}};
 	var testResultPi = {
 		    "insert": {
 		        "rexdb": 424.43,
@@ -160,13 +160,16 @@ include_once('include/navbar.php');
 						  <input type="radio" id="mysql" name ="database" value="mysql" checked="checked"> Mysql 5.7
 						</label>
 						<label class="radio-inline">
-						  <input type="radio" id="h2" name ="database" value="h2"> h2 1.4
+						  <input type="radio" id="h2" name ="database" value="h2"> H2 1.4
 						</label>
 						<label class="radio-inline">
 						  <input type="radio" id="postgresql" name ="database" value="postgresql"> Postgresql 9.5
 						</label>
 						<label class="radio-inline">
 						  <input type="radio" id="derby" name ="database" value="derby"> Derby 10.12
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" id="hsqldb" name ="database" value="hsqldb"> Hsqldb 2.3
 						</label>
     				</p>
   				</div>
