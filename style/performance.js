@@ -118,6 +118,8 @@ Highcharts.theme = {
 Highcharts.setOptions(Highcharts.theme);
 
 function compare(a, b){
+	if(a == 0)
+		return '';
 	var com = ((a - b)*100/b).toFixed(1);
 	if(com < 0)
 		return '- ' + (com.substr(1)) + '%';
