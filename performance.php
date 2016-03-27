@@ -27,6 +27,10 @@ testResults.postgresql={"insert":{"rexdb":2495.19,"jdbc":2504.69,"hibernate":124
 testResults.derby={"insert":{"rexdb":1563.15,"jdbc":1742.7,"hibernate":0,"mybatis":0,"spring":1542.73},"insertPs":{"rexdb":1657.65,"jdbc":1740.5,"hibernate":0,"mybatis":0,"spring":1665.64},"batchInsert":{"rexdb":12797.72,"jdbc":12794.34,"hibernate":0,"mybatis":0,"spring":12404.35},"batchInsertPs":{"rexdb":12576.55,"jdbc":12502,"hibernate":0,"mybatis":0,"spring":12270.56},"getList":{"rexdb":8335.68,"jdbc":8380.58,"hibernate":0,"mybatis":0,"spring":8459.89},"getList-disableDynamicClass":{"rexdb":8210.19,"jdbc":8544.63,"hibernate":0,"mybatis":0,"spring":8488.53},"getMapList":{"rexdb":8319.7,"jdbc":8312.03,"hibernate":0,"mybatis":0,"spring":8223.39}};
 testResults.hsqldb={"insert":{"rexdb":3782.54,"jdbc":4176.54,"hibernate":1680.04,"mybatis":3096.73,"spring":3933.32},"insertPs":{"rexdb":5264.31,"jdbc":5324.3,"hibernate":3149.39,"mybatis":3900.14,"spring":5206.27},"batchInsert":{"rexdb":182980.56,"jdbc":174466.69,"hibernate":67869.24,"mybatis":129850.72,"spring":179767.42},"batchInsertPs":{"rexdb":160713.43,"jdbc":200481.73,"hibernate":124639.84,"mybatis":116095.48,"spring":193596.74},"getList":{"rexdb":495486.78,"jdbc":480205.93,"hibernate":240487.12,"mybatis":297032.03,"spring":523321.66},"getList-disableDynamicClass":{"rexdb":484881.82,"jdbc":547459.79,"hibernate":251269.04,"mybatis":397917.33,"spring":555738.54},"getMapList":{"rexdb":492261.66,"jdbc":419311.26,"hibernate":388148.66,"mybatis":378964.55,"spring":284008.24}};
 testResults.dm={"insert":{"rexdb":2888.22,"jdbc":3618.27,"hibernate":1223.47,"mybatis":2443.85,"spring":3075.16},"insertPs":{"rexdb":3663.49,"jdbc":3659.49,"hibernate":2558.83,"mybatis":2924.69,"spring":4123.02},"batchInsert":{"rexdb":39838.26,"jdbc":39341.18,"hibernate":25381.85,"mybatis":32453.34,"spring":32774.53},"batchInsertPs":{"rexdb":29552.09,"jdbc":32400.5,"hibernate":22629.48,"mybatis":26054.78,"spring":29020.4},"getList":{"rexdb":94329.94,"jdbc":108671.38,"hibernate":45449.89,"mybatis":41979.04,"spring":102796.2},"getList-disableDynamicClass":{"rexdb":71188.69,"jdbc":97138.29,"hibernate":45025.37,"mybatis":43925.93,"spring":103484.2},"getMapList":{"rexdb":63914.24,"jdbc":89808.17,"hibernate":49920.02,"mybatis":48229.27,"spring":37303.34}};
+testResults.sqlserver={"insert":{"rexdb":1371.6,"jdbc":1205.7,"hibernate":640.77,"mybatis":0,"spring":1427.65},"insertPs":{"rexdb":1439.59,"jdbc":1460.67,"hibernate":754.99,"mybatis":0,"spring":1402.7},"batchInsert":{"rexdb":33589.66,"jdbc":32076.68,"hibernate":28988.83,"mybatis":0,"spring":30625.4},"batchInsertPs":{"rexdb":32712.19,"jdbc":35554.18,"hibernate":30046.49,"mybatis":0,"spring":30482.16},"getList":{"rexdb":121765.41,"jdbc":105907.04,"hibernate":58330.79,"mybatis":0,"spring":104680.53},"getList-disableDynamicClass":{"rexdb":87715.66,"jdbc":101613.39,"hibernate":55839.87,"mybatis":0,"spring":99678.89},"getMapList":{"rexdb":89721.79,"jdbc":87511.13,"hibernate":101229.7,"mybatis":0,"spring":66110.28}}
+testResults.oracle={"insert":{"rexdb":1440.52,"jdbc":1481.36,"hibernate":795.09,"mybatis":1388.04,"spring":1460.16},"insertPs":{"rexdb":1491.32,"jdbc":1560.89,"hibernate":1077.59,"mybatis":1298.46,"spring":1519.77},"batchInsert":{"rexdb":16947.57,"jdbc":20611.03,"hibernate":10024.1,"mybatis":19346.02,"spring":11767.29},"batchInsertPs":{"rexdb":19155.08,"jdbc":18560.56,"hibernate":12385.09,"mybatis":19683.07,"spring":12668.77},"getList":{"rexdb":52666.79,"jdbc":52001.62,"hibernate":32401.95,"mybatis":35031.98,"spring":50686.86},"getList-disableDynamicClass":{"rexdb":45718.49,"jdbc":49851.14,"hibernate":33934.62,"mybatis":35277.71,"spring":50722.71},"getMapList":{"rexdb":41203.33,"jdbc":47743.36,"hibernate":38303.09,"mybatis":34921.25,"spring":29596.62}};
+testResults.db2={"insert":{"rexdb":1633.47,"jdbc":1660.74,"hibernate":1169.58,"mybatis":0,"spring":1807.45},"insertPs":{"rexdb":1861.12,"jdbc":1818.23,"hibernate":1388.94,"mybatis":0,"spring":1831.62},"batchInsert":{"rexdb":32914.27,"jdbc":36790.34,"hibernate":36721.65,"mybatis":0,"spring":39229.75},"batchInsertPs":{"rexdb":34377.57,"jdbc":35155.26,"hibernate":29850.07,"mybatis":0,"spring":30797.86},"getList":{"rexdb":48718.05,"jdbc":48919.46,"hibernate":35254.94,"mybatis":0,"spring":31098.44},"getList-disableDynamicClass":{"rexdb":44071.91,"jdbc":50897.44,"hibernate":27070.93,"mybatis":0,"spring":42152.06},"getMapList":{"rexdb":40130.67,"jdbc":42996.57,"hibernate":32639.91,"mybatis":0,"spring":35707.26}};
+testResults.kingbase={"insert":{"rexdb":1096.67,"jdbc":1078.24,"hibernate":634.09,"mybatis":1019.08,"spring":1031},"insertPs":{"rexdb":1081.36,"jdbc":1124.9,"hibernate":747.27,"mybatis":1088.56,"spring":1046.87},"batchInsert":{"rexdb":31000.67,"jdbc":31903.24,"hibernate":21308.36,"mybatis":29436.77,"spring":30059.05},"batchInsertPs":{"rexdb":28117.19,"jdbc":30727.26,"hibernate":22960.61,"mybatis":27874.41,"spring":28832.12},"getList":{"rexdb":57253.03,"jdbc":76890.47,"hibernate":45662.36,"mybatis":40647.13,"spring":79706.92},"getList-disableDynamicClass":{"rexdb":52174.87,"jdbc":78295.86,"hibernate":45942.85,"mybatis":41073.83,"spring":80344.5},"getMapList":{"rexdb":50732.98,"jdbc":60408.27,"hibernate":56829.3,"mybatis":44510.42,"spring":39445.1}};
 
 var testResultPi = {
 		    "insert": {
@@ -126,20 +130,24 @@ include_once('include/navbar.php');
 			<div class="col-md-12">
 				<h2>性能测试</h2>
 				<p>
-				我们进行了一系列检测，并且与JDBC和同类框架进行了比较。
-				由于Rexdb封装了JDBC,并且扩展了额外的功能，因此理论上性能不会好于直接调用JDBC接口。虽然如此，但我们会通过代码优化，尽可能的降低不必要的性能损耗。
+				对于Rexdb的每个重要版本，均会进行一系列的性能检测。
 				</p>
 				<p>
-				性能测试结果与软硬件环境、框架版本、优化配置选项，甚至和测试时的系统空闲资源相关，并不是每一次测试都能得出相同的结论，但可以作为性能对比的参考。
-				以下均为某一次的测试结果，具体数值可能是不准确的，与您自行测试的结果也可能有较大的偏差。
-				您可以自行运行测试程序，以获得准确的数值。
-				我们的测试环境为<a href="#" data-toggle="popover" data-placement="auto bottom" data-trigger="hover" title="台式机电脑系统" ref="#env-pc">台式机电脑系统</a>，完整的测试程序请<a href="#">点击这里</a>下载。
+				性能测试结果与软硬件环境、框架版本、优化配置选项、测试样本数量，甚至和执行测试时的系统空闲资源有关。
+				在测试中的使用的第三方框架和数据库均未进行有针对性的优化，各项数据并不能代表其真实能力。
+				以下测试运行于<a href="#" data-toggle="popover" data-placement="auto bottom" data-trigger="hover" title="台式机电脑系统" ref="#env-pc">台式机电脑系统</a>，是某一次执行测试程序的结果，仅作为Rexdb框架性能的参考。
 				</p>
 				<p>
-				测试程序中的Hibernate等第三方框架并未进行有针对性的优化，因此它们的测试结果仅供参考。默认图示中没有显示这些框架的性能，您可以从下面选择查看。
+				您可以<a href="#">下载测试程序</a>，并在您的环境中运行，以获得较为准确的结果。
 				</p>
+				<div id="env-pc" style="display: none">
+					<ul style="margin-left: -30px; width: 350px">
+						<li><b>硬件环境：</b>Xeon E3 / DDR3 / SSD </li>
+						<li><b>软件环境：</b>Windows 10 pro x64 / JDK 1.7.0</li>
+					</ul>
+				</div>
 				<div class="bs-callout bs-callout-info">
-    				<h4>查看测试结论（<a  id="showall" href="#">全部显示</a>）</h4>
+    				<h4>查看测试结论（<a  id="showall" href="javascript:void(0)">显示全部框架</a>）</h4>
     				<p>
 						<label class="checkbox-inline">
 						  <input type="checkbox" id="rexdb" value="rexdb" checked="checked" disabled="disabled"> Rexdb 1.0.0-beta
@@ -158,33 +166,20 @@ include_once('include/navbar.php');
 						</label>
     				</p>
     				<p>
-						<label class="radio-inline">
-						  <input type="radio" id="mysql" name ="database" value="mysql" checked="checked"> Mysql 5.7
-						</label>
-						<label class="radio-inline">
-						  <input type="radio" id="h2" name ="database" value="h2"> H2 1.4
-						</label>
-						<label class="radio-inline">
-						  <input type="radio" id="postgresql" name ="database" value="postgresql"> Postgresql 9.5
-						</label>
-						<label class="radio-inline">
-						  <input type="radio" id="derby" name ="database" value="derby"> Derby 10.12
-						</label>
-						<label class="radio-inline">
-						  <input type="radio" id="hsqldb" name ="database" value="hsqldb"> Hsqldb 2.3
-						</label>
-						<label class="radio-inline">
-						  <input type="radio" id="dm" name ="database" value="dm"> 达梦 7.1
-						</label>
+	    					<label class="radio-inline"><input type="radio" id="oracle" name ="database" value="oracle">Oracle 10g</label>
+	    					<label class="radio-inline"><input type="radio" id="sqlserver" name ="database" value="sqlserver">SQL Server 2008</label>
+							<label class="radio-inline"><input type="radio" id="db2" name ="database" value="db2">DB2 10.1</label>
+							<label class="radio-inline"><input type="radio" id="mysql" name ="database" value="mysql" checked="checked">Mysql 5.7</label>
+							<label class="radio-inline"><input type="radio" id="postgresql" name ="database" value="postgresql">Postgresql 9.5</label>
+							<label class="radio-inline"><input type="radio" id="hsqldb" name ="database" value="hsqldb">Hsqldb 2.3</label>
+							<label class="radio-inline"><input type="radio" id="h2" name ="database" value="h2">H2 1.4</label>
+							<label class="radio-inline"><input type="radio" id="derby" name ="database" value="derby">Derby 10.12</label>
+							<br/>
+	    					<label class="radio-inline"><input type="radio" id="dm" name ="database" value="dm">达梦 7.1</label>
+							<label class="radio-inline"><input type="radio" id="kingbase" name ="database" value="kingbase">金仓 7.1</label>
     				</p>
   				</div>
-				
-				<div id="env-pc" style="display: none">
-					<ul style="margin-left: -30px; width: 480px">
-						<li><b>硬件环境：</b>Xeon E3 / DDR3 / SSD </li>
-						<li><b>软件环境：</b>Windows 10 pro x64 / JDK 1.7.0 / Mysql 5.7.10</li>
-					</ul>
-				</div>
+
 			</div>
 		</div>
 		
