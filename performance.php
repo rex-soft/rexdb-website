@@ -31,8 +31,10 @@ testResults.sqlserver={"insert":{"rexdb":1371.6,"jdbc":1205.7,"hibernate":640.77
 testResults.oracle={"insert":{"rexdb":1440.52,"jdbc":1481.36,"hibernate":795.09,"mybatis":1388.04,"spring":1460.16},"insertPs":{"rexdb":1491.32,"jdbc":1560.89,"hibernate":1077.59,"mybatis":1298.46,"spring":1519.77},"batchInsert":{"rexdb":16947.57,"jdbc":20611.03,"hibernate":10024.1,"mybatis":19346.02,"spring":11767.29},"batchInsertPs":{"rexdb":19155.08,"jdbc":18560.56,"hibernate":12385.09,"mybatis":19683.07,"spring":12668.77},"getList":{"rexdb":52666.79,"jdbc":52001.62,"hibernate":32401.95,"mybatis":35031.98,"spring":50686.86},"getList-disableDynamicClass":{"rexdb":45718.49,"jdbc":49851.14,"hibernate":33934.62,"mybatis":35277.71,"spring":50722.71},"getMapList":{"rexdb":41203.33,"jdbc":47743.36,"hibernate":38303.09,"mybatis":34921.25,"spring":29596.62}};
 testResults.db2={"insert":{"rexdb":1633.47,"jdbc":1660.74,"hibernate":1169.58,"mybatis":0,"spring":1807.45},"insertPs":{"rexdb":1861.12,"jdbc":1818.23,"hibernate":1388.94,"mybatis":0,"spring":1831.62},"batchInsert":{"rexdb":32914.27,"jdbc":36790.34,"hibernate":36721.65,"mybatis":0,"spring":39229.75},"batchInsertPs":{"rexdb":34377.57,"jdbc":35155.26,"hibernate":29850.07,"mybatis":0,"spring":30797.86},"getList":{"rexdb":48718.05,"jdbc":48919.46,"hibernate":35254.94,"mybatis":0,"spring":31098.44},"getList-disableDynamicClass":{"rexdb":44071.91,"jdbc":50897.44,"hibernate":27070.93,"mybatis":0,"spring":42152.06},"getMapList":{"rexdb":40130.67,"jdbc":42996.57,"hibernate":32639.91,"mybatis":0,"spring":35707.26}};
 testResults.kingbase={"insert":{"rexdb":1096.67,"jdbc":1078.24,"hibernate":634.09,"mybatis":1019.08,"spring":1031},"insertPs":{"rexdb":1081.36,"jdbc":1124.9,"hibernate":747.27,"mybatis":1088.56,"spring":1046.87},"batchInsert":{"rexdb":31000.67,"jdbc":31903.24,"hibernate":21308.36,"mybatis":29436.77,"spring":30059.05},"batchInsertPs":{"rexdb":28117.19,"jdbc":30727.26,"hibernate":22960.61,"mybatis":27874.41,"spring":28832.12},"getList":{"rexdb":57253.03,"jdbc":76890.47,"hibernate":45662.36,"mybatis":40647.13,"spring":79706.92},"getList-disableDynamicClass":{"rexdb":52174.87,"jdbc":78295.86,"hibernate":45942.85,"mybatis":41073.83,"spring":80344.5},"getMapList":{"rexdb":50732.98,"jdbc":60408.27,"hibernate":56829.3,"mybatis":44510.42,"spring":39445.1}};
+testResults.oscar={"insert":{"rexdb":830.96,"jdbc":848.27,"hibernate":842.47,"mybatis":1076.53,"spring":870.67},"insertPs":{"rexdb":852.28,"jdbc":861.99,"hibernate":858.82,"mybatis":1079.95,"spring":861.89},"batchInsert":{"rexdb":74906.46,"jdbc":103307.35,"hibernate":68141.62,"mybatis":74533.71,"spring":101555.84},"batchInsertPs":{"rexdb":84255.81,"jdbc":87474.76,"hibernate":57157.28,"mybatis":59640.81,"spring":81990.92},"getList":{"rexdb":32782.35,"jdbc":32707.47,"hibernate":28796.64,"mybatis":32177.05,"spring":33625.36},"getList-disableDynamicClass":{"rexdb":32214.42,"jdbc":33133.41,"hibernate":28545.87,"mybatis":31932.29,"spring":33476.23},"getMapList":{"rexdb":32422.54,"jdbc":32321.29,"hibernate":31334.83,"mybatis":31737.07,"spring":31726.87}};
 
-var testResultPi = {
+
+	var testResultPi = {
 		    "insert": {
 		        "rexdb": 424.43,
 		        "jdbc": 425.81,
@@ -133,12 +135,13 @@ include_once('include/navbar.php');
 				对于Rexdb的每个重要版本，均会进行一系列的性能检测。
 				</p>
 				<p>
-				性能测试结果与软硬件环境、框架版本、优化配置选项、测试样本数量，甚至和执行测试时的系统空闲资源有关。
+				性能检测的结果与软硬件环境、框架版本、配置选项、测试样本数量，甚至与执行测试时的系统空闲资源有关，可能存在较大误差，仅作为Rexdb框架性能的参考。
 				在测试中的使用的第三方框架和数据库均未进行有针对性的优化，各项数据并不能代表其真实能力。
-				以下测试运行于<a href="#" data-toggle="popover" data-placement="auto bottom" data-trigger="hover" title="台式机电脑系统" ref="#env-pc">台式机电脑系统</a>，是某一次执行测试程序的结果，仅作为Rexdb框架性能的参考。
+				若无特殊说明，以下测试均运行于<a href="#" data-toggle="popover" data-placement="auto bottom" data-trigger="hover" title="台式机电脑系统" ref="#env-pc">台式机电脑系统</a>，是某一次执行测试程序的结果。
+				您可以<a href="#">下载测试程序</a>并在您的环境中运行，以获得相对准确的结果。
 				</p>
 				<p>
-				您可以<a href="#">下载测试程序</a>，并在您的环境中运行，以获得较为准确的结果。
+				需要注意的是，以下各持久层框架均封装了JDBC接口，因此理论上性能不会好于直接调用JDBC。如果测试结果中出现了例外，一般是因误差所致。
 				</p>
 				<div id="env-pc" style="display: none">
 					<ul style="margin-left: -30px; width: 350px">
@@ -177,6 +180,7 @@ include_once('include/navbar.php');
 							<br/>
 	    					<label class="radio-inline"><input type="radio" id="dm" name ="database" value="dm">达梦 7.1</label>
 							<label class="radio-inline"><input type="radio" id="kingbase" name ="database" value="kingbase">金仓 7.1</label>
+							<label class="radio-inline"><input type="radio" id="oscar" name ="database" value="oscar">神通 7.0 (Ubuntu 15.1)</label>
     				</p>
   				</div>
 
