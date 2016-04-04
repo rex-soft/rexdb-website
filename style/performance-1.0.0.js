@@ -8,11 +8,14 @@ $(document).ready(function(){
 		refreshChart(this);
 	})
 	$('input[name=database]').change(function(){
-		reloadDatabase(this);
+		var chk = this;
+		$(this).parent().after('<span id="loading" class="label label-info glyphicon glyphicon-refresh" style="margin-left: 3px; display: inline;"></span>');
+		setTimeout(function(){reloadDatabase(chk)}, 10);
 	})
 	
 	result = testResults['mysql'];
 	renderAllCharts();
+	showTip();
 });
 
 function showAll(){
@@ -28,6 +31,11 @@ function showAll(){
 function refreshChart(chk){
 	var value = chk.value;
 	var show = chk.checked;
+	if(show)
+		$(chk).parent().addClass('b');
+	else
+		$(chk).parent().removeClass('b');
+	
 	var idx = {
 		rexdb: 0,
 		jdbc: 1,
@@ -35,8 +43,7 @@ function refreshChart(chk){
 		mybatis: 3,
 		spring: 4
 	};
-	var charts = [overviewPerformace, overviewCode, getListDynamic, getListReflect, getMapList, insert, insertPs, batch, batchPs,
-	              piGetList, piInsert];
+	var charts = [overviewPerformace, overviewCode, getListDynamic, getListReflect, getMapList, insert, insertPs, batch, batchPs];
 	
 	for(var i = 0; i < charts.length; i++){
 		if(show)
@@ -49,7 +56,14 @@ function refreshChart(chk){
 function reloadDatabase(rdo){
 	if(!rdo.checked) return;
 	result = testResults[rdo.value];
+	
+	$('input[name=database]').parent().removeClass('b');
+	$('#'+rdo.value).parent().addClass('b');
+	
 	renderAllCharts();
+	showTip();
+	
+	$('#loading').remove();
 }
 
 Highcharts.theme = {
@@ -112,7 +126,7 @@ Highcharts.theme = {
 				}
 			}
 		}
-	},
+	}
 };
 
 Highcharts.setOptions(Highcharts.theme);
@@ -130,6 +144,11 @@ function compare(a, b){
 }
 
 function genSeries(data){
+	//show graphics
+	var showHibernate=$('#hibernate:checked').length > 0;
+	var showMybatis=$('#mybatis:checked').length > 0;
+	var showSpring=$('#spring:checked').length > 0;
+	
 	return [ {
 		name : 'Rexdb',
 		data : [ data.rexdb],
@@ -150,7 +169,7 @@ function genSeries(data){
         }
 	}, {
 		name : 'Hibernate',
-		visible: false,
+		visible: showHibernate,
 		data : [ data.hibernate],
 		dataLabels: {
             enabled: true,
@@ -160,7 +179,7 @@ function genSeries(data){
         }
 	}, {
 		name : 'Mybatis',
-		visible: false,
+		visible: showMybatis,
 		data : [ data.mybatis],
 		dataLabels: {
             enabled: true,
@@ -170,7 +189,7 @@ function genSeries(data){
         }
 	}, {
 		name : 'Spring',
-		visible: false,
+		visible: showSpring,
 		data : [ data.spring],
 		dataLabels: {
             enabled: true,
@@ -191,12 +210,30 @@ function genPlotLines(data){
         	}
         },
         width: 0.5,
-        zIndex: 999,
+        zIndex: 4,
         value: data.rexdb
 	}];
 }
 
+function showTip(){
+	//show tips
+	var db = $('input[name=database]:checked').val();
+	if(db != null && tips[db] != null){
+		$('#tip-tip').html(tips[db]);
+		$('#tip').show();
+	}else{
+		$('#tip-tip').empty();
+		$('#tip').hide();
+	}
+}
+
 function renderAllCharts(){
+	
+	//show graphics
+	var showHibernate=$('#hibernate:checked').length > 0;
+	var showMybatis=$('#mybatis:checked').length > 0;
+	var showSpring=$('#spring:checked').length > 0;
+	
 	// 总览-性能
 	overviewPerformace = new Highcharts.Chart({
 		chart : {
@@ -216,14 +253,12 @@ function renderAllCharts(){
 			categories: ['Query List', 'Query Map List']
 		},
 		yAxis: {
-//			max: 1500,
-//			type: 'logarithmic',
 			title: {
 				text: '每秒查询记录数'
 			}
 		},
 		title : {
-			text : '查询性能（行/每秒）'
+			text : '查询性能总览'
 		},
 		plotOptions : {
 			column : {
@@ -238,15 +273,15 @@ function renderAllCharts(){
 			data : [ result["getList"].jdbc, result["getMapList"].jdbc]
 		}, {
 			name : 'Hibernate',
-			visible: false,
+			visible: showHibernate,
 			data : [ result["getList"].hibernate, result["getMapList"].hibernate]
 		}, {
 			name : 'Mybatis',
-			visible: false,
+			visible: showMybatis,
 			data : [ result["getList"].mybatis, result["getMapList"].mybatis]
 		}, {
 			name : 'Spring',
-			visible: false,
+			visible: showSpring,
 			data : [ result["getList"].spring, result["getMapList"].spring]
 		}]
 	});
@@ -281,7 +316,7 @@ function renderAllCharts(){
 			}
 		},
 		title : {
-			text : '更新性能（行/每秒）'
+			text : '更新性能总览'
 		},
 		subtitle : {
 			text : null
@@ -307,15 +342,15 @@ function renderAllCharts(){
 			data : [ result["insert"].jdbc, result["batchInsert"].jdbc/100]
 		}, {
 			name : 'Hibernate',
-			visible: false,
+			visible: showHibernate,
 			data : [ result["insert"].hibernate, result["batchInsert"].hibernate/100]
 		}, {
 			name : 'Mybatis',
-			visible: false,
+			visible: showMybatis,
 			data : [ result["insert"].mybatis, result["batchInsert"].mybatis/100]
 		}, {
 			name : 'Spring',
-			visible: false,
+			visible: showSpring,
 			data : [ result["insert"].spring, result["batchInsert"].spring/100]
 		}]
 	});
@@ -474,79 +509,4 @@ function renderAllCharts(){
 		series : genSeries(result["batchInsertPs"])
 	});
 	
-	
-	//-----------------------------------pi
-	//性能-树莓派-对象-启用动态字节码
-	piGetList = new Highcharts.Chart({
-		chart : {
-			renderTo : 'pi-getlist'
-		},
-		xAxis: {
-			categories: ['Query List', 'Query Map List']
-		},
-		yAxis: {
-			title: {
-				text: '每秒查询记录数'
-			}
-		},
-		title : {
-			text : '查询性能（树莓派）'
-		},
-		series : [ {
-			name : 'Rexdb',
-			data : [ testResultPi["getList"].rexdb, testResultPi["getMapList"].rexdb]
-		}, {
-			name : 'JDBC',
-			data : [ testResultPi["getList"].jdbc, testResultPi["getMapList"].jdbc]
-		}, {
-			name : 'Hibernate',
-			visible: false,
-			data : [ testResultPi["getList"].hibernate, testResultPi["getMapList"].hibernate]
-		}, {
-			name : 'Mybatis',
-			visible: false,
-			data : [ testResultPi["getList"].mybatis, testResultPi["getMapList"].mybatis]
-		}, {
-			name : 'Spring',
-			visible: false,
-			data : [ testResultPi["getList"].spring, testResultPi["getMapList"].spring]
-		}]
-	});
-	
-	//性能-树莓派-插入
-	piInsert = new Highcharts.Chart({
-		chart : {
-			renderTo : 'pi-insert'
-		},
-		xAxis: {
-			categories: ['Insert', 'Batch Insert (hundred rows)']
-		},
-		yAxis: {
-			title: {
-				text: '每秒写入记录数'
-			}
-		},
-		title : {
-			text : '更新性能（树莓派）'
-		},
-		series : [ {
-			name : 'Rexdb',
-			data : [ testResultPi["insert"].rexdb, testResultPi["batchInsert"].rexdb/100]
-		}, {
-			name : 'JDBC',
-			data : [ testResultPi["insert"].jdbc, testResultPi["batchInsert"].jdbc/100]
-		}, {
-			name : 'Hibernate',
-			visible: false,
-			data : [ testResultPi["insert"].hibernate, testResultPi["batchInsert"].hibernate/100]
-		}, {
-			name : 'Mybatis',
-			visible: false,
-			data : [ testResultPi["insert"].mybatis, testResultPi["batchInsert"].mybatis/100]
-		}, {
-			name : 'Spring',
-			visible: false,
-			data : [ testResultPi["insert"].spring, testResultPi["batchInsert"].spring/100]
-		}]
-	});
 }

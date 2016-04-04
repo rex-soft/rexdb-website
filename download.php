@@ -24,61 +24,39 @@ $activeMenu = 'download';
 include_once('include/navbar.php'); 
 ?>
 
-<div class="container top-div">
+<section id="header" class="top-div">
+	<div class="container">	
+		<div class="row" style="margin-top: 0; margin-bottom: 50px">
+			<div class="col-md-12">
+				<h3>下载</h3>
+				<br/>
+				<p>
+				在发布重要更新之前，Rexdb均会进行一系列的性能检测。
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="container">
 	<div class="row" style="margin-top: 20px; margin-bottom: 20px">
 		<div class="col-md-12">
-			<h3>最新版本</h3>
-			<p>以下是Rexdb发布的第一个稳定版。</p>
+			<h3>稳定版本</h3>
 			<p>编译好的包：</p>
 			<ul>
-				<li>
-					<p>
-						<a href="#"><b>rexdb-1.0.0.zip</b></a>
-						(<a href="#">pgp</a>, <a href="#">md5</a>, <a href="#">sha1</a>)
-					</p>
-				</li>
-				<li>
-					<p>
-						<a href="#"><b>rexdb-1.0.0.tar.gz</b></a>
-						(<a href="#">pgp</a>, <a href="#">md5</a>, <a href="#">sha1</a>)
-					</p>
-				</li>
+				<li><p><a href="#"><b>rexdb-1.0.0.zip</b></a>（<a href="#">pgp</a>, <a href="#">md5</a>, <a href="#">sha1</a>）</p></li>
+				<li><p><a href="#"><b>rexdb-1.0.0.tar.gz</b></a>（<a href="#">pgp</a>, <a href="#">md5</a>, <a href="#">sha1</a>）</p></li>
 			</ul>
 			
 			<p>源代码：</p>
 			<ul>
-				<li>
-					<p>
-						<a href="#"><b>rexdb-source-1.0.0.zip</b></a>
-						(<a href="#">pgp</a>, <a href="#">md5</a>, <a href="#">sha1</a>)
-					</p>
-				</li>
-				<li>
-					<p>
-						<a href="#"><b>rexdb-source-1.0.0.tar.gz</b></a>
-						(<a href="#">pgp</a>, <a href="#">md5</a>, <a href="#">sha1</a>)
-					</p>
-				</li>
+				<li><p><a href="#">rexdb-source-1.0.0.zip</a>（<a href="#">pgp</a>, <a href="#">md5</a>, <a href="#">sha1</a>）</p></li>
+				<li><p><a href="#">rexdb-source-1.0.0.tar.gz</a>（<a href="#">pgp</a>, <a href="#">md5</a>, <a href="#">sha1</a>）</p></li>
 			</ul>
-			<p>性能测试程序：</p>
+			<p>测试程序：</p>
 			<ul>
-				<li>
-					<p>
-						<a href="#"><b>rexdb-performance-1.0.0.zip</b></a>
-						(<a href="#">pgp</a>, <a href="#">md5</a>, <a href="#">sha1</a>)
-					</p>
-				</li>
-				<li>
-					<p>
-						<a href="#"><b>rexdb-performance-1.0.0.tar.gz</b></a>
-						(<a href="#">pgp</a>, <a href="#">md5</a>, <a href="#">sha1</a>)
-					</p>
-				</li>
-			</ul>
-			<p>运行环境要求：</p>
-			<ul>
-				<li><p>JDK 1.5 及以上版本</p></li>
-				<li><p>支持JDBC的运行环境</p></li>
+				<li><p><a href="#">rexdb-tester-1.0.0.zip</a>（<a href="#">pgp</a>, <a href="#">md5</a>, <a href="#">sha1</a>）</p></li>
+				<li><p><a href="#">rexdb-tester-1.0.0.tar.gz</a>（<a href="#">pgp</a>, <a href="#">md5</a>, <a href="#">sha1</a>）</p></li>
 			</ul>
 		</div>
 	</div>
@@ -86,7 +64,7 @@ include_once('include/navbar.php');
 	<div class="row" style="margin-top: 20px; margin-bottom: 20px">
 		<div class="col-md-12">
 			<h3>Github库</h3>
-			<p>Rexdb的代码托管在Github库中，您可以下载到几乎所有版本的源文件和二进制发行文件。</p>
+			<p>Rexdb的代码托管在Github库中，您可以下载到几所有版本的源文件。</p>
 			<pre>clone https://github.com/rex-soft/rexdb.git</pre>
 		</div>
 	</div>

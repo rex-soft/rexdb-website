@@ -58,8 +58,13 @@ $activeMenu = 'document';
 include_once('include/navbar.php'); 
 ?>
 <section id="header" class="top-div">
-	<div class="container">	
-		<? include_once($contentFile); ?>
+	<div class="container doc-content">	
+		<div class="row" style="margin-top: 0px; margin-bottom: 20px">
+			<div class="col-md-12">
+				<h3>文档目录</h3>
+				<? include_once($contentFile); ?>
+			</div>
+		</div>
 	</div>
 </section>
 <div class="container">
