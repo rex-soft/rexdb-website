@@ -24,6 +24,7 @@ $activeMenu = 'download';
 include_once('include/navbar.php'); 
 ?>
 
+<!-- 
 <section id="header" class="top-div">
 	<div class="container">	
 		<div class="row" style="margin-top: 0; margin-bottom: 50px">
@@ -31,41 +32,110 @@ include_once('include/navbar.php');
 				<h3>下载</h3>
 				<br/>
 				<p>
-				在发布重要更新之前，Rexdb均会进行一系列的性能检测。
+				Rexdb是开源软件，所有版本的程序和源代码都提供了下载。
 				</p>
 			</div>
 		</div>
 	</div>
 </section>
-
-<div class="container">
+  -->
+  
+<div class="container top-div">
 	<div class="row" style="margin-top: 20px; margin-bottom: 20px">
 		<div class="col-md-12">
-			<h3>稳定版本</h3>
-			<p>编译好的包：</p>
-			<ul>
-				<li><p><a href="#"><b>rexdb-1.0.0.zip</b></a>（<a href="#">pgp</a>, <a href="#">md5</a>, <a href="#">sha1</a>）</p></li>
-				<li><p><a href="#"><b>rexdb-1.0.0.tar.gz</b></a>（<a href="#">pgp</a>, <a href="#">md5</a>, <a href="#">sha1</a>）</p></li>
-			</ul>
-			
-			<p>源代码：</p>
-			<ul>
-				<li><p><a href="#">rexdb-source-1.0.0.zip</a>（<a href="#">pgp</a>, <a href="#">md5</a>, <a href="#">sha1</a>）</p></li>
-				<li><p><a href="#">rexdb-source-1.0.0.tar.gz</a>（<a href="#">pgp</a>, <a href="#">md5</a>, <a href="#">sha1</a>）</p></li>
-			</ul>
-			<p>测试程序：</p>
-			<ul>
-				<li><p><a href="#">rexdb-tester-1.0.0.zip</a>（<a href="#">pgp</a>, <a href="#">md5</a>, <a href="#">sha1</a>）</p></li>
-				<li><p><a href="#">rexdb-tester-1.0.0.tar.gz</a>（<a href="#">pgp</a>, <a href="#">md5</a>, <a href="#">sha1</a>）</p></li>
-			</ul>
+			<div class="media">
+		      <div class="media-left">
+		          <span class="media-object glyphicon glyphicon-cog" style="width: 64px; height: 64px; font-size: 64px;"></span>
+		      </div>
+		      <div class="media-body">
+		        <h4 class="media-heading">编译好的程序</h4>
+		        <ul class="list-group">
+				  <li class="list-group-item">
+				  	<img alt="Brand" width="20" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAA81BMVEX///9VPnxWPXxWPXxWPXxWPXxWPXxWPXz///9hSYT6+vuFc6BXPn37+vz8+/z9/f2LeqWMe6aOfqiTg6uXiK5bQ4BZQX9iS4VdRYFdRYJfSINuWI5vWY9xXJF0YJR3Y5Z4ZZd5ZZd6Z5h9apq0qcW1qsW1q8a6sMqpnLyrn76tocCvpMGwpMJoUoprVYxeRoJjS4abjLGilLemmbrDutDFvdLPx9nX0eDa1OLb1uPd1+Td2OXe2eXh3Ofj3+nk4Orl4evp5u7u7PLv7fPx7/T08vb08/f19Pf29Pj39vn6+fuEcZ9YP35aQn/8/P1ZQH5fR4PINAOdAAAAB3RSTlMAIWWOw/P002ipnAAAAPhJREFUeF6NldWOhEAUBRvtRsfdfd3d3e3/v2ZPmGSWZNPDqScqqaSBSy4CGJbtSi2ubRkiwXRkBo6ZdJIApeEwoWMIS1JYwuZCW7hc6ApJkgrr+T/eW1V9uKXS5I5GXAjW2VAV9KFfSfgJpk+w4yXhwoqwl5AIGwp4RPgdK3XNHD2ETYiwe6nUa18f5jYSxle4vulw7/EtoCdzvqkPv3bn7M0eYbc7xFPXzqCrRCgH0Hsm/IjgTSb04W0i7EGjz+xw+wR6oZ1MnJ9TWrtToEx+4QfcZJ5X6tnhw+nhvqebdVhZUJX/oFcKvaTotUcvUnY188ue/n38AunzPPE8yg7bAAAAAElFTkSuQmCC">
+				   	<a href="#"><b>rexdb-1.0.0.zip</b></a>
+				   	(<a href="#"><b>tar.gz</b></a>)
+				   	
+				    <span class="badge">校验码</span>
+				    <span style="float: right; margin-right: 5px">编译好的程序包</span>
+				  </li>
+				  
+				  <li class="list-group-item">
+				  	<img alt="Brand" width="20" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAA81BMVEX///9VPnxWPXxWPXxWPXxWPXxWPXxWPXz///9hSYT6+vuFc6BXPn37+vz8+/z9/f2LeqWMe6aOfqiTg6uXiK5bQ4BZQX9iS4VdRYFdRYJfSINuWI5vWY9xXJF0YJR3Y5Z4ZZd5ZZd6Z5h9apq0qcW1qsW1q8a6sMqpnLyrn76tocCvpMGwpMJoUoprVYxeRoJjS4abjLGilLemmbrDutDFvdLPx9nX0eDa1OLb1uPd1+Td2OXe2eXh3Ofj3+nk4Orl4evp5u7u7PLv7fPx7/T08vb08/f19Pf29Pj39vn6+fuEcZ9YP35aQn/8/P1ZQH5fR4PINAOdAAAAB3RSTlMAIWWOw/P002ipnAAAAPhJREFUeF6NldWOhEAUBRvtRsfdfd3d3e3/v2ZPmGSWZNPDqScqqaSBSy4CGJbtSi2ubRkiwXRkBo6ZdJIApeEwoWMIS1JYwuZCW7hc6ApJkgrr+T/eW1V9uKXS5I5GXAjW2VAV9KFfSfgJpk+w4yXhwoqwl5AIGwp4RPgdK3XNHD2ETYiwe6nUa18f5jYSxle4vulw7/EtoCdzvqkPv3bn7M0eYbc7xFPXzqCrRCgH0Hsm/IjgTSb04W0i7EGjz+xw+wR6oZ1MnJ9TWrtToEx+4QfcZJ5X6tnhw+nhvqebdVhZUJX/oFcKvaTotUcvUnY188ue/n38AunzPPE8yg7bAAAAAElFTkSuQmCC">
+				   	<a href="#"><b>rexdb-tester-1.0.0.zip</b></a>
+					(<a href="#"><b>tar.gz</b></a>)
+					
+				   	<span class="badge">校验码</span>
+				    <span style="float: right; margin-right: 5px">测试框架性能的程序</span>
+				  </li>
+				</ul>
+		      </div>
+		    </div>
+		
+			<div class="media">
+		      <div class="media-left">
+		          <span class="media-object glyphicon glyphicon-cog" style="width: 64px; height: 64px; font-size: 64px;"></span>
+		      </div>
+		      <div class="media-body">
+		        <h4 class="media-heading">源代码</h4>
+		        <ul class="list-group">
+				  <li class="list-group-item">
+				  	<img alt="Brand" width="20" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAA81BMVEX///9VPnxWPXxWPXxWPXxWPXxWPXxWPXz///9hSYT6+vuFc6BXPn37+vz8+/z9/f2LeqWMe6aOfqiTg6uXiK5bQ4BZQX9iS4VdRYFdRYJfSINuWI5vWY9xXJF0YJR3Y5Z4ZZd5ZZd6Z5h9apq0qcW1qsW1q8a6sMqpnLyrn76tocCvpMGwpMJoUoprVYxeRoJjS4abjLGilLemmbrDutDFvdLPx9nX0eDa1OLb1uPd1+Td2OXe2eXh3Ofj3+nk4Orl4evp5u7u7PLv7fPx7/T08vb08/f19Pf29Pj39vn6+fuEcZ9YP35aQn/8/P1ZQH5fR4PINAOdAAAAB3RSTlMAIWWOw/P002ipnAAAAPhJREFUeF6NldWOhEAUBRvtRsfdfd3d3e3/v2ZPmGSWZNPDqScqqaSBSy4CGJbtSi2ubRkiwXRkBo6ZdJIApeEwoWMIS1JYwuZCW7hc6ApJkgrr+T/eW1V9uKXS5I5GXAjW2VAV9KFfSfgJpk+w4yXhwoqwl5AIGwp4RPgdK3XNHD2ETYiwe6nUa18f5jYSxle4vulw7/EtoCdzvqkPv3bn7M0eYbc7xFPXzqCrRCgH0Hsm/IjgTSb04W0i7EGjz+xw+wR6oZ1MnJ9TWrtToEx+4QfcZJ5X6tnhw+nhvqebdVhZUJX/oFcKvaTotUcvUnY188ue/n38AunzPPE8yg7bAAAAAElFTkSuQmCC">
+				   	<a href="#"><b>rexdb-source-1.0.0.zip</b></a>
+				   	(<a href="#"><b>tar.gz</b></a>)
+				   	
+				    <span class="badge">校验码</span>
+				    <span style="float: right; margin-right: 5px">编译好的程序包</span>
+				  </li>
+				  
+				  <li class="list-group-item">
+				  	<img alt="Brand" width="20" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAA81BMVEX///9VPnxWPXxWPXxWPXxWPXxWPXxWPXz///9hSYT6+vuFc6BXPn37+vz8+/z9/f2LeqWMe6aOfqiTg6uXiK5bQ4BZQX9iS4VdRYFdRYJfSINuWI5vWY9xXJF0YJR3Y5Z4ZZd5ZZd6Z5h9apq0qcW1qsW1q8a6sMqpnLyrn76tocCvpMGwpMJoUoprVYxeRoJjS4abjLGilLemmbrDutDFvdLPx9nX0eDa1OLb1uPd1+Td2OXe2eXh3Ofj3+nk4Orl4evp5u7u7PLv7fPx7/T08vb08/f19Pf29Pj39vn6+fuEcZ9YP35aQn/8/P1ZQH5fR4PINAOdAAAAB3RSTlMAIWWOw/P002ipnAAAAPhJREFUeF6NldWOhEAUBRvtRsfdfd3d3e3/v2ZPmGSWZNPDqScqqaSBSy4CGJbtSi2ubRkiwXRkBo6ZdJIApeEwoWMIS1JYwuZCW7hc6ApJkgrr+T/eW1V9uKXS5I5GXAjW2VAV9KFfSfgJpk+w4yXhwoqwl5AIGwp4RPgdK3XNHD2ETYiwe6nUa18f5jYSxle4vulw7/EtoCdzvqkPv3bn7M0eYbc7xFPXzqCrRCgH0Hsm/IjgTSb04W0i7EGjz+xw+wR6oZ1MnJ9TWrtToEx+4QfcZJ5X6tnhw+nhvqebdVhZUJX/oFcKvaTotUcvUnY188ue/n38AunzPPE8yg7bAAAAAElFTkSuQmCC">
+				   	<a href="#"><b>rexdb-tester-source-1.0.0.zip</b></a>
+				    (<a href="#"><b>tar.gz</b></a>)
+				    
+				    <span class="badge">校验码</span>
+				    <span style="float: right; margin-right: 5px">编译好的程序包</span>
+				  </li>
+				</ul>
+		      </div>
+		    </div>	
+		
+			<div class="media">
+		      <div class="media-left">
+		          <span class="media-object glyphicon glyphicon-cog" style="width: 64px; height: 64px; font-size: 64px;"></span>
+		      </div>
+		      <div class="media-body">
+		        <h4 class="media-heading">文档</h4>
+		        <ul class="list-group">
+				  <li class="list-group-item">
+				  	<img alt="Brand" width="20" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAA81BMVEX///9VPnxWPXxWPXxWPXxWPXxWPXxWPXz///9hSYT6+vuFc6BXPn37+vz8+/z9/f2LeqWMe6aOfqiTg6uXiK5bQ4BZQX9iS4VdRYFdRYJfSINuWI5vWY9xXJF0YJR3Y5Z4ZZd5ZZd6Z5h9apq0qcW1qsW1q8a6sMqpnLyrn76tocCvpMGwpMJoUoprVYxeRoJjS4abjLGilLemmbrDutDFvdLPx9nX0eDa1OLb1uPd1+Td2OXe2eXh3Ofj3+nk4Orl4evp5u7u7PLv7fPx7/T08vb08/f19Pf29Pj39vn6+fuEcZ9YP35aQn/8/P1ZQH5fR4PINAOdAAAAB3RSTlMAIWWOw/P002ipnAAAAPhJREFUeF6NldWOhEAUBRvtRsfdfd3d3e3/v2ZPmGSWZNPDqScqqaSBSy4CGJbtSi2ubRkiwXRkBo6ZdJIApeEwoWMIS1JYwuZCW7hc6ApJkgrr+T/eW1V9uKXS5I5GXAjW2VAV9KFfSfgJpk+w4yXhwoqwl5AIGwp4RPgdK3XNHD2ETYiwe6nUa18f5jYSxle4vulw7/EtoCdzvqkPv3bn7M0eYbc7xFPXzqCrRCgH0Hsm/IjgTSb04W0i7EGjz+xw+wR6oZ1MnJ9TWrtToEx+4QfcZJ5X6tnhw+nhvqebdVhZUJX/oFcKvaTotUcvUnY188ue/n38AunzPPE8yg7bAAAAAElFTkSuQmCC">
+				   	<a href="#"><b>rexdb-source-1.0.0.zip</b></a>
+				   	(<a href="#"><b>tar.gz</b></a>)
+				   	
+				    <span class="badge">校验码</span>
+				    <span style="float: right; margin-right: 5px">编译好的程序包</span>
+				  </li>
+				  
+				  <li class="list-group-item">
+				  	<img alt="Brand" width="20" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAA81BMVEX///9VPnxWPXxWPXxWPXxWPXxWPXxWPXz///9hSYT6+vuFc6BXPn37+vz8+/z9/f2LeqWMe6aOfqiTg6uXiK5bQ4BZQX9iS4VdRYFdRYJfSINuWI5vWY9xXJF0YJR3Y5Z4ZZd5ZZd6Z5h9apq0qcW1qsW1q8a6sMqpnLyrn76tocCvpMGwpMJoUoprVYxeRoJjS4abjLGilLemmbrDutDFvdLPx9nX0eDa1OLb1uPd1+Td2OXe2eXh3Ofj3+nk4Orl4evp5u7u7PLv7fPx7/T08vb08/f19Pf29Pj39vn6+fuEcZ9YP35aQn/8/P1ZQH5fR4PINAOdAAAAB3RSTlMAIWWOw/P002ipnAAAAPhJREFUeF6NldWOhEAUBRvtRsfdfd3d3e3/v2ZPmGSWZNPDqScqqaSBSy4CGJbtSi2ubRkiwXRkBo6ZdJIApeEwoWMIS1JYwuZCW7hc6ApJkgrr+T/eW1V9uKXS5I5GXAjW2VAV9KFfSfgJpk+w4yXhwoqwl5AIGwp4RPgdK3XNHD2ETYiwe6nUa18f5jYSxle4vulw7/EtoCdzvqkPv3bn7M0eYbc7xFPXzqCrRCgH0Hsm/IjgTSb04W0i7EGjz+xw+wR6oZ1MnJ9TWrtToEx+4QfcZJ5X6tnhw+nhvqebdVhZUJX/oFcKvaTotUcvUnY188ue/n38AunzPPE8yg7bAAAAAElFTkSuQmCC">
+				   	<a href="#"><b>rexdb-tester-source-1.0.0.zip</b></a>
+				    (<a href="#"><b>tar.gz</b></a>)
+				    
+				    <span class="badge">校验码</span>
+				    <span style="float: right; margin-right: 5px">编译好的程序包</span>
+				  </li>
+				</ul>
+		      </div>
+		    </div>	
+		
 		</div>
 	</div>
 	
 	<div class="row" style="margin-top: 20px; margin-bottom: 20px">
 		<div class="col-md-12">
-			<h3>Github库</h3>
-			<p>Rexdb的代码托管在Github库中，您可以下载到几所有版本的源文件。</p>
-			<pre>clone https://github.com/rex-soft/rexdb.git</pre>
+			<h3>Github</h3>
+			<p>Rexdb的源代码托管在Github库中。如果您不了解Github，请参考<a href="https://help.github.com/index.html" target="_blank">Help</a>（英文）。</p>
+			<pre>clone https://github.com/rex-soft/rexdb.git
+clone https://github.com/rex-soft/rexdb-tester.git</pre>
 		</div>
 	</div>
 	
