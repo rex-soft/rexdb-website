@@ -15,19 +15,21 @@
     line-height: 1;
     font-style:normal;
     -webkit-font-smoothing: antialiased;
-    -webkit-text-stroke-width: 0.2px;
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-java:before { content: "\e693"; }
-.icon-code:before { content: "\e65f"; }
-.icon-document:before { content: "\e60c"; }
-.icon-zip:before { content: "\e60a"; }
-.icon-pdf:before { content: "\e618"; }
-.icon-apache:before { content: "\e6d5"; }
-.icon-bug:before { content: "\e623"; }
-.icon-suggest01:before { content: "\e613"; }
-.icon-submit:before { content: "\f0019"; }
+.icon-cspdf:before { content: "\e601"; vertical-align: top}
+.icon-document:before { content: "\e602"; }
+.icon-code:before { content: "\e603"; }
+.icon-zip:before { content: "\e606"; }
+.icon-5ca6292aappcrash:before { content: "\e60a"; }
+.icon-3pingtaixieyi:before { content: "\e60c"; }
+.icon-java:before { content: "\e608"; }
+.icon-yijianfankui:before { content: "\e607"; }
+.icon-submit:before { content: "\e609"; }
+
+
+
 
 a:hover{
 	text-decoration: none;
@@ -117,8 +119,41 @@ h4 {
 	font-size: 20px;
 }
 
+label {
+	font-weight: normal;
+}
+
+.form-title{
+	text-align: center; 
+	font-weight: bolder
+}
+
+.form-title-line {
+    background-color: #f5f5f5;
+}
+
 .b {
 	font-weight: bolder;
+}
+
+.dl .iconfont{
+	font-size: 20px; 
+	vertical-align: middle;
+}
+.dl .remark{
+	float: right; 
+	margin-right: 5px
+}
+
+.dl .iconmain{
+	width: 64px; 
+	height: 64px; 
+	font-size: 64px;
+	color: #337ab7;
+}
+
+.dl .iconmain-prim{
+	color: #2a5d84 !important;
 }
 
 .navbar-default {
@@ -200,4 +235,12 @@ body>footer #copyright {
 .support div p{
 	text-align:left;
 	margin-top: 20px
+}
+
+.support .iconmain{
+	width: 120px;
+	height: 120px;
+	font-size: 120px;
+	margin: auto;
+	color: #666;
 }

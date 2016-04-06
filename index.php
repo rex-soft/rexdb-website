@@ -108,17 +108,6 @@ include_once('include/navbar.php');
 			?>
 		</div>
 	</div>
-	
-
-<!-- 	<dl id="learning">
-		<dt><a href="document/1.0/intro.php">简介 - Rexdb框架的功能和特点</a></dt><dd></dd>			
-		<dt><a href="document/1.0/download.php" >下载 - 下载压缩包和编译源代码</a></dt><dd></dd>
-		<dt><a href="document/1.0/download.php" >三分钟入门 - 如果您使用过其它持久层框架，请阅读本文档</a></dt><dd></dd>	
-		<dt><a href="document/1.0/quick-start.php">快速入门 - 在最短的时间内学会安装、配置和使用Rexdb</a></dt><dd></dd>			
-		<dt><a href="document/1.0/user-manual.php">用户手册 - 完整的开发人员参考文档，包含详细的示例、配置和接口说明</a></dt><dd></dd>
-		<dt><a href="#">常见问题 - 我们搜集整理了一些使用Rexdb过程中经常遇到的问题和解决方法</a></dt><dd></dd>
-		<dt><a href="#">API - Rexdb Java API文档</a></dt><dd></dd>
-	</dl> -->
 </div>
 
 
@@ -126,17 +115,17 @@ include_once('include/navbar.php');
 	<div class="container">
 		<div class="row support" style="margin-top: 80px; margin-bottom: 120px;">
 			<div class="col-md-4">
-				<img alt="agreement" src="style/images/agreement.png" width="120" height="120"/>
+				<span alt="agreement" class="media-object iconfont icon-3pingtaixieyi iconmain"></span>
 				<h3>用户协议</h3>
 				<p>Rexdb是开源软件，基于<a href="http://www.apache.org/licenses/LICENSE-2.0.html" target="_blank">Apache2.0协议</a>，您可以将其用于个人和商业用途。</p>
 			</div>
 			<div class="col-md-4">
-				<img alt="agreement" src="style/images/agreement.png" width="120" height="120"/>
+				<span alt="bug" class="media-object iconfont icon-5ca6292aappcrash iconmain"></span>
 				<h3>发现BUG</h3>
-				<p>Rexdb会在每次版本升级前进行测试，尽管如此，如果您发现了BUG，请<a href="#">点击此处反馈</a>。</p>
+				<p>Rexdb会对每个版本进行测试，尽管如此，如果您发现了BUG，请<a href="#">点击此处反馈</a>。</p>
 			</div>
 			<div class="col-md-4">
-				<img alt="agreement" src="style/images/agreement.png" width="120" height="120"/>
+				<span alt="bug" class="media-object iconfont icon-yijianfankui iconmain" style="font-size: 100px; height: 110px; margin-top: 10px"></span>
 				<h3>改进建议</h3>
 				<p>如果您有任何意见和建议，请<a href="#">点击此处反馈</a>。</p>
 			</div>
