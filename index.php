@@ -6,6 +6,14 @@
 $basePath = './';
 include_once('include/import.php'); 
 ?>
+<script type="text/javascript" src="<?=$basePath?>style/highcharts-4.2.3/highcharts.js"></script>
+<script type="text/javascript" src="<?=$basePath?>style/highcharts-4.2.3/highcharts-3d.js"></script>
+<script type="text/javascript" src="<?=$basePath?>style/performance-1.0.0.js"></script>
+<script>
+$(document).ready(function(){
+	initIndexGraphics();
+});
+</script>
 </head>
 <body>
 <? 
@@ -27,29 +35,29 @@ include_once('include/navbar.php');
 <div class="container">
 	<div class="row">
 		<div class="col-md-6">
-			<h3>查询和ORM</h3>
+			<h3>ORM</h3>
 			<p>
-				数据库查询、更新、批处理、调用、事物和JTA事物等，具备内置的连接池、数据源管理、方言、监听等功能。
+				支持各类SQL，包括查询、更新、批处理、调用等，自动将结果集转换为Java对象。
 			</p>
 		</div>
 		<div class="col-md-6">
-			<h3>数据源管理</h3>
+			<h3>方言</h3>
 			<p>
-				Rexdb的接口设计简洁，易于学习和使用。
+				内置数据库方言，屏蔽个性化SQL语句，便于开发跨数据库应用软件。
 			</p>		
 		</div>
 	</div>	
 	<div class="row">
 		<div class="col-md-6">
-			<h3>数据库方言</h3>
+			<h3>监控</h3>
 			<p>
-				Rexdb使用了多种技术优化查询效率，在各类数据库中均具备良好的性能。
+				内置监听接口，可跟踪每个SQL和事物的执行过程。
 			</p>
 		</div>
 		<div class="col-md-6">
-			<h3>兼容性和扩展能力</h3>
+			<h3>兼容和扩展</h3>
 			<p>
-				内置包括国产数据库在内的10余种方言，兼容第三方数据源和日志包，还可以通过监听接口扩展更多功能。
+				多语言支持、兼容第三方数据源和日志实现，还可以自行扩展更多功能。
 			</p>
 		</div>
 	</div>
@@ -58,12 +66,12 @@ include_once('include/navbar.php');
 <section id="header2">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6 thumbnail" style="height:300px">
-				<img src="#"></img>
+			<div class="col-md-6 thumbnail">
+				<div id="performance" style="height: 300px"></div>
 			</div>
 			<div class="col-md-6">
-				<h2>开发效率</h2>
-				<p>Rexdb具备同类框架无法比拟的开发效率。</p>			
+				<h2>高效运行</h2>
+				<p>极低的性能损耗，优于同类框架。</p>			
 			</div>
 		</div>	
 	</div>
@@ -72,7 +80,7 @@ include_once('include/navbar.php');
 <div class="container">
 	<div class="row">
 		<div class="col-md-6">
-			<h2>运行效率</h2>
+			<h2>快速开发</h2>
 			<p>
 			Rexdb使用了多种技术优化查询效率，在各类数据库中均具备良好的性能。
 			</p>			

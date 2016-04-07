@@ -17,15 +17,8 @@ $(document).ready(function(){
 			return $($(this).attr('ref')).html();
 		}
 	});
+	initPerformaceGraphics();
 });
-
-var testResults = [];
-<?
-include_once('performance-log/1.0.0/all.txt'); 
-?>
-
-var tips = [];
-tips.h2 = "rexdb-1.0.0 尚未对<b>H2</b>数据库中的CLOB字段进行优化处理，在查询时具有超出预期的性能损耗（其它类型的字段不受影响），将在后续版本中改进。";
 </script>
 <style>
 p {
