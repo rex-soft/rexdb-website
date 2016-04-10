@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>下载 - Rexdb</title>
+<title>下载 - Rexdb ORM</title>
 <?
 $basePath = '';
 include_once('include/import.php'); 
@@ -41,7 +41,7 @@ include_once('include/navbar.php');
   -->
   
 <div class="container top-div">
-	<div class="row" style="margin-top: 20px; margin-bottom: 20px">
+	<div id="download-latest" class="row" style="margin-top: 20px; margin-bottom: 20px">
 		<div class="col-md-12">
 		
 			<div class="media dl">
@@ -81,7 +81,7 @@ include_once('include/navbar.php');
 		        <ul class="list-group">
 				  <li class="list-group-item">
 				  	<i class="iconfont icon-zip"></i>
-				   	<a href="#"><b>rexdb-source-1.0.0.zip</b></a>
+				   	<a href="#">rexdb-source-1.0.0.zip</a>
 				   	(<a href="#">tar.gz</a>)
 				   	
 				    <span class="badge">校验码</span>
@@ -90,7 +90,7 @@ include_once('include/navbar.php');
 				  
 				  <li class="list-group-item">
 				  	<i class="iconfont icon-zip"></i>
-				   	<a href="#"><b>rexdb-tester-source-1.0.0.zip</b></a>
+				   	<a href="#">rexdb-tester-source-1.0.0.zip</a>
 				    (<a href="#">tar.gz</a>)
 				    
 				    <span class="badge">校验码</span>
@@ -155,7 +155,7 @@ include_once('include/navbar.php');
 		</div>
 	</div>
 	
-	<div class="row" style="margin-top: 20px; margin-bottom: 20px">
+	<div id="download-github" class="row" style="margin-top: 20px; margin-bottom: 20px">
 		<div class="col-md-12">
 			<h3>Github</h3>
 			<p>Rexdb的源代码托管在Github库中。如果您不了解Github，请参考<a href="https://help.github.com/index.html" target="_blank">Help</a>（英文）。</p>
@@ -164,9 +164,9 @@ clone https://github.com/rex-soft/rexdb-tester.git</pre>
 		</div>
 	</div>
 	
-	<div class="row" style="margin-top: 20px; margin-bottom: 20px">
+	<div id="download-history" class="row" style="margin-top: 20px; margin-bottom: 20px">
 		<div class="col-md-12">
-			<h3>版本历史</h3>
+			<h3>历史版本</h3>
 			<blockquote>Rexdb 1.0.0 （最新版本）</blockquote>
 			<p>经过漫长的程序编写、重构和测试，第1个版本终于发布了。
 			实际上在8年以前，框架就有了首个版本，从那时开始，框架便主要用于团队内部的项目研发。
@@ -177,7 +177,7 @@ clone https://github.com/rex-soft/rexdb-tester.git</pre>
 		</div>
 	</div>
 	
-	<div class="row" style="margin-top: 20px;">
+	<div id="download-version" class="row" style="margin-top: 20px;">
 		<div class="col-md-12">
 			<h3>版本号规则</h3>
 			

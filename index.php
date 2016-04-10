@@ -1,17 +1,34 @@
 <!DOCTYPE html>
 <html lang="zh-cn" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Rexdb</title>
+<title>Rexdb ORM</title>
 <?
 $basePath = './';
 include_once('include/import.php'); 
 ?>
-<script type="text/javascript" src="<?=$basePath?>style/highcharts-4.2.3/highcharts.js"></script>
-<script type="text/javascript" src="<?=$basePath?>style/highcharts-4.2.3/highcharts-3d.js"></script>
-<script type="text/javascript" src="<?=$basePath?>style/performance-1.0.0.js"></script>
-<script>
-$(document).ready(function(){
-	initIndexGraphics();
+<script type="text/javascript">
+var firedAni = {};
+$(function(){
+	var jqs = [$('#performance'), $('#typed-window'), $('#gears')];
+	var callback = [initIndexGraphics, startTyped, runGears];
+	
+	$(window).bind('scroll', function () {
+		for(var i=0;i<jqs.length;i++){
+			var jq = jqs[i];
+			var winH = $(window).height();
+			var yJq = jq.offset().top;
+			var hJq = jq.outerHeight();
+			var top = $(window).scrollTop();
+			if(!firedAni[i] && (top + winH > yJq+hJq) && (top < yJq)){
+				firedAni[i] = true;
+				try{
+					callback[i]();
+				}catch(e){}
+			}
+		}
+	});
+
+	$(window).scroll();
 });
 </script>
 </head>
@@ -26,22 +43,28 @@ include_once('include/navbar.php');
 		<p>
 		Rexdb是一款使用Java语言编写的，开放源代码的ORM持久层框架。
 		它可以处理查询、更新、批处理、调用、事物和JTA事物等数据库操作，支持多种类型的对象作为预编译参数，并自动完成结果集到对象的映射。
-		Rexdb具有功能全面、使用简单、性能良好等特点，非常适合数据结构和SQL语句复杂、需要快速实现的开发场景。
+		Rexdb具有功能全面、使用简单、性能良好等特点，适用于大多数开发场景。
 		</p>
-		<div style="margin-top: 50px; text-align:center"><a href="/account/sign_up" class="btn-lg btn-primary btn-outline">下载最新版本 (v1.0.0-m1)</a></div>
+		<div style="margin-top: 50px; text-align:center"><a href="" class="btn-lg btn-primary btn-outline">下载最新版本 （rexdb-1.0.0）</a></div>
 	</div>
 </div>
 </section>
 <div class="container">
 	<div class="row">
 		<div class="col-md-6">
-			<h3>ORM</h3>
+			<h3>
+				<span class="iconfont icon-orm" aria-hidden="true"></span>
+				ORM
+			</h3>
 			<p>
 				支持各类SQL，包括查询、更新、批处理、调用等，自动将结果集转换为Java对象。
 			</p>
 		</div>
 		<div class="col-md-6">
-			<h3>方言</h3>
+			<h3>
+				<span class="iconfont icon-assign" aria-hidden="true"></span>
+				方言
+			</h3>
 			<p>
 				内置数据库方言，屏蔽个性化SQL语句，便于开发跨数据库应用软件。
 			</p>		
@@ -49,13 +72,19 @@ include_once('include/navbar.php');
 	</div>	
 	<div class="row">
 		<div class="col-md-6">
-			<h3>监控</h3>
+			<h3>
+				<span class="iconfont icon-job" aria-hidden="true"></span>
+				监控
+				</h3>
 			<p>
 				内置监听接口，可跟踪每个SQL和事物的执行过程。
 			</p>
 		</div>
 		<div class="col-md-6">
-			<h3>兼容和扩展</h3>
+			<h3>
+				<span class="iconfont icon-plugin" aria-hidden="true"></span>
+				兼容和扩展
+			</h3>
 			<p>
 				多语言支持、兼容第三方数据源和日志实现，还可以自行扩展更多功能。
 			</p>
@@ -82,11 +111,16 @@ include_once('include/navbar.php');
 		<div class="col-md-6">
 			<h2>快速开发</h2>
 			<p>
-			Rexdb使用了多种技术优化查询效率，在各类数据库中均具备良好的性能。
+			无需配置，一行代码操作数据库。
 			</p>			
 		</div>
-		<div class="col-md-6 thumbnail" style="height:300px">
-			<img src="bootstrap/docs/assets/img/components.png" ></img>
+		<div class="col-md-6 thumbnail">
+			<div id="typed-window" class="typed-window" style="height: 300px; position: relative ">
+				<span id="student" class="iconfont icon-student student"></span>
+				<span id="student-colored" class="iconfont icon-student student-colored" style="display: none"></span>
+				<span class="student-equals">= </span>
+				<span class="typed" id="typed"></span>
+			</div>
 		</div>
 	</div>	
 </div>
@@ -94,12 +128,25 @@ include_once('include/navbar.php');
 <section id="header2">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6 thumbnail" style="height:300px">
-				<img src="#"></img>
+			<div class="col-md-6 thumbnail">
+				<div id="gears" style="height: 300px; position: relative">
+				
+					<div id="gear-system-5">
+						<div class="shadow" id="shadow12"></div>
+						<div id="gear12"></div>
+						<div class="shadow" id="shadow11"></div>
+						<div id="gear11"></div>
+						<div class="shadow" id="shadow8"></div>
+						<div id="gear8"></div>
+					</div>
+					<div id="gear1"></div>
+					
+					<span class="native-sql" id="native-sql" style="display: none">Native SQL</span>
+				</div>
 			</div>
 			<div class="col-md-6">
 				<h2>不失灵活</h2>
-				<p>Rexdb具备同类框架无法比拟的开发效率。</p>			
+				<p>支持原生SQL，不降低灵活度。</p>			
 			</div>
 		</div>	
 	</div>
@@ -133,7 +180,7 @@ include_once('include/navbar.php');
 				<p>Rexdb会对每个版本进行测试，尽管如此，如果您发现了BUG，请<a href="#">点击此处反馈</a>。</p>
 			</div>
 			<div class="col-md-4">
-				<span alt="bug" class="media-object iconfont icon-yijianfankui iconmain" style="font-size: 100px; height: 110px; margin-top: 10px"></span>
+				<span alt="bug" class="media-object iconfont icon-yijianfankui iconmain"></span>
 				<h3>改进建议</h3>
 				<p>如果您有任何意见和建议，请<a href="#">点击此处反馈</a>。</p>
 			</div>

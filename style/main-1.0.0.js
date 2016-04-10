@@ -1,3 +1,381 @@
+//================================================all
+$(document).scroll(function(){
+	if($(document).scrollTop() == 0){
+		$('#lead').removeClass('navbar-shadow');
+	}else
+		$('#lead').addClass('navbar-shadow');
+});
+
+$(document).ready(function(){
+	setJumps();
+});
+
+
+function setJumps(){
+	
+	//href
+	var loc = location.href;
+	if(loc.indexOf('#') != -1){
+		var jumpId = loc.substr(loc.lastIndexOf('#') + 1, loc.length);
+		if(jumpId.indexOf('jump_') == 0){
+			var targetId = jumpId.substr(5, jumpId.length);
+			jumpTo('#'+targetId);
+		}
+	}
+	
+	//footer
+	$('#footer a').on('click', function(){
+		var href = $(this).attr('href');
+		if(href.indexOf('#') != -1){
+			var thisPage = loc.substring(loc.lastIndexOf('/') + 1, loc.lastIndexOf('#'));
+			var targetPage = href.substring(href.lastIndexOf('/'), href.lastIndexOf('#'));
+			if(thisPage == targetPage){
+				var jumpId = href.substr(href.lastIndexOf('#') + 1, href.length);
+				if(jumpId.indexOf('jump_') == 0){
+					var targetId = jumpId.substr(5, jumpId.length);
+					jumpTo('#'+targetId);
+					return false;
+				}
+			}
+		}
+	});
+	
+	//links
+	$('.bs-docs-sidebar a').on('click', function(){
+		var href = $(this).attr('href');
+		if(href.indexOf('#') == -1) return;
+		
+		var targetId = href.substr(href.lastIndexOf('#'), href.length);
+		jumpTo(targetId);
+		return false;
+	});
+
+}
+
+//jump to
+function jumpTo(targetId){
+	var target = $(targetId);
+    if(target.length==1){
+         var top = target.offset().top-99;
+         if(top < 0) top = 0;
+         $('html,body').animate({scrollTop:top}, 200);
+     } 
+}
+
+//================================================index
+//=====================typed animation
+! function($) {
+    "use strict";
+    var Typed = function(el, options) {
+        this.el = $(el);
+        this.options = $.extend({}, $.fn.typed.defaults, options);
+        this.isInput = this.el.is('input');
+        this.attr = this.options.attr;
+        this.showCursor = this.isInput ? false : this.options.showCursor;
+        this.elContent = this.attr ? this.el.attr(this.attr) : this.el.text()
+        this.contentType = this.options.contentType;
+        this.typeSpeed = this.options.typeSpeed;
+        this.startDelay = this.options.startDelay;
+        this.backSpeed = this.options.backSpeed;
+        this.backDelay = this.options.backDelay;
+        this.stringsElement = this.options.stringsElement;
+        this.strings = this.options.strings;
+        this.strPos = 0;
+        this.arrayPos = 0;
+        this.stopNum = 0;
+        this.loop = this.options.loop;
+        this.loopCount = this.options.loopCount;
+        this.curLoop = 0;
+        this.stop = false;
+        this.cursorChar = this.options.cursorChar;
+        this.shuffle = this.options.shuffle;
+        this.sequence = [];
+        this.build();
+    };
+
+    Typed.prototype = {
+        constructor: Typed
+        ,
+        init: function() {
+            var self = this;
+            self.timeout = setTimeout(function() {
+                for (var i=0;i<self.strings.length;++i) self.sequence[i]=i;
+                if(self.shuffle) self.sequence = self.shuffleArray(self.sequence);
+                self.typewrite(self.strings[self.sequence[self.arrayPos]], self.strPos);
+            }, self.startDelay);
+        }
+
+        ,
+        build: function() {
+            var self = this;
+            if (this.showCursor === true) {
+                this.cursor = $("<span class=\"typed-cursor\">" + this.cursorChar + "</span>");
+                this.el.after(this.cursor);
+            }
+            if (this.stringsElement) {
+                self.strings = [];
+                this.stringsElement.hide();
+                var strings = this.stringsElement.find('p');
+                $.each(strings, function(key, value){
+                    self.strings.push($(value).html());
+                });
+            }
+            this.init();
+        }
+        ,
+        typewrite: function(curString, curStrPos) {
+            if (this.stop === true) {
+                return;
+            }
+
+            var humanize = Math.round(Math.random() * (100 - 30)) + this.typeSpeed;
+            var self = this;
+
+            self.timeout = setTimeout(function() {
+                var charPause = 0;
+                var substr = curString.substr(curStrPos);
+                if (substr.charAt(0) === '^') {
+                    var skip = 1; // skip atleast 1
+                    if (/^\^\d+/.test(substr)) {
+                        substr = /\d+/.exec(substr)[0];
+                        skip += substr.length;
+                        charPause = parseInt(substr);
+                    }
+                    curString = curString.substring(0, curStrPos) + curString.substring(curStrPos + skip);
+                }
+
+                if (self.contentType === 'html') {
+                    var curChar = curString.substr(curStrPos).charAt(0)
+                    if (curChar === '<' || curChar === '&') {
+                        var tag = '';
+                        var endTag = '';
+                        if (curChar === '<') {
+                            endTag = '>'
+                        } else {
+                            endTag = ';'
+                        }
+                        while (curString.substr(curStrPos).charAt(0) !== endTag) {
+                            tag += curString.substr(curStrPos).charAt(0);
+                            curStrPos++;
+                        }
+                        curStrPos++;
+                        tag += endTag;
+                    }
+                }
+
+                self.timeout = setTimeout(function() {
+                    if (curStrPos === curString.length) {
+                        self.options.onStringTyped(self.arrayPos);
+
+                        if (self.arrayPos === self.strings.length - 1) {
+                            self.options.callback();
+
+                            self.curLoop++;
+                            if (self.loop === false || self.curLoop === self.loopCount)
+                                return;
+                        }
+
+                        self.timeout = setTimeout(function() {
+                            self.backspace(curString, curStrPos);
+                        }, self.backDelay);
+                    } else {
+
+                        if (curStrPos === 0)
+                            self.options.preStringTyped(self.arrayPos);
+
+                        var nextString = curString.substr(0, curStrPos + 1);
+                        if (self.attr) {
+                            self.el.attr(self.attr, nextString);
+                        } else {
+                            if (self.isInput) {
+                                self.el.val(nextString);
+                            } else if (self.contentType === 'html') {
+                                self.el.html(nextString);
+                            } else {
+                                self.el.text(nextString);
+                            }
+                        }
+
+                        curStrPos++;
+                        self.typewrite(curString, curStrPos);
+                    }
+                }, charPause);
+
+            }, humanize);
+
+        }
+
+        ,
+        backspace: function(curString, curStrPos) {
+            if (this.stop === true) {
+                return;
+            }
+
+            var humanize = Math.round(Math.random() * (100 - 30)) + this.backSpeed;
+            var self = this;
+
+            self.timeout = setTimeout(function() {
+
+                if (self.contentType === 'html') {
+                    if (curString.substr(curStrPos).charAt(0) === '>') {
+                        var tag = '';
+                        while (curString.substr(curStrPos).charAt(0) !== '<') {
+                            tag -= curString.substr(curStrPos).charAt(0);
+                            curStrPos--;
+                        }
+                        curStrPos--;
+                        tag += '<';
+                    }
+                }
+
+                var nextString = curString.substr(0, curStrPos);
+                if (self.attr) {
+                    self.el.attr(self.attr, nextString);
+                } else {
+                    if (self.isInput) {
+                        self.el.val(nextString);
+                    } else if (self.contentType === 'html') {
+                        self.el.html(nextString);
+                    } else {
+                        self.el.text(nextString);
+                    }
+                }
+                if (curStrPos > self.stopNum) {
+                    curStrPos--;
+                    self.backspace(curString, curStrPos);
+                }
+                else if (curStrPos <= self.stopNum) {
+                    self.arrayPos++;
+
+                    if (self.arrayPos === self.strings.length) {
+                        self.arrayPos = 0;
+                        if(self.shuffle) self.sequence = self.shuffleArray(self.sequence);
+
+                        self.init();
+                    } else
+                        self.typewrite(self.strings[self.sequence[self.arrayPos]], curStrPos);
+                }
+
+            }, humanize);
+
+        }
+        ,shuffleArray: function(array) {
+            var tmp, current, top = array.length;
+            if(top) while(--top) {
+                current = Math.floor(Math.random() * (top + 1));
+                tmp = array[current];
+                array[current] = array[top];
+                array[top] = tmp;
+            }
+            return array;
+        }
+
+        ,
+        reset: function() {
+            var self = this;
+            clearInterval(self.timeout);
+            var id = this.el.attr('id');
+            this.el.after('<span id="' + id + '"/>')
+            this.el.remove();
+            if (typeof this.cursor !== 'undefined') {
+                this.cursor.remove();
+            }
+            self.options.resetCallback();
+        }
+
+    };
+
+    $.fn.typed = function(option) {
+        return this.each(function() {
+            var $this = $(this),
+                data = $this.data('typed'),
+                options = typeof option == 'object' && option;
+            if (!data) $this.data('typed', (data = new Typed(this, options)));
+            if (typeof option == 'string') data[option]();
+        });
+    };
+
+    $.fn.typed.defaults = {
+        strings: ["These are the default values...", "You know what you should do?", "Use your own!", "Have a great day!"],
+        stringsElement: null,
+        typeSpeed: 0,
+        startDelay: 0,
+        backSpeed: 0,
+        shuffle: false,
+        backDelay: 500,
+        loop: false,
+        loopCount: false,
+        showCursor: true,
+        cursorChar: "|",
+        attr: null,
+        contentType: 'html',
+        callback: function() {},
+        preStringTyped: function() {},
+        onStringTyped: function() {},
+        resetCallback: function() {}
+    };
+
+
+}(window.jQuery);
+
+function startTyped(){
+    $("#typed").typed({
+      strings: ["DB.get(sql, Student.class);"],
+      startDelay: 500,
+      typeSpeed: 0,
+      callback: function() {
+    	  $("#typed").fadeOut('fast', function(){
+    		  $('#typed').css('color', '#000').html('DB.get(<font color="#957d47">sql</font>, Student.<font color="#7f0055">class</font>);');
+    	      $(this).fadeIn('normal');
+    	  });
+    	  $('#student-colored').fadeIn(1200);
+      }
+    });
+}
+
+//=====================gears  animation
+var gearDatabaseGray = false;
+var lastDatabase = null;
+function runGears(){
+	var db = ['postgresql', 'script', 'h2', 'db2', 'oracle', 'mysql', 'sqlserver-copy'];
+	
+	$('#gears').addClass('gears-run');
+	window.setInterval(function(){
+		var randomDb = db[parseInt(db.length * Math.random())];
+		while(randomDb == lastDatabase){
+			randomDb = db[parseInt(db.length * Math.random())];
+		}
+		lastDatabase = randomDb;
+		gearFly(randomDb);
+	}, 600);
+	
+	window.setTimeout(function(){
+		$('#native-sql').fadeIn(1200);
+		gearDatabaseGray = true;
+	}, 2000)
+}
+
+function gearFly(icon){
+	var h = $('#gears').innerHeight() - 20 - 50;
+	var w = ($('#gears').innerWidth() - 250) / 2;
+	
+	var l = $('#gear12').offset().left - $('#gears').offset().left;
+	var m = ($('#gears').innerHeight() - 50)/2;
+	var icon = $('<span class="float-database iconfont icon-'+ icon +'"></span>').addClass(gearDatabaseGray ? 'float-database-gray' : '').css({
+		top: h * Math.random(),
+		left: w * Math.random()
+	}).appendTo('#gears');
+	
+	icon.animate({
+		left: l,
+		top: m,
+		opacity: 0
+	}, 1600, "swing", function(){
+		$(this).remove();
+	})
+}
+
+//================================================performance.php
 var testResults = [];
 
 testResults.oracle={"insert":{"rexdb":1815.42,"jdbc":1957.75,"hibernate":1412.31,"mybatis":1896.65,"spring":1836.83},"insertPs":{"rexdb":1838.38,"jdbc":1943.69,"hibernate":1410.93,"mybatis":1889.89,"spring":1823.61},"batchInsert":{"rexdb":41436.87,"jdbc":46638.96,"hibernate":37496.37,"mybatis":19329.82,"spring":43011.58},"batchInsertPs":{"rexdb":39453.99,"jdbc":46354.15,"hibernate":37319.02,"mybatis":19016.82,"spring":42242.14},"getList":{"rexdb":28679.23,"jdbc":29448.93,"hibernate":19121.2,"mybatis":19451.7,"spring":27708.73},"getList-disableDynamicClass":{"rexdb":26487.4,"jdbc":28182.42,"hibernate":17912.65,"mybatis":18224.09,"spring":26584.41},"getMapList":{"rexdb":25975.55,"jdbc":18450.8,"hibernate":18126.83,"mybatis":17811.41,"spring":24082.22}}
@@ -41,7 +419,7 @@ function getDefaultTheme(){
 				return s;
 	        }
 	    },
-		colors : [ "#00a5de", "#2c3e50", "#95a5a6", "#b3b3b3", "#d3d3d3" ],
+		colors : [ "#0b62a4", "#2c3e50", "#95a5a6", "#b3b3b3", "#d3d3d3" ],
 		chart : {
 			style : {
 				fontFamily : "Tahoma,'Microsoft Yahei','Simsun'"
@@ -77,7 +455,7 @@ function getDefaultTheme(){
 					y : 30,
 					style : {
 						fontSize : '10px',
-						color : '#fff',
+						color :'#fff',
 						fontWeight : 'normal',
 						fontFamily : 'Arial'
 					}
@@ -89,7 +467,7 @@ function getDefaultTheme(){
 
 function getIndexTheme(){
 	return $.extend({}, getDefaultTheme(), {
-			colors : [ "#00a5de", "#95a5a6", "#b3b3b3", "#d3d3d3" ],
+			colors : [ "#0b62a4", "#95a5a6", "#b3b3b3", "#d3d3d3" ],
 			plotOptions : {
 				series: {
 	                dataLabels: {
@@ -110,7 +488,6 @@ function getIndexTheme(){
 
 Highcharts.theme = location.href.indexOf('performance') == -1 ? getIndexTheme() : getDefaultTheme();
 
-//================================================performance.php
 var overviewPerformace, overviewCode, getListDynamic, getListReflect, getMapList, insert, insertPs, batch, batchPs;
 var piGetList, piInsert;
 var result;
@@ -571,7 +948,7 @@ function initIndexGraphics(){
 			renderTo : 'performance',
 			type : 'column',
 			marginTop : 45,
-			marginLeft: 35,
+			marginLeft: 30,
 			marginBottom: 35,
 			options3d : {
 				enabled : true,
@@ -593,7 +970,7 @@ function initIndexGraphics(){
 			},
 			title: {
 				offset: 30,
-				text: '每秒查询记录数',
+				text: null,
 				style:{
 					fontSize: '10px'
 				}
@@ -601,6 +978,13 @@ function initIndexGraphics(){
 		},
 		title : {
 			text : null
+		},
+		subtitle: {
+			text: '<b>每秒查询记录数</b> - Mysql 5.7',
+			align: 'left',
+			style: {
+//				fontWeight: 'bolder'
+			}
 		},
 		plotOptions : {
 			column : {
@@ -611,11 +995,12 @@ function initIndexGraphics(){
 			verticalAlign: 'top',
 			align: 'right',
 			itemMarginBottom: -5,
-			itemDistance: 10,
+			itemDistance: 8,
 			itemStyle: { 
 				fontWeight: 'normal',
 				fontSize: '10px',
-				color: '#777'
+				color: '#777',
+				fontFamily : 'Arial'
 			}
 		},
 		series : [ {

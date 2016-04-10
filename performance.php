@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>性能 - Rexdb</title>
+<title>性能 - Rexdb ORM</title>
 <?
 $basePath = '';
 include_once('include/import.php'); 
 ?>
-<script type="text/javascript" src="<?=$basePath?>style/highcharts-4.2.3/highcharts.js"></script>
-<script type="text/javascript" src="<?=$basePath?>style/highcharts-4.2.3/highcharts-3d.js"></script>
-<script type="text/javascript" src="<?=$basePath?>style/performance-1.0.0.js"></script>
 <script>
 $(document).ready(function(){
 	$("a[data-toggle='popover']").popover({
@@ -62,7 +59,7 @@ include_once('include/navbar.php');
 
 <section id="header" class="top-div">
 	<div class="container">	
-		<div class="row" style="margin-top: 0; margin-bottom: 50px">
+		<div class="row" style="margin-top: 20px; margin-bottom: 30px">
 			<div class="col-md-12">
 				<h3>性能测试</h3>
 				<br/>
@@ -143,7 +140,7 @@ include_once('include/navbar.php');
 			</div>
 		</div>
 		
-		<div class="row">
+		<div id="performance-query" class="row">
 			<div class="col-md-12">
 				<h3>查询性能</h3>
 				<p>查询性能取决于多方面因素，包括软硬件环境、需要读取的字段数量、映射对象类型、是否启用了优化选项等，以下按照查询结果的类型分别进行测试。</p>
@@ -168,7 +165,7 @@ include_once('include/navbar.php');
 			</div>
 		</div>
 
-		<div class="row">
+		<div id="performance-update" class="row">
 			<div class="col-md-12">
 				<h3>更新性能</h3>
 				<p>数据库的插入、修改、删除，以及执行DLL语句均属于更新操作。以下以插入为例，分别以Java对象和org.rex.db.Ps对象作为参数，进行性能测试。</p>
@@ -191,7 +188,7 @@ include_once('include/navbar.php');
 			</div>
 		</div>
 		
-		<div class="row" style="margin-bottom: 100px">
+		<div id="performance-batch" class="row" style="margin-bottom: 100px">
 			<div class="col-md-12">
 				<h3>批量更新性能</h3>
 				<p>

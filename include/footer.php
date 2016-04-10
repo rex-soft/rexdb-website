@@ -4,39 +4,37 @@
 			<div class="col-md-2">
 				<h5 class="h5">下载</h5>
 				<ul class="ul">
-					<li><a href="#">最新稳定版</a></li>
-					<li><a href="#">历史版本</a></li>
-					<li><a href="#">更新日志</a></li>
+					<li><a href="download.php#jump_download-latest">最新版本</a></li>
+					<li><a href="download.php#jump_download-github">Github</a></li>
+					<li><a href="download.php#jump_download-history">历史版本</a></li>
+					<li><a href="download.php#jump_download-version">版本号规则</a></li>
 				</ul>
 			</div>
 			<div class="col-md-2">
 				<h5 class="h5">文档</h5>
 				<ul class="ul">
-					<li><a href="#">简介</a></li>
-					<li><a href="#">如何下载和编译</a></li>
-					<li><a href="#">新手快速入门</a></li>
-					<li><a href="#">老手快速入门</a></li>
-					<li><a href="#">用户手册</a></li>
-					<li><a href="#">常见问题</a></li>
+					<li><a href="document.php?version=1.0&doc=intro">简介</a></li>
+					<li><a href="#">下载和使用</a></li>
+					<li><a href="document.php?version=1.0&doc=quick-start">快速入门</a></li>
+					<li><a href="document.php?version=1.0&doc=user-manual">用户手册</a></li>
 					<li><a href="#">API</a></li>
 				</ul>
 			</div>
 			<div class="col-md-2">
 				<h5 class="h5">性能</h5>
 				<ul class="ul">
-					<li><a href="#">写入性能</a></li>
-					<li><a href="#">查询性能</a></li>
-					<li><a href="#">连接池性能</a></li>
+					<li><a href="performance.php#jump_header">总览</a></li>
+					<li><a href="performance.php#jump_performance-query">查询性能</a></li>
+					<li><a href="performance.php#jump_performance-update">更新性能</a></li>
+					<li><a href="performance.php#jump_performance-batch">批量更新性能</a></li>
 				</ul>
 			</div>
 			<div class="col-md-2">
-				<h5 class="h5">服务与支持</h5>
+				<h5 class="h5">反馈</h5>
 				<ul class="ul">
-					<li><a href="#">使用协议</a></li>
-					<li><a href="#">BUG反馈</a></li>
-					<li><a href="#">改进建议</a></li>
-					<li><a href="#">技术支持邮箱</a></li>
-					<li><a href="#">致谢</a></li>
+					<li><a href="feedback.php#jump_header">感谢</a></li>
+					<li><a href="feedback.php#jump_feedback-bug">提交问题</a></li>
+					<li><a href="feedback.php#jump_feedback-workflow">处理流程</a></li>
 				</ul>
 			</div>
 			
