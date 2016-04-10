@@ -15,8 +15,8 @@ $navFile = $dirPath . '/content/' . $documentId . '.php';
 $basePath = '';
 include_once('include/import.php'); 
 ?>
-<link rel="stylesheet" href="style/document.css" type="text/css"></link>
-<link rel="stylesheet" href="style/docs.min.css" type="text/css"></link>
+<link rel="stylesheet" href="style/document-1.0.0.css" type="text/css"></link>
+<script type="text/javascript" src="<?=$basePath?>style/docs.min-1.0.0.js"></script>
 <script>
 var basePath = '<?=$dirPath?>';
 $(document).ready(function(){
@@ -76,6 +76,5 @@ include_once('include/navbar.php');
 </div>
 </div>
 <? include_once('include/footer.php'); ?>
-<script type="text/javascript" src="<?=$basePath?>style/docs.min.js"></script>
 </body>
 </html>
