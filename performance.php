@@ -102,7 +102,7 @@ include_once('include/navbar.php');
 						<label class="radio-inline"><input type="radio" id="mysql" name ="database" value="mysql">Mysql 5.7</label>
 						<label class="radio-inline"><input type="radio" id="sqlserver" name ="database" value="sqlserver">SQL Server 2008</label>
 						
-						<label class="radio-inline"><input type="radio" id="postgresql" name ="database" value="postgresql">Postgresql 9.5</label>
+						<label class="radio-inline"><input type="radio" id="postgresql" name ="database" value="postgresql">PostgreSQL 9.5</label>
 						<label class="radio-inline"><input type="radio" id="db2" name ="database" value="db2">DB2 10.1</label>
 						
 						<label class="radio-inline"><input type="radio" id="h2" name ="database" value="h2">H2 1.4</label>

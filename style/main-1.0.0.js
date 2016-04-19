@@ -1051,3 +1051,74 @@ function initIndexGraphics(){
 		}]
 	});
 }
+
+
+//=================================================feedback.php
+$(document).ready(function(){
+	$('#submit-bug').click(function(){
+		if(validateBug()){
+//			$('#submit-bug').popover({
+//				html: true,
+//				title: '请输入图片验证码',
+//				container: 'body',
+//				placement: 'left',
+//				trigger: 'manual',
+//				content: $('#code').html()
+//			}).popover('show');
+//			
+//			$(this).attr('disabled', true);
+		}
+		 
+		return false;
+	});
+});
+
+function validateBug() {
+    return $('#bugForm').bootstrapValidator({
+        message: 'This value is not valid',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            system: {
+                validators: {
+                    notEmpty: {
+                        message: '请选择操作系统'
+                    }
+                }
+            },
+            database: {
+                validators: {
+                    notEmpty: {
+                        message: '请选择数据库'
+                    }
+                }
+            },
+            jdk: {
+                validators: {
+                    notEmpty: {
+                        message: '请选择JDK版本'
+                    }
+                }
+            },
+            detail: {
+                validators: {
+                    notEmpty: {
+                        message: '请填写问题描述'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 6000,
+                        message: '需要录入6到6000个字符'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_\.]+$/,
+                        message: 'The username can only consist of alphabetical, number, dot and underscore'
+                    }
+                }
+            }
+        }
+    });
+}

@@ -6,6 +6,8 @@
 $basePath = '';
 include_once('include/import.php'); 
 ?>
+<script type="text/javascript" src="<?=$basePath?>style/validator/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="<?=$basePath?>style/validator/bootstrapValidator-zh_CN.js"></script>
 <style>
 p {
 	font-size: 16px;
@@ -72,6 +74,7 @@ include_once('include/navbar.php');
 							</ul>
 							<div class="tab-content">
 								<div class="tab-pane row-fluid fade active in" id="tab-1" style="padding-top: 20px">
+									<form id="bugForm" method="post" action="target.php">
 									
 									<div class="panel panel-primary">   
 										<div class="panel-heading form-title">BUG反馈单</div>
@@ -83,24 +86,33 @@ include_once('include/navbar.php');
 						                          <div class="col-md-6">
 						                            <div class="form-group">
 						                              <label>操作系统</label>
-						                              <select class="form-control">
-						                                 <option>Option 1</option>
-						                                 <option>Option 2</option>
-						                                 <option>Option 3</option>
-						                                 <option>Option 4</option>
-						                                 <option>Option 5</option>
+						                              <select name="system" class="form-control">
+						                              	 <option value="">请选择</option>
+						                                 <option value="linux">Linux</option>
+						                                 <option value="windows">Windows</option>
+						                                 <option value="macos">MacOS</option>
+						                                 <option value="others">其它</option>
 						                              </select>
 						                           </div>
 						                          </div>
 						                         <div class="col-md-6">
 						                            <div class="form-group">
 						                              <label>数据库</label>
-						                              <select class="form-control">
-						                                 <option>Option 1</option>
-						                                 <option>Option 2</option>
-						                                 <option>Option 3</option>
-						                                 <option>Option 4</option>
-						                                 <option>Option 5</option>
+						                              <select name="database" class="form-control">
+						                              	 <option value="">请选择</option>
+						                                 <option value="oracle">Oracle</option>
+						                                 <option value="mysql">Mysql</option>
+						                                 <option value="mariadb">MariaDB</option>
+						                                 <option value="sqlserver">SQL Server</option>
+						                                 <option value="postgresql">PostgreSQL</option>
+						                                 <option value="db2">DB2</option>
+						                                 <option value="h2">H2</option>
+						                                 <option value="derby">Derby</option>
+						                                 <option value="hsqldb">Hsqldb</option>
+						                                 <option value="dm">达梦</option>
+						                                 <option value="kinges">金仓</option>
+						                                 <option value="oscar">神通</option>
+						                                 <option value="others">其它</option>
 						                              </select>
 						                           </div>
 						                          </div>
@@ -109,24 +121,26 @@ include_once('include/navbar.php');
 						                          <div class="col-md-6">
 						                            <div class="form-group">
 						                              <label>JDK版本</label>
-						                              <select class="form-control">
-						                                 <option>Option 1</option>
-						                                 <option>Option 2</option>
-						                                 <option>Option 3</option>
-						                                 <option>Option 4</option>
-						                                 <option>Option 5</option>
+						                              <select name="jdk" class="form-control">
+						                                 <option value="">请选择</option>
+						                                 <option value="1.5">JDK 1.5</option>
+						                                 <option value="1.6">JDK 1.6</option>
+						                                 <option value="1.7">JDK 1.7</option>
+						                                 <option value="1.8">JDK 1.8 或更高</option>
+						                                 <option value="others">其它</option>
 						                              </select>
 						                           </div>
 						                          </div>
 						                         <div class="col-md-6">
 						                            <div class="form-group">
-						                              <label>JavaEE中间件</label>
-						                              <select class="form-control">
-						                                 <option>Option 1</option>
-						                                 <option>Option 2</option>
-						                                 <option>Option 3</option>
-						                                 <option>Option 4</option>
-						                                 <option>Option 5</option>
+						                              <label>Java EE 中间件（如果有）</label>
+						                              <select name="container" class="form-control">
+						                                 <option value="">请选择</option>
+						                                 <option value="tomcat">Tomcat</option>
+						                                 <option value="jboss">JBoss/WildFly</option>
+						                                 <option value="weblogic">WebLogic</option>
+						                                 <option value="jetty">Jetty</option>
+						                                 <option value="others">其它</option>
 						                              </select>
 						                           </div>
 						                          </div>
@@ -140,8 +154,8 @@ include_once('include/navbar.php');
 						                          <div class="col-md-12">
 						                            <div class="form-group">
 						                              <label></label>
-						                              <textarea class="form-control" cols="40" name="message"
-														placeholder="请尽量详细描述您发现的BUG，或者您希望Rexdb作出的改进" rows="10"></textarea>
+						                              <textarea name="detail" class="form-control" cols="40" name="detail"
+														placeholder="请尽量详细描述您发现的BUG，包括异常现象、对以上运行环境的补充，以及异常堆栈信息。" rows="10"></textarea>
 						                           </div>
 						                          </div>
 						                        </div>
@@ -154,29 +168,35 @@ include_once('include/navbar.php');
 						                          <div class="col-md-6">
 						                            <div class="form-group">
 						                              <label>姓名</label>
-						                              <input class="form-control" id="msg_name" name="name" placeholder="您的称谓" size="30" type="text" />
+						                              <input class="form-control" name="name" placeholder="您的称谓" size="30" type="text" />
 						                           </div>
 						                          </div>
 						                         <div class="col-md-6">
 						                            <div class="form-group">
 						                              <label>邮箱</label>
-						                              <input class="form-control" id="msg_email" name="email" placeholder="您的邮箱" size="30" type="text" />
+						                              <input class="form-control" name="email" placeholder="您的邮箱" size="30" type="text" />
 						                           </div>
 						                          </div>
 						                        </div>
 										    
 										    </li>
 										    <li class="list-group-item list-group-item-default form-title-line" style="text-align: right">
-										    
-												<button class="btn btn-cta btn-default" name="button" type="submit">
+												<button class="btn btn-cta btn-default" id="submit-bug" type="submit">
+													 
 													<span class="iconfont icon-confirm" aria-hidden="true"></span>
 													提交BUG
 												</button> 
-										    
 										    </li>
 										  </ul>
 									</div>
 									
+									<div style="display: none" id="code">
+										<div class="row" style="margin: 0">
+										  <div class="col-md-6" style="padding-left: 0"><img src="style/code.php"/></div>
+										  <div class="col-md-6" style="padding-left: 5px; padding-right: 0"><input class="form-control" name="name" placeholder="验证码" size="4" type="text" /></div>
+										</div>
+									</div>
+									</form>
 								</div>
 								<div class="tab-pane fade" id="tab-2" style="padding-top: 20px">
 							
@@ -218,7 +238,7 @@ include_once('include/navbar.php');
 										    </li>
 										    <li class="list-group-item list-group-item-default form-title-line" style="text-align: right">
 										    
-												<button class="btn btn-cta btn-default" name="button" type="submit">
+												<button class="btn btn-cta btn-default" type="submit">
 													<span class="iconfont icon-confirm" aria-hidden="true"></span>
 													提交建议
 												</button> 
@@ -263,8 +283,6 @@ include_once('include/navbar.php');
 			    
 			</div>
 		</div>
-
-
 	</div>
 
 <? include_once('include/footer.php'); ?>
