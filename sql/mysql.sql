@@ -1,0 +1,10 @@
+CREATE TABLE `feedback_bug` (
+  `id` int(10) NOT NULL,
+  `sys` varchar(10) NOT NULL,
+  `jdk` varchar(10) NOT NULL,
+  `db` varchar(10) NOT NULL,
+  `container` varchar(15) DEFAULT NULL,
+  `detail` text NOT NULL,
+  `name` varchar(20) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

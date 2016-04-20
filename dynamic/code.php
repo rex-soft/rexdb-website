@@ -3,8 +3,8 @@ $imgwidth = 100; // 图片宽度
 $imgheight = 34; // 图片高度
 $codelen = 4; // 验证码长度
 $fontsize = 20; // 字体大小
-$charset = 'abcdefghkmnprstuvwxyzABCDEFGHKMNPRSTUVWXYZ23456789';
-$font = 'fonts/code.ttf';
+$charset = '123456789';
+$font = 'code.ttf';
 
 $im = imagecreatetruecolor ( $imgwidth, $imgheight );
 
@@ -19,7 +19,7 @@ for($i = 0; $i < $codelen; $i ++) {
 }
 
 session_start ();
-$_SESSION ['scode'] = strtolower ( $authstr ); // 全部转为小写，主要是为了不区分大小写
+$_SESSION ['code'] = strtolower ( $authstr ); // 全部转为小写，主要是为了不区分大小写
                                          
 // 随机画点,已经改为划星星了
 for($i = 0; $i < $imgwidth; $i ++) {

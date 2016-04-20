@@ -1055,32 +1055,62 @@ function initIndexGraphics(){
 
 //=================================================feedback.php
 $(document).ready(function(){
+	initValidate();
+	
 	$('#submit-bug').click(function(){
-		if(validateBug()){
-//			$('#submit-bug').popover({
-//				html: true,
-//				title: '请输入图片验证码',
-//				container: 'body',
-//				placement: 'left',
-//				trigger: 'manual',
-//				content: $('#code').html()
-//			}).popover('show');
-//			
-//			$(this).attr('disabled', true);
-		}
-		 
-		return false;
+		$('#bug-form').bootstrapValidator('validate');
 	});
 });
 
-function validateBug() {
-    return $('#bugForm').bootstrapValidator({
+function displayCode() {
+	$('#submit-bug').hide();
+	$('#bug-code-input').show().focus().tooltip().keyup(checkCode);
+	$('#bug-code').show().attr('src', 'dynamic/code.php?r='+new Date().getTime()).click(function(){
+		refreshCode();
+	}).tooltip();
+}
+
+function refreshCode(){
+	$('#bug-code').attr('src', 'dynamic/code.php?r='+new Date().getTime());
+}
+
+function checkCode(){
+	var v = $('#bug-code-input').val();
+	if(v.length != 4) return;
+	
+	$('#bug-code-input').attr('readonly', true);
+	$.ajax({
+		type : 'POST',
+		url : 'dynamic/feedback-record.php',
+		data : $('#bug-form').serialize(),
+		success : function(data){
+			$('#bug-code-input').attr('readonly', false);
+			if(data.error == true){
+				refreshCode();
+				$('#bug-code-input').val('');
+				$('#bug-label').html(data.message).show();
+				$('#bug-code-input').focus();
+			}else{
+				$('#bug-form').bootstrapValidator('resetForm', true);
+				$('#thank-modal-body').html(data.message);
+				$('#thank-modal').modal();
+			}
+			
+		},
+		dataType : 'json'
+	});
+}
+
+function initValidate() {
+	
+    $('#bug-form').bootstrapValidator({
         message: 'This value is not valid',
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
             invalid: 'glyphicon glyphicon-remove',
             validating: 'glyphicon glyphicon-refresh'
         },
+        onSuccess: displayCode,
         fields: {
             system: {
                 validators: {
@@ -1089,36 +1119,32 @@ function validateBug() {
                     }
                 }
             },
-            database: {
-                validators: {
-                    notEmpty: {
-                        message: '请选择数据库'
-                    }
-                }
-            },
-            jdk: {
-                validators: {
-                    notEmpty: {
-                        message: '请选择JDK版本'
-                    }
-                }
-            },
-            detail: {
-                validators: {
-                    notEmpty: {
-                        message: '请填写问题描述'
-                    },
-                    stringLength: {
-                        min: 6,
-                        max: 6000,
-                        message: '需要录入6到6000个字符'
-                    },
-                    regexp: {
-                        regexp: /^[a-zA-Z0-9_\.]+$/,
-                        message: 'The username can only consist of alphabetical, number, dot and underscore'
-                    }
-                }
-            }
+//            database: {
+//                validators: {
+//                    notEmpty: {
+//                        message: '请选择数据库'
+//                    }
+//                }
+//            },
+//            jdk: {
+//                validators: {
+//                    notEmpty: {
+//                        message: '请选择JDK版本'
+//                    }
+//                }
+//            },
+//            detail: {
+//                validators: {
+//                    notEmpty: {
+//                        message: '请填写问题描述'
+//                    },
+//                    stringLength: {
+//                        min: 6,
+//                        max: 6000,
+//                        message: '需要录入6到6000个字符'
+//                    }
+//                }
+//            }
         }
     });
 }

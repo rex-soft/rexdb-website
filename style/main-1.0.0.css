@@ -255,6 +255,23 @@ body>footer #copyright {
 	margin: auto;
 	color: #666;
 }
+
+#bug-code{
+	display: none;
+	cursor: pointer;
+}
+
+#bug-code-input{
+	display: none;
+	width: 100px; 
+	margin-left: 10px
+}
+
+#bug-label{
+	color: #a94442;
+	display: none;
+}
+
 /*--------------------------------typed*/
 .typed-window {
     height: 250px;

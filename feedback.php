@@ -74,8 +74,8 @@ include_once('include/navbar.php');
 							</ul>
 							<div class="tab-content">
 								<div class="tab-pane row-fluid fade active in" id="tab-1" style="padding-top: 20px">
-									<form id="bugForm" method="post" action="target.php">
-									
+									<form id="bug-form" method="post" action="target.php">
+									<input type="hidden" name="type" value="bug"/>
 									<div class="panel panel-primary">   
 										<div class="panel-heading form-title">BUG反馈单</div>
 										<ul class="list-group">
@@ -181,20 +181,19 @@ include_once('include/navbar.php');
 										    
 										    </li>
 										    <li class="list-group-item list-group-item-default form-title-line" style="text-align: right">
-												<button class="btn btn-cta btn-default" id="submit-bug" type="submit">
-													 
+										    
+									    		<button id="submit-bug" class="btn btn-cta btn-default" type="submit">
 													<span class="iconfont icon-confirm" aria-hidden="true"></span>
 													提交BUG
-												</button> 
+												</button>
+												
+												<span id="bug-label">验证码错误，请重新输入</span>
+												<img id="bug-code" src="" title="点击刷新验证码" data-toggle="tooltip" data-placement="top"/>
+									    		<input id="bug-code-input" class="form-control" name="code" placeholder="验证码" size="4" type="text"
+									    		 title="请输入左侧验证码" data-toggle="tooltip" data-placement="top"/>
+													
 										    </li>
 										  </ul>
-									</div>
-									
-									<div style="display: none" id="code">
-										<div class="row" style="margin: 0">
-										  <div class="col-md-6" style="padding-left: 0"><img src="style/code.php"/></div>
-										  <div class="col-md-6" style="padding-left: 5px; padding-right: 0"><input class="form-control" name="name" placeholder="验证码" size="4" type="text" /></div>
-										</div>
 									</div>
 									</form>
 								</div>
@@ -251,6 +250,25 @@ include_once('include/navbar.php');
 							</div>
 						</div>
 					</div>
+					
+					<!-- Modal -->
+					<div class="modal fade" id="thank-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title" id="myModalLabel">感谢</h4>
+					      </div>
+					      <div class="modal-body" id="thank-modal-body">
+					        
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-primary" data-dismiss="modal">好的</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+
 				</div>
 			
 				<div id="feedback-workflow" class="row" style="margin-top: 0;">
