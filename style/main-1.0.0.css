@@ -256,18 +256,18 @@ body>footer #copyright {
 	color: #666;
 }
 
-#bug-code{
+#bug-code, #suggest-code{
 	display: none;
 	cursor: pointer;
 }
 
-#bug-code-input{
+#bug-code-input, #suggest-code-input{
 	display: none;
 	width: 100px; 
 	margin-left: 10px
 }
 
-#bug-label{
+#bug-label, #suggest-label{
 	color: #a94442;
 	display: none;
 }

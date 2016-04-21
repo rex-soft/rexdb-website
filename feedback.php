@@ -74,7 +74,7 @@ include_once('include/navbar.php');
 							</ul>
 							<div class="tab-content">
 								<div class="tab-pane row-fluid fade active in" id="tab-1" style="padding-top: 20px">
-									<form id="bug-form" method="post" action="target.php">
+									<form id="bug-form" method="post" action="#">
 									<input type="hidden" name="type" value="bug"/>
 									<div class="panel panel-primary">   
 										<div class="panel-heading form-title">BUG反馈单</div>
@@ -155,7 +155,7 @@ include_once('include/navbar.php');
 						                            <div class="form-group">
 						                              <label></label>
 						                              <textarea name="detail" class="form-control" cols="40" name="detail"
-														placeholder="请尽量详细描述您发现的BUG，包括异常现象、对以上运行环境的补充，以及异常堆栈信息。" rows="10"></textarea>
+														placeholder="请尽量详细描述您发现的BUG，包括异常现象、异常堆栈等" rows="10"></textarea>
 						                           </div>
 						                          </div>
 						                        </div>
@@ -198,7 +198,8 @@ include_once('include/navbar.php');
 									</form>
 								</div>
 								<div class="tab-pane fade" id="tab-2" style="padding-top: 20px">
-							
+									<form id="suggest-form" method="post" action="#">
+									<input type="hidden" name="type" value="suggest"/>
 									<div class="panel panel-primary">   
 										<div class="panel-heading form-title">改进建议</div>
 										<ul class="list-group">
@@ -209,8 +210,8 @@ include_once('include/navbar.php');
 						                          <div class="col-md-12">
 						                            <div class="form-group">
 						                              <label></label>
-						                              <textarea class="form-control" cols="40" name="message"
-														placeholder="请尽量详细描述您发现的BUG，或者您希望Rexdb作出的改进" rows="10"></textarea>
+						                              <textarea class="form-control" cols="40" name="detail"
+														placeholder="请告诉我们您希望Rexdb作出的改进" rows="10"></textarea>
 						                           </div>
 						                          </div>
 						                        </div>
@@ -237,15 +238,20 @@ include_once('include/navbar.php');
 										    </li>
 										    <li class="list-group-item list-group-item-default form-title-line" style="text-align: right">
 										    
-												<button class="btn btn-cta btn-default" type="submit">
+										    	<button id="submit-suggest" class="btn btn-cta btn-default" type="submit">
 													<span class="iconfont icon-confirm" aria-hidden="true"></span>
 													提交建议
-												</button> 
+												</button>
+												
+												<span id="suggest-label">验证码错误，请重新输入</span>
+												<img id="suggest-code" src="" title="点击刷新验证码" data-toggle="tooltip" data-placement="top"/>
+									    		<input id="suggest-code-input" class="form-control" name="code" placeholder="验证码" size="4" type="text"
+									    		 title="请输入左侧验证码" data-toggle="tooltip" data-placement="top"/>
 										    
 										    </li>
 										  </ul>
 									</div>
-								
+									</form>
 								</div>
 							</div>
 						</div>

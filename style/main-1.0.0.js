@@ -1055,26 +1055,42 @@ function initIndexGraphics(){
 
 //=================================================feedback.php
 $(document).ready(function(){
-	initValidate();
+	initValidateForBug();
+	initValidateForSuggest();
 	
 	$('#submit-bug').click(function(){
 		$('#bug-form').bootstrapValidator('validate');
+		return false;
+	});
+	
+	$('#submit-suggest').click(function(){
+		$('#suggest-form').bootstrapValidator('validate');
+		return false;
 	});
 });
 
-function displayCode() {
+
+//----------bug
+function displayCodeForBug() {
 	$('#submit-bug').hide();
-	$('#bug-code-input').show().focus().tooltip().keyup(checkCode);
-	$('#bug-code').show().attr('src', 'dynamic/code.php?r='+new Date().getTime()).click(function(){
-		refreshCode();
+	$('#bug-code-input').show().focus().tooltip().on('keyup', checkCodeForBug);
+	$('#bug-code').show().attr('src', 'dynamic/code.php?r='+new Date().getTime()).on('click', function(){
+		refreshCodeForBug();
 	}).tooltip();
 }
 
-function refreshCode(){
+function hideCodeForBug(){
+	$('#submit-bug').show();
+	$('#bug-code-input').off('keyup').hide();
+	$('#bug-code').off('click').hide();
+	$('#bug-label').empty().hide();
+}
+
+function refreshCodeForBug(){
 	$('#bug-code').attr('src', 'dynamic/code.php?r='+new Date().getTime());
 }
 
-function checkCode(){
+function checkCodeForBug(){
 	var v = $('#bug-code-input').val();
 	if(v.length != 4) return;
 	
@@ -1086,12 +1102,15 @@ function checkCode(){
 		success : function(data){
 			$('#bug-code-input').attr('readonly', false);
 			if(data.error == true){
-				refreshCode();
+				refreshCodeForBug();
 				$('#bug-code-input').val('');
 				$('#bug-label').html(data.message).show();
 				$('#bug-code-input').focus();
 			}else{
+				$('#bug-form').get(0).reset();
 				$('#bug-form').bootstrapValidator('resetForm', true);
+				hideCodeForBug();
+				
 				$('#thank-modal-body').html(data.message);
 				$('#thank-modal').modal();
 			}
@@ -1101,7 +1120,8 @@ function checkCode(){
 	});
 }
 
-function initValidate() {
+function initValidateForBug() {
+	if($('#bug-form').size() == 0) return;
 	
     $('#bug-form').bootstrapValidator({
         message: 'This value is not valid',
@@ -1110,7 +1130,7 @@ function initValidate() {
             invalid: 'glyphicon glyphicon-remove',
             validating: 'glyphicon glyphicon-refresh'
         },
-        onSuccess: displayCode,
+        onSuccess: displayCodeForBug,
         fields: {
             system: {
                 validators: {
@@ -1119,32 +1139,149 @@ function initValidate() {
                     }
                 }
             },
-//            database: {
-//                validators: {
-//                    notEmpty: {
-//                        message: '请选择数据库'
-//                    }
-//                }
-//            },
-//            jdk: {
-//                validators: {
-//                    notEmpty: {
-//                        message: '请选择JDK版本'
-//                    }
-//                }
-//            },
-//            detail: {
-//                validators: {
-//                    notEmpty: {
-//                        message: '请填写问题描述'
-//                    },
-//                    stringLength: {
-//                        min: 6,
-//                        max: 6000,
-//                        message: '需要录入6到6000个字符'
-//                    }
-//                }
-//            }
+            database: {
+                validators: {
+                    notEmpty: {
+                        message: '请选择数据库'
+                    }
+                }
+            },
+            jdk: {
+                validators: {
+                    notEmpty: {
+                        message: '请选择JDK版本'
+                    }
+                }
+            },
+            detail: {
+                validators: {
+                    notEmpty: {
+                        message: '请填写问题描述'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 6000,
+                        message: '需要录入6到6000个字符'
+                    }
+                }
+            },
+            name:{
+            	validators: {
+                    stringLength: {
+                        max: 20,
+                        message: '最多输入20个字符'
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    emailAddress: {
+                        message: '请输入邮箱'
+                    },
+                    stringLength: {
+                        max: 50,
+                        message: '最多输入50个字符'
+                    }
+                }
+            }
+        }
+    });
+}
+
+
+//----------suggest
+function displayCodeForSuggest() {
+	$('#submit-suggest').hide();
+	$('#suggest-code-input').show().focus().tooltip().on('keyup', checkCodeForSuggest);
+	$('#suggest-code').show().attr('src', 'dynamic/code.php?r='+new Date().getTime()).on('click', function(){
+		refreshCodeForSuggest();
+	}).tooltip();
+}
+
+function hideCodeForSuggest(){
+	$('#submit-suggest').show();
+	$('#suggest-code-input').off('keyup').hide();
+	$('#suggest-code').off('click').hide();
+	$('#suggest-label').empty().hide();
+}
+
+function refreshCodeForSuggest(){
+	$('#suggest-code').attr('src', 'dynamic/code.php?r='+new Date().getTime());
+}
+
+function checkCodeForSuggest(){
+	var v = $('#suggest-code-input').val();
+	if(v.length != 4) return;
+	
+	$('#suggest-code-input').attr('readonly', true);
+	$.ajax({
+		type : 'POST',
+		url : 'dynamic/feedback-record.php',
+		data : $('#suggest-form').serialize(),
+		success : function(data){
+			$('#suggest-code-input').attr('readonly', false);
+			if(data.error == true){
+				refreshCodeForSuggest();
+				$('#suggest-code-input').val('');
+				$('#suggest-label').html(data.message).show();
+				$('#suggest-code-input').focus();
+			}else{
+				$('#suggest-form').get(0).reset();
+				$('#suggest-form').bootstrapValidator('resetForm', true);
+				hideCodeForSuggest();
+				
+				$('#thank-modal-body').html(data.message);
+				$('#thank-modal').modal();
+			}
+			
+		},
+		dataType : 'json'
+	});
+}
+
+function initValidateForSuggest() {
+	if($('#suggest-form').size() == 0) return;
+	
+    $('#suggest-form').bootstrapValidator({
+        message: 'This value is not valid',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        onSuccess: displayCodeForSuggest,
+        fields: {
+            detail: {
+                validators: {
+                    notEmpty: {
+                        message: '请填写问题描述'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 6000,
+                        message: '需要录入6到6000个字符'
+                    }
+                }
+            },
+            name:{
+            	validators: {
+                    stringLength: {
+                        max: 20,
+                        message: '最多输入20个字符'
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    emailAddress: {
+                        message: '请输入邮箱'
+                    },
+                    stringLength: {
+                        max: 50,
+                        message: '最多输入50个字符'
+                    }
+                }
+            }
         }
     });
 }
