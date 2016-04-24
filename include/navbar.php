@@ -7,10 +7,10 @@
 					 <span class="icon-bar"></span>
 					 <span class="icon-bar"></span>
 					 <span class="icon-bar"></span>
-				 </button><a class="navbar-brand" href="http://db.rex-soft.org"><img src="<?=$basePath?>style/images/logo.png" width="175" height="40" alt="Rexdb"/></a>
+				 </button><a class="navbar-brand" href="http://db.rex-soft.org"><img src="<?=$basePath?>ui/images/logo.png" width="175" height="40" alt="Rexdb"/></a>
 	  		 </div>
 			<div id="nav" class="collapse navbar-collapse" aria-expanded="true">
-				<ul class="nav navbar-nav navbar-right" style="margin-right: 5px;">
+				<ul class="nav navbar-nav navbar-right">
 					<li menuid='download'><a href="download.php"><strong>下载</strong></a></li>
 					<li menuid='document'><a href="document.php"><strong>文档</strong></a></li>
 					<li menuid='performance'><a href="performance.php"><strong>性能</strong></a></li>

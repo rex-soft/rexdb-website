@@ -6,8 +6,7 @@
 $basePath = '';
 include_once('include/import.php'); 
 ?>
-<script type="text/javascript" src="<?=$basePath?>style/validator/bootstrapValidator.min.js"></script>
-<script type="text/javascript" src="<?=$basePath?>style/validator/bootstrapValidator-zh_CN.js"></script>
+<script type="text/javascript" src="<?=$basePath?>ui/js/bootstrapValidator.mix-0.5.1.js"></script>
 <style>
 p {
 	font-size: 16px;
@@ -276,31 +275,44 @@ include_once('include/navbar.php');
 					</div>
 
 				</div>
-			
-				<div id="feedback-workflow" class="row" style="margin-top: 0;">
+				
+							
+				<div class="row">
 					<div class="col-md-12">
-						<h3>处理流程</h3>
-						<p>我们会认真阅读每一份反馈表单，但碍于资源有限，我们可能不会向您发送处理进度和结果信息。</p>
-					</div>
-					<div class="col-md-12 text-center" style="margin-top: 30px">
-						<img alt="反馈流程" src="style/images/feedback-workflow.png">
+						<h3>后续的处理</h3>
+						<p>我们会认真阅读每一份表单，但碍于资源有限，我们可能不会向您发送处理进度和结果信息。</p>
 					</div>
 				</div>
 				
+				<!-- <div class="row">
+					<div class="col-md-12">
+						<h3>Rexdb的历史</h3>
+						<p>Rexdb框架最早开发于2007年。
+						在那之前，作为技术团队的负责人，作者一直困扰于Java持久层框架的笨重和低效，难以忍受研发团队在进行了大量培训后，仍然无法高效、高质量的完成软件项目和产品。
+						于是自行研发了一个简易的ORM框架，并在下一个项目中取得了巨大的成功，此后便逐步应用在了多个省级、国家级大型项目中，直至今天。
+						</p>
+						<p>在历经了多年的改版后，虽然用户群体在不断增加，但框架还是在慢慢面临没有新反馈、没有新需求的尴尬境地。
+						作者也终于意识到，只有在更大范围发布，才能让框架具备长久的生命力。
+						</p>
+						<p>于是，作者将原有的框架进行了重写和更名，并将版本号倒退回1.0.0，希望能有一个新的开始。
+						</p>
+					</div>
+				</div>
+ -->
 				
 			</div>
 			
 			<div class="col-md-3">
-				<h4>联系我们</h4>
+				<h4>开发者团队</h4>
 				
 				<div class="media">
 			      <div class="media-left">
 			        <a href="#">
-			          <img class="media-object" alt="z" src="style/images/avatar-z.jpg" data-holder-rendered="true" style="width: 64px; height: 64px;">
+			          <img class="media-object" alt="z" src="ui/images/avatar-z.jpg" data-holder-rendered="true">
 			        </a>
 			      </div>
 			      <div class="media-body">
-			      	<h5>Z</h5>
+			      	<h5>z</h5>
 			        <h5 class="media-heading"><a href="mailto:z@rex-soft.org">z@rex-soft.org</a></h5>
 			      </div>
 			    </div>

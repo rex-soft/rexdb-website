@@ -424,6 +424,7 @@ function getDefaultTheme(){
 			style : {
 				fontFamily : "Tahoma,'Microsoft Yahei','Simsun'"
 			},
+			backgroundColor: 'rgba(0,0,0,0)',
 			type : 'column',
 			marginTop : 50,
 			marginLeft: 70
@@ -1254,7 +1255,7 @@ function initValidateForSuggest() {
             detail: {
                 validators: {
                     notEmpty: {
-                        message: '请填写问题描述'
+                        message: '请填写您的建议'
                     },
                     stringLength: {
                         min: 6,

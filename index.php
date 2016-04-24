@@ -39,7 +39,7 @@ include_once('include/navbar.php');
 <section id="header" class="top-div">
 <div class="container" >
 	<div class="page-header lead">
-		<h1 align="center" style="font-size: 50px;margin-bottom: 30px">Rexdb是一个开源持久层框架</h1>
+		<h1 align="center" id="dv">Rexdb是一个开源持久层框架</h1>
 		<p>
 		Rexdb是一款使用Java语言编写的，开放源代码的ORM持久层框架。
 		它可以处理查询、更新、批处理、调用、事物和JTA事物等数据库操作，支持多种类型的对象作为预编译参数，并自动完成结果集到对象的映射。
@@ -92,7 +92,7 @@ include_once('include/navbar.php');
 	</div>
 </div>	
 
-<section id="header2">
+<section class="header-gray">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 thumbnail">
@@ -125,7 +125,7 @@ include_once('include/navbar.php');
 	</div>	
 </div>
 
-<section id="header2">
+<section class="header-gray">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 thumbnail">
@@ -166,7 +166,7 @@ include_once('include/navbar.php');
 </div>
 
 
-<section id="header2">
+<section class="header-gray">
 	<div class="container">
 		<div class="row support" style="margin-top: 80px; margin-bottom: 120px;">
 			<div class="col-md-4">

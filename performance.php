@@ -86,16 +86,16 @@ include_once('include/navbar.php');
 
 <div class="container">
 
-		<div class="row" style="margin-top: 20px; margin-bottom: 20px">
+		<div class="row" style="margin-bottom: 20px">
 			<div class="col-md-12">
 				<div class="bs-callout bs-callout-info">
     				<h4>查看测试结论（<a  id="showall" href="javascript:void(0)">显示全部框架</a>）</h4>
     				<p>
 						<label class="checkbox-inline b"><input type="checkbox" id="rexdb" value="rexdb" checked="checked" disabled="disabled"> Rexdb 1.0.0</label>
 						<label class="checkbox-inline b"><input type="checkbox" id="jdbc" value="jdbc" checked="checked" disabled="disabled"> JDBC</label>
-						<label class="checkbox-inline"><input type="checkbox" id="hibernate" name="framework" value="hibernate"> Hibernate 5.1.0</label>
-						<label class="checkbox-inline"><input type="checkbox" id="mybatis" name="framework" value="mybatis"> Mybatis 3.3.1</label>
-						<label class="checkbox-inline"><input type="checkbox" id="spring" name="framework" value="spring"> Spring jdbc 4.2.5</label>
+						<label class="checkbox-inline b"><input type="checkbox" id="hibernate" name="framework" value="hibernate" checked="checked"> Hibernate 5.1.0</label>
+						<label class="checkbox-inline b"><input type="checkbox" id="mybatis" name="framework" value="mybatis" checked="checked"> Mybatis 3.3.1</label>
+						<label class="checkbox-inline b"><input type="checkbox" id="spring" name="framework" value="spring" checked="checked"> Spring jdbc 4.2.5</label>
     				</p>
     				<p>
     					<label class="radio-inline b"><input type="radio" id="oracle" name ="database" value="oracle" checked="checked">Oracle 10g</label>
@@ -129,7 +129,7 @@ include_once('include/navbar.php');
 		
 		
 		
-		<div class="row" style="margin-top: 20px; margin-bottom: 20px">
+		<div class="row" style="margin-top: 20px;">
 			<div class="col-md-6">
 				<div id="overview-query" style="height: 350px"></div>
 			</div>
@@ -188,7 +188,7 @@ include_once('include/navbar.php');
 			</div>
 		</div>
 		
-		<div id="performance-batch" class="row" style="margin-bottom: 100px">
+		<div id="performance-batch" class="row">
 			<div class="col-md-12">
 				<h3>批量更新性能</h3>
 				<p>

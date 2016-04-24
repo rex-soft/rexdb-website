@@ -352,85 +352,85 @@ function(a) {
         a && (a.style.left = "0px", a.style.top = "-9999px", a.removeAttribute("title")),
         d && (t(d, N.hoverClass), t(d, N.activeClass), d = null)
     };
-    var O = function() {
-        var b, c, d = document.getElementById("global-zeroclipboard-html-bridge");
-        if (!d) {
-            var f = K.config();
-            f.jsModuleId = "string" == typeof k && k || "string" == typeof l && l || null;
-            var g = F(a.location.host, N),
-            h = x(f),
-            i = N.moviePath + w(N.moviePath, N),
-            j = '      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" id="global-zeroclipboard-flash-bridge" width="100%" height="100%">         <param name="movie" value="' + i + '"/>         <param name="allowScriptAccess" value="' + g + '"/>         <param name="scale" value="exactfit"/>         <param name="loop" value="false"/>         <param name="menu" value="false"/>         <param name="quality" value="best" />         <param name="bgcolor" value="#ffffff"/>         <param name="wmode" value="transparent"/>         <param name="flashvars" value="' + h + '"/>         <embed src="' + i + '"           loop="false" menu="false"           quality="best" bgcolor="#ffffff"           width="100%" height="100%"           name="global-zeroclipboard-flash-bridge"           allowScriptAccess="' + g + '"           allowFullScreen="false"           type="application/x-shockwave-flash"           wmode="transparent"           pluginspage="http://www.macromedia.com/go/getflashplayer"           flashvars="' + h + '"           scale="exactfit">         </embed>       </object>';
-            d = document.createElement("div"),
-            d.id = "global-zeroclipboard-html-bridge",
-            d.setAttribute("class", "global-zeroclipboard-container"),
-            d.style.position = "absolute",
-            d.style.left = "0px",
-            d.style.top = "-9999px",
-            d.style.width = "15px",
-            d.style.height = "15px",
-            d.style.zIndex = "" + B(N.zIndex),
-            document.body.appendChild(d),
-            d.innerHTML = j
-        }
-        b = document["global-zeroclipboard-flash-bridge"],
-        b && (c = b.length) && (b = b[c - 1]),
-        e.bridge = b || d.children[0].lastElementChild
-    },
-    P = function(a) {
-        for (var b = /^OBJECT|EMBED$/,
-        c = a && a.parentNode; c && b.test(c.nodeName) && c.parentNode;) c = c.parentNode;
-        return c || null
-    },
-    Q = function() {
-        if (d) {
-            var a = v(d, N.zIndex),
-            b = P(e.bridge);
-            b && (b.style.top = a.top + "px", b.style.left = a.left + "px", b.style.width = a.width + "px", b.style.height = a.height + "px", b.style.zIndex = a.zIndex + 1),
-            e.ready === !0 && e.bridge && "function" == typeof e.bridge.setSize ? e.bridge.setSize(a.width, a.height) : e.ready = !1
-        }
-        return this
-    };
-    K.prototype.on = function(a, b) {
-        var c, d, f, g = {},
-        i = h[this.id] && h[this.id].handlers;
-        if ("string" == typeof a && a) f = a.toLowerCase().split(/\s+/);
-        else if ("object" == typeof a && a && "undefined" == typeof b) for (c in a) a.hasOwnProperty(c) && "string" == typeof c && c && "function" == typeof a[c] && this.on(c, a[c]);
-        if (f && f.length) {
-            for (c = 0, d = f.length; d > c; c++) a = f[c].replace(/^on/, ""),
-            g[a] = !0,
-            i[a] || (i[a] = []),
-            i[a].push(b);
-            g.noflash && e.disabled && T.call(this, "noflash", {}),
-            g.wrongflash && e.outdated && T.call(this, "wrongflash", {
-                flashVersion: e.version
-            }),
-            g.load && e.ready && T.call(this, "load", {
-                flashVersion: e.version
-            })
-        }
-        return this
-    },
-    K.prototype.off = function(a, b) {
-        var c, d, e, f, g, i = h[this.id] && h[this.id].handlers;
-        if (0 === arguments.length) f = G(i);
-        else if ("string" == typeof a && a) f = a.split(/\s+/);
-        else if ("object" == typeof a && a && "undefined" == typeof b) for (c in a) a.hasOwnProperty(c) && "string" == typeof c && c && "function" == typeof a[c] && this.off(c, a[c]);
-        if (f && f.length) for (c = 0, d = f.length; d > c; c++) if (a = f[c].toLowerCase().replace(/^on/, ""), g = i[a], g && g.length) if (b) for (e = y(b, g); - 1 !== e;) g.splice(e, 1),
-        e = y(b, g, e);
-        else i[a].length = 0;
-        return this
-    },
-    K.prototype.handlers = function(a) {
-        var b, c = null,
-        d = h[this.id] && h[this.id].handlers;
-        if (d) {
-            if ("string" == typeof a && a) return d[a] ? d[a].slice(0) : null;
-            c = {};
-            for (b in d) d.hasOwnProperty(b) && d[b] && (c[b] = d[b].slice(0))
-        }
-        return c
-    };
+//    var O = function() {
+//        var b, c, d = document.getElementById("global-zeroclipboard-html-bridge");
+//        if (!d) {
+//            var f = K.config();
+//            f.jsModuleId = "string" == typeof k && k || "string" == typeof l && l || null;
+//            var g = F(a.location.host, N),
+//            h = x(f),
+//            i = N.moviePath + w(N.moviePath, N),
+//            j = '      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" id="global-zeroclipboard-flash-bridge" width="100%" height="100%">         <param name="movie" value="' + i + '"/>         <param name="allowScriptAccess" value="' + g + '"/>         <param name="scale" value="exactfit"/>         <param name="loop" value="false"/>         <param name="menu" value="false"/>         <param name="quality" value="best" />         <param name="bgcolor" value="#ffffff"/>         <param name="wmode" value="transparent"/>         <param name="flashvars" value="' + h + '"/>         <embed src="' + i + '"           loop="false" menu="false"           quality="best" bgcolor="#ffffff"           width="100%" height="100%"           name="global-zeroclipboard-flash-bridge"           allowScriptAccess="' + g + '"           allowFullScreen="false"           type="application/x-shockwave-flash"           wmode="transparent"           pluginspage="http://www.macromedia.com/go/getflashplayer"           flashvars="' + h + '"           scale="exactfit">         </embed>       </object>';
+//            d = document.createElement("div"),
+//            d.id = "global-zeroclipboard-html-bridge",
+//            d.setAttribute("class", "global-zeroclipboard-container"),
+//            d.style.position = "absolute",
+//            d.style.left = "0px",
+//            d.style.top = "-9999px",
+//            d.style.width = "15px",
+//            d.style.height = "15px",
+//            d.style.zIndex = "" + B(N.zIndex),
+//            document.body.appendChild(d),
+//            d.innerHTML = j
+//        }
+//        b = document["global-zeroclipboard-flash-bridge"],
+//        b && (c = b.length) && (b = b[c - 1]),
+//        e.bridge = b || d.children[0].lastElementChild
+//    },
+//    P = function(a) {
+//        for (var b = /^OBJECT|EMBED$/,
+//        c = a && a.parentNode; c && b.test(c.nodeName) && c.parentNode;) c = c.parentNode;
+//        return c || null
+//    },
+//    Q = function() {
+//        if (d) {
+//            var a = v(d, N.zIndex),
+//            b = P(e.bridge);
+//            b && (b.style.top = a.top + "px", b.style.left = a.left + "px", b.style.width = a.width + "px", b.style.height = a.height + "px", b.style.zIndex = a.zIndex + 1),
+//            e.ready === !0 && e.bridge && "function" == typeof e.bridge.setSize ? e.bridge.setSize(a.width, a.height) : e.ready = !1
+//        }
+//        return this
+//    };
+//    K.prototype.on = function(a, b) {
+//        var c, d, f, g = {},
+//        i = h[this.id] && h[this.id].handlers;
+//        if ("string" == typeof a && a) f = a.toLowerCase().split(/\s+/);
+//        else if ("object" == typeof a && a && "undefined" == typeof b) for (c in a) a.hasOwnProperty(c) && "string" == typeof c && c && "function" == typeof a[c] && this.on(c, a[c]);
+//        if (f && f.length) {
+//            for (c = 0, d = f.length; d > c; c++) a = f[c].replace(/^on/, ""),
+//            g[a] = !0,
+//            i[a] || (i[a] = []),
+//            i[a].push(b);
+//            g.noflash && e.disabled && T.call(this, "noflash", {}),
+//            g.wrongflash && e.outdated && T.call(this, "wrongflash", {
+//                flashVersion: e.version
+//            }),
+//            g.load && e.ready && T.call(this, "load", {
+//                flashVersion: e.version
+//            })
+//        }
+//        return this
+//    },
+//    K.prototype.off = function(a, b) {
+//        var c, d, e, f, g, i = h[this.id] && h[this.id].handlers;
+//        if (0 === arguments.length) f = G(i);
+//        else if ("string" == typeof a && a) f = a.split(/\s+/);
+//        else if ("object" == typeof a && a && "undefined" == typeof b) for (c in a) a.hasOwnProperty(c) && "string" == typeof c && c && "function" == typeof a[c] && this.off(c, a[c]);
+//        if (f && f.length) for (c = 0, d = f.length; d > c; c++) if (a = f[c].toLowerCase().replace(/^on/, ""), g = i[a], g && g.length) if (b) for (e = y(b, g); - 1 !== e;) g.splice(e, 1),
+//        e = y(b, g, e);
+//        else i[a].length = 0;
+//        return this
+//    },
+//    K.prototype.handlers = function(a) {
+//        var b, c = null,
+//        d = h[this.id] && h[this.id].handlers;
+//        if (d) {
+//            if ("string" == typeof a && a) return d[a] ? d[a].slice(0) : null;
+//            c = {};
+//            for (b in d) d.hasOwnProperty(b) && d[b] && (c[b] = d[b].slice(0))
+//        }
+//        return c
+//    };
     var R = function(b, c, d, e) {
         var f = h[this.id] && h[this.id].handlers[b];
         if (f && f.length) {
@@ -696,35 +696,36 @@ function(a) {
         }),
         a(".bs-docs-activate-animated-progressbar").on("click", function() {
             a(this).siblings(".progress").find(".progress-bar-striped").toggleClass("active")
-        }),
-        
-        
-        ZeroClipboard.config({
-            moviePath: "style/ZeroClipboard.swf",
-            hoverClass: "btn-clipboard-hover"
-        }),
-        
-        a(".highlight").each(function() {
-            var b = '<div class="zero-clipboard"><span class="btn-clipboard">复制</span></div>';
-            a(this).before(b)
-        });
-        var d = new ZeroClipboard(a(".btn-clipboard")), 
-        e = a("#global-zeroclipboard-html-bridge");
-        d.on("load", function() {
-            e.data("placement", "top").attr("title", "复制到剪贴板").tooltip(),
-            
-            d.on("dataRequested", function(b) {alert()
-                var c = a(this).parent().nextAll(".highlight").first();
-                b.setText(c.text())
-            }),
-            d.on("complete", function() {
-                e.attr("title", "复制成功！").tooltip("fixTitle").tooltip("show").attr("title", "复制到剪贴板").tooltip("fixTitle")
-            })
-        }),
-        d.on("noflash wrongflash", function() {
-            a(".zero-clipboard").remove(),
-            ZeroClipboard.destroy()
         })
+//        ,
+        
+        
+//        ZeroClipboard.config({
+//            moviePath: "style/ZeroClipboard.swf",
+//            hoverClass: "btn-clipboard-hover"
+//        }),
+//        
+//        a(".highlight").each(function() {
+//            var b = '<div class="zero-clipboard"><span class="btn-clipboard">复制</span></div>';
+//            a(this).before(b)
+//        });
+//        var d = new ZeroClipboard(a(".btn-clipboard")), 
+//        e = a("#global-zeroclipboard-html-bridge");
+//        d.on("load", function() {
+//            e.data("placement", "top").attr("title", "复制到剪贴板").tooltip(),
+//            
+//            d.on("dataRequested", function(b) {alert()
+//                var c = a(this).parent().nextAll(".highlight").first();
+//                b.setText(c.text())
+//            }),
+//            d.on("complete", function() {
+//                e.attr("title", "复制成功！").tooltip("fixTitle").tooltip("show").attr("title", "复制到剪贴板").tooltip("fixTitle")
+//            })
+//        }),
+//        d.on("noflash wrongflash", function() {
+//            a(".zero-clipboard").remove(),
+//            ZeroClipboard.destroy()
+//        })
     })
 } (jQuery),
 function() {

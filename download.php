@@ -41,7 +41,7 @@ include_once('include/navbar.php');
   -->
   
 <div class="container top-div">
-	<div id="download-latest" class="row" style="margin-top: 20px; margin-bottom: 20px">
+	<div id="download-latest" class="row">
 		<div class="col-md-12">
 		
 			<div class="media dl">
@@ -155,7 +155,7 @@ include_once('include/navbar.php');
 		</div>
 	</div>
 	
-	<div id="download-github" class="row" style="margin-top: 20px; margin-bottom: 20px">
+	<div id="download-github" class="row">
 		<div class="col-md-12">
 			<h3>Github</h3>
 			<p>Rexdb的源代码托管在Github库中。如果您不了解Github，请参考<a href="https://help.github.com/index.html" target="_blank">Help</a>（英文）。</p>
@@ -164,7 +164,7 @@ clone https://github.com/rex-soft/rexdb-tester.git</pre>
 		</div>
 	</div>
 	
-	<div id="download-history" class="row" style="margin-top: 20px; margin-bottom: 20px">
+	<div id="download-history" class="row">
 		<div class="col-md-12">
 			<h3>历史版本</h3>
 			<blockquote>Rexdb 1.0.0 （最新版本）</blockquote>
@@ -177,7 +177,7 @@ clone https://github.com/rex-soft/rexdb-tester.git</pre>
 		</div>
 	</div>
 	
-	<div id="download-version" class="row" style="margin-top: 20px;">
+	<div id="download-version" class="row">
 		<div class="col-md-12">
 			<h3>版本号规则</h3>
 			
