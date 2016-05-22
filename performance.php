@@ -89,7 +89,7 @@ include_once('include/navbar.php');
 		<div class="row" style="margin-bottom: 20px">
 			<div class="col-md-12">
 				<div class="bs-callout bs-callout-info">
-    				<h4>查看测试结论（<a  id="showall" href="javascript:void(0)">显示全部框架</a>）</h4>
+    				<h4>查看测试结论</h4>
     				<p>
 						<label class="checkbox-inline b"><input type="checkbox" id="rexdb" value="rexdb" checked="checked" disabled="disabled"> Rexdb 1.0.0</label>
 						<label class="checkbox-inline b"><input type="checkbox" id="jdbc" value="jdbc" checked="checked" disabled="disabled"> JDBC</label>
