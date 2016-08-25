@@ -949,7 +949,7 @@ function initIndexGraphics(){
 			renderTo : 'performance',
 			type : 'column',
 			marginTop : 45,
-			marginLeft: 30,
+			marginLeft: 40,
 			marginBottom: 35,
 			options3d : {
 				enabled : true,

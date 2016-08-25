@@ -212,10 +212,11 @@ clone https://github.com/rex-soft/rexdb-tester.git</pre>
 			          <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 2016-08-24 </small></p>
 			        </div>
 			        <div class="tl-body">
-			          <p>这是第一个公开发布版本，预计可以稳定运行于生产系统。</p>
+			          <p>这是第一个公开发布版本，已经通过测试，并正在稳定运行于多个生产系统。</p>
 			          <p>
 			          	<ol>
-			          		<li>修复了开启事物后，不进行任何操作并提交事物时抛出异常的问题</li>
+			          		<li>修复了开启事物后，不进行任何操作，直接提交事物时报错的问题</li>
+			          		<li>增加支持java.util.List参数类型的批处理接口</li>
 			          	</ol>
 			          </p>
 			        </div>
@@ -229,7 +230,7 @@ clone https://github.com/rex-soft/rexdb-tester.git</pre>
 			          <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 2016-04-05</small></p>
 			        </div>
 			        <div class="tl-body">
-			          <p>这个仍然是一个内部版本，正在应用于若干个软件项目，。</p>
+			          <p>这个仍然是一个内部版本，正在应用于若干个软件项目。</p>
 			          <p>
 			          	<ol>
 			          		<li>补充和修正源代码中的注释</li>
@@ -262,7 +263,7 @@ clone https://github.com/rex-soft/rexdb-tester.git</pre>
 			          <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 2016-01-12 </small></p>
 			        </div>
 			        <div class="tl-body">
-			          <p>框架的编写已经完成，这个版本仅用于测试，不能用于生产环境，在测试完成后会对某些模块进行重构，或者重写。</p>
+			          <p>框架的编写已经完成，这个版本仅用于测试，不能用于生产环境，在测试完成后会对某些模块进行重构。</p>
 			        </div>
 			      </div>
 			    </li>
