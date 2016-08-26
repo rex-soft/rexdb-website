@@ -105,44 +105,34 @@ include_once('include/navbar.php');
 		        <ul class="list-group">
 				  <li class="list-group-item">
 				  	<i class="iconfont icon-cspdf"></i>
-				   	<a href="#">简介</a>
-				   	
-				    <span class="remark">框架的功能和特点</span>
+				   	<a href="download/1.0/doc/1.intro.pdf">简介</a>
+				    <span class="remark">Rexdb框架的功能和特点</span>
 				  </li>
-				  
 				  <li class="list-group-item">
 				  	<i class="iconfont icon-cspdf"></i>
-				   	<a href="#">下载和使用</a>
-				    
-				    <span class="remark">下载压缩包和编译源代码</span>
+				   	<a href="download/1.0/doc/2.download.pdf">下载</a>
+				    <span class="remark">如何获取Rexdb</span>
 				  </li>
-				  
 				  <li class="list-group-item">
 				  	<i class="iconfont icon-cspdf"></i>
-				   	<a href="#">快速入门</a>
-				    
+				   	<a href="download/1.0/doc/3.quick-start-beginner.pdf">快速入门（初学者）</a>
 				    <span class="remark">面向初学者的快速入门教程</span>
 				  </li>
-				  
 				  <li class="list-group-item">
 				  	<i class="iconfont icon-cspdf"></i>
-				   	<a href="#">用户手册</a>
-				    
-				    <span class="remark">开发人员参考文档</span>
+				   	<a href="download/1.0/doc/4.quick-start.pdf">快速入门（通用）</a>
+				    <span class="remark">面向大部分开发人员的快速入门教程</span>
+				  </li>
+				  <li class="list-group-item">
+				  	<i class="iconfont icon-cspdf"></i>
+				   	<a href="download/1.0/doc/5.user-manual.pdf">用户手册</a>
+				    <span class="remark">完整的开发人员参考文档，包含详细的示例、配置和接口说明</span>
 				  </li>
 				  
 				  <li class="list-group-item">
 				  	<i class="iconfont icon-cspdf"></i>
-				   	<a href="#">性能测试程序用户手册</a>
-				    
-				    <span class="remark">性能测试程序的参考文档</span>
-				  </li>
-				  
-				  <li class="list-group-item">
-				  	<i class="iconfont icon-cspdf"></i>
-				   	<a href="#">API</a>
-				    
-				    <span class="remark">Java API文档</span>
+				   	<a href="download/1.0/doc/6.performance-user-manual.pdf">性能测试程序用户手册</a>
+				    <span class="remark">性能测试程序的使用文档</span>
 				  </li>
 				</ul>
 		      </div>
@@ -153,8 +143,8 @@ include_once('include/navbar.php');
 	
 	<div id="download-github" class="row">
 		<div class="col-md-12">
-			<h3>Github</h3>
-			<p>Rexdb的源代码托管在Github中。如果您不了解Github，请参考<a href="https://help.github.com/index.html" target="_blank">Help</a>（英文）。</p>
+			<h3>Git</h3>
+			<p>Rexdb的源代码托管在Github和Oschina码云中。如果您不了解Github，请参考<a href="https://help.github.com/index.html" target="_blank">Help</a>（英文）。</p>
 			<pre>clone https://github.com/rex-soft/rexdb.git
 clone https://github.com/rex-soft/rexdb-tester.git</pre>
 		</div>

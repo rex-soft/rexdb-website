@@ -326,7 +326,7 @@ dt {
 }
 
 dt a span{
-	/* color: #777; */
+	color: #777;
 }
 
 dt a:hover span{

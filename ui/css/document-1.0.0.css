@@ -115,7 +115,7 @@ dl dd>:last-child {
 =============================================================================*/
 
 pre, code, tt {
-  font-size: 16px;
+  /* font-size: 16px; */
   font-family: Consolas, "Liberation Mono", Courier, monospace;
 }
 
@@ -173,10 +173,14 @@ kbd {
 =============================================================================*/
 
 blockquote {
-  border-left: 4px solid #DDD;
+  border-left: 4px solid #ccc;
   padding: 0 15px;
   color: #777;
 }
+
+.doc-content blockquote {
+  border-left: 4px solid #4183C4;
+}  
 
 /* #header blockquote {
   border-left: 4px solid #2a5d84;
@@ -209,8 +213,11 @@ hr {
 
 /* TABLES
 =============================================================================*/
+table {
+	width: 100%;	
+}
 
-/* table th {
+table th {
   font-weight: bold;
 }
 
@@ -226,7 +233,7 @@ table tr {
 
 table tr:nth-child(2n) {
   background-color: #f8f8f8;
-} */
+} 
 
 /* IMAGES
 =============================================================================*/
@@ -1207,9 +1214,13 @@ h2 code, h3 code, h4 code {
 	position: static
 }
 
+.bs-docs-sidebar {
+	background-color: #fff;
+}
+
 @media ( min-width :768px) {
 	.bs-docs-sidebar {
-		padding-left: 20px
+		margin-left: 20px;
 	}
 }
 

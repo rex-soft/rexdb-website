@@ -22,9 +22,11 @@ var basePath = '<?=$dirPath?>';
 $(document).ready(function(){
 	//调整图片资源URI
 	$('div[role=\'main\'] img').each(function(){
-		var src = $(this).attr('src');
-		if(src.indexOf('http') != 0)
+		var src = $(this).attr('data-src');
+		if(src.indexOf('http') != 0){
 			$(this).attr('src', basePath + '/' + src);
+			$(this).parent().after($(this));
+		}
 	});
 	//文档总目录
 	var href = window.location.href;
@@ -66,7 +68,7 @@ include_once('include/navbar.php');
 	include_once($navFile);
 ?>
 
-            <a class="back-to-top" href="#top">返回顶部</a>
+            <a class="back-to-top" href="#user-content-top">返回顶部</a>
             
           </nav>
         </div>

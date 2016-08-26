@@ -1,11 +1,8 @@
+<h1><div id="user-content-top">快速入门（初学者）</div></h1>
 
-<h1><div id="top">快速入门（初学者）</div></h1>
+<p>本文档用于快速了解Rexdb的使用方法，适合Java编程的初学者阅读。</p>
 
-
-
-<p>如果您是Java初学者，本文档可以帮助您在最短的时间内了解Rexdb的使用方法。</p>
-
-<h2><div id="environment">准备运行环境</div></h2>
+<h2><div id="user-content-environment">准备运行环境</div></h2>
 
 <p>Rexdb的运行环境需要满足以下要求：</p>
 
@@ -14,24 +11,24 @@
 <li>支持JDBC驱动</li>
 </ol>
 
-<p>首先，请安装好数据库，并获取相应的jdbc驱动包，然后将Rexdb的Jar包，以及数据库的jdbc驱动包拷贝至环境变量classpath中。</p>
+<p>首先，请安装好数据库，并下载好相应的jdbc驱动包，然后将Rexdb的Jar包、数据库的jdbc驱动包拷贝至环境变量classpath中。</p>
 
 <p>以Mysql为例，这时您的classpath中应有以下2个jar包：</p>
 
 <blockquote>
 <p><strong>rexdb-1.0.0.jar</strong>（或更高版本）<br>
-<strong>mysql-connector-java-5.1.26-bin.jar</strong>（或其它版本的驱动）</p>
+<strong>mysql-connector-java-5.1.26-bin.jar</strong>（或其它版本）</p>
 </blockquote>
 
-<p>您还可以在classpath中增加其它Jar包，以启用Rexdb的更多功能。例如，当增加Apache Log4j后，Rexdb可以自动启用日志功能，并使用Log4j记录日志；当增加Jboss javassist包后，可以启用Rexdb的动态字节码功能，以获取更高的查询性能。详情请参见<a href="#thirdparty">附录：Rexdb可选配的第三方包</a>。</p>
+<p>您还可以在classpath中增加Jar包，以启用Rexdb的更多功能。例如，当增加Apache Log4j后，Rexdb将自动调用Log4j的日志功能；当增加Jboss javassist包后，可以启用Rexdb的动态字节码功能，以获取更高的查询性能。详情请参见<a href="#user-content-thirdparty">附录：Rexdb可选配的第三方包</a>。</p>
 
-<p>准备就绪后，就可以使用Rexdb操作数据库了。本文档如无特殊说明，均以Mysql为例。</p>
+<p>准备就绪后，就可以使用Rexdb操作数据库了。本文档中如无特殊说明，均使用Mysql数据库。</p>
 
-<h2><div id="configuration">全局配置文件</div></h2>
+<h2><div id="user-content-configuration">全局配置文件</div></h2>
 
-<p>首先需要为Rexdb创建全局配置文件。Rexdb在初始化时会加载该文件，并根据配置的内容创建连接池、方言、日志、监听等。</p>
+<p>首先需要为Rexdb创建全局配置文件。Rexdb在初始化时会加载该文件，并根据配置创建连接池、方言、日志、监听等。</p>
 
-<p>在classpath目录中新建一个文件，名称为<strong>rexdb.xml</strong>，内容为（请将方括号及其内容替换为正确的值）：</p>
+<p>在classpath目录中新建一个文件，名称为<strong>rexdb.xml</strong>，内容如下（请将方括号及其内容替换为正确的值）：</p>
 
 <div class="highlight highlight-text-xml"><pre>&lt;?<span class="pl-ent">xml</span><span class="pl-e"> version</span>=<span class="pl-s"><span class="pl-pds">"</span>1.0<span class="pl-pds">"</span></span><span class="pl-e"> encoding</span>=<span class="pl-s"><span class="pl-pds">"</span>UTF-8<span class="pl-pds">"</span></span>?&gt; 
 &lt;!<span class="pl-k">DOCTYPE</span> <span class="pl-v">configuration</span> PUBLIC "-//rex-soft.org//REXDB DTD 1.0//EN" "http://www.rex-soft.org/dtd/rexdb-1-config.dtd"&gt;
@@ -44,7 +41,7 @@
     &lt;/<span class="pl-ent">dataSource</span>&gt;
 &lt;/<span class="pl-ent">configuration</span>&gt;</pre></div>
 
-<p>以Mysql为例，该配置文件的内容可能会是：</p>
+<p>使用Mysql数据库时，配置文件的内容可能会是：</p>
 
 <div class="highlight highlight-text-xml"><pre>&lt;?<span class="pl-ent">xml</span><span class="pl-e"> version</span>=<span class="pl-s"><span class="pl-pds">"</span>1.0<span class="pl-pds">"</span></span><span class="pl-e"> encoding</span>=<span class="pl-s"><span class="pl-pds">"</span>UTF-8<span class="pl-pds">"</span></span>?&gt; 
 &lt;!<span class="pl-k">DOCTYPE</span> <span class="pl-v">configuration</span> PUBLIC "-//rex-soft.org//REXDB DTD 1.0//EN" "http://www.rex-soft.org/dtd/rexdb-1-config.dtd"&gt;
@@ -57,11 +54,11 @@
     &lt;/<span class="pl-ent">dataSource</span>&gt;
 &lt;/<span class="pl-ent">configuration</span>&gt;</pre></div>
 
-<p>请确保配置文件的名称为<strong>rexdb.xml</strong>，并存储在环境变量classpath的根目录中。如果您希望放置在其它目录，则需要手动调用Rexdb的初始化接口，以完成加载工作，详情请参考<em>用户手册</em>。</p>
+<p>请确保配置文件的名称为<strong>rexdb.xml</strong>，并存储在环境变量classpath的根目录中。如果您希望放置在其它目录，或使用其它名称，则需要手动调用Rexdb的初始化接口，以完成加载工作，详情请参考<em>用户手册</em>。</p>
 
-<h2><div id="create">创建一个测试表</div></h2>
+<h2><div id="user-content-create">创建一个测试表</div></h2>
 
-<p>为了便于后续接口的展示，首先使用Rexdb创建一个表<em>REX_TEST</em>，该表包含3个字段：</p>
+<p>首先使用Rexdb创建一个表<em>REX_TEST</em>，包含3个字段：</p>
 
 <blockquote>
 <p><strong>ID</strong> int(11) NOT NULL<br>
@@ -82,7 +79,7 @@
     }
 }</pre></div>
 
-<p>类<code>org.rex.DB</code>是Rexdb的对外接口类，它提供了查询、更新、调用、事物等操作接口。<code>DB.update(String sql)</code>是该类的一个静态方法，用于在数据库中执行一个插入/更新/删除的SQL语句。</p>
+<p>类<code>org.rex.DB</code>是Rexdb的接口类，不需要实例化，直接调用即可。它提供了查询、更新、调用、事物等操作接口。<code>DB.update(String sql)</code>是该类的一个静态方法，用于在数据库中执行一个插入/更新/删除的SQL语句。</p>
 
 <p>接下来使用命令行编译并执行该类：</p>
 
@@ -97,9 +94,9 @@ java TestCreate
 
 <p>此时，使用查询工具连接数据库，可以确认表<em>REX_TABLE</em>已被创建。</p>
 
-<p>需要注意的是，如果数据库的配置有误，如地址无法连接、密码错误等。在执行该类时，将会有若干秒的等待，之后才会输出错误信息。这是由于Rexdb内置的连接池具有重试机制，会在一定间隔内，反复尝试几次连接，全部失败后才会抛出异常。这是连接池的容错策略，是正常现象。</p>
+<p>需要注意的是，如果数据库的配置有误，如地址无法连接、密码错误等。在执行该类时，将会有若干秒的等待，之后才会输出错误信息。这是由于Rexdb内置的连接池具有重试机制，会在一定间隔内，反复进行若干次尝试，全部失败后才会抛出异常。这是连接池的容错策略，是正常现象。</p>
 
-<h2><div id="update">执行插入/更新/删除SQL</div></h2>
+<h2><div id="user-content-update">执行插入/更新/删除SQL</div></h2>
 
 <p>在Rexdb中，数据库的插入/更新/删除操作使用的是同一个接口。接下来以插入为例，演示接口的使用方法。</p>
 
@@ -214,9 +211,9 @@ CREATE_TIME         createTime
 
 <p>为便于描述，我们总结了<code>DB.update(...)</code>接口中SQL和参数的组合方式，如下图所示：</p>
 
-<p><a href="resource/quick-start-update.png" target="_blank"><img src="resource/quick-start-update.png" alt="" style="max-width:100%;"></a></p>
+<p><a href="resource/quick-start-update.png" target="_blank"><img data-src="resource/quick-start-update.png" alt="" style="max-width:100%;"></a></p>
 
-<h2><div id="batch">执行批量更新</div></h2>
+<h2><div id="user-content-batch">执行批量更新</div></h2>
 
 <p>当同时插入/更新/删除多行记录时，使用批量更新接口可以获得更高的执行效率。</p>
 
@@ -242,9 +239,9 @@ CREATE_TIME         createTime
 
 <p>除<code>Ps</code>数组外，Rexdb还支持<code>二维数组</code>、<code>Map</code>数组、实体类数组以及<code>List</code>作为参数，或者直接执行多条SQL语句。使用不同类型的参数时，对应的SQL的写法与单条记录的插入/更新/删除相同，SQL语句和参数的组合关系如图所示：</p>
 
-<p><a href="resource/quick-start-batchupdate.png" target="_blank"><img src="resource/quick-start-batchupdate.png" alt="" style="max-width:100%;"></a></p>
+<p><a href="resource/quick-start-batchupdate.png" target="_blank"><img data-src="resource/quick-start-batchupdate.png" alt="" style="max-width:100%;"></a></p>
 
-<h2><div id="getlist">查询多行记录</div></h2>
+<h2><div id="user-content-getlist">查询多行记录</div></h2>
 
 <p>编写类<strong>TestQuery</strong>，该类用于查询出表<code>REX_TEST</code>中的所有记录：</p>
 
@@ -310,13 +307,13 @@ CREATE_TIME         createTime
 
 <p>1）如果您没有编写结果集对应的实体类，可以使用图示中的参数组合，调用<code>DB.getMapList(...)</code>查询出包含<code>RMap</code>的<code>List</code>对象：</p>
 
-<p><a href="resource/quick-start-getmaplist.png" target="_blank"><img src="resource/quick-start-getmaplist.png" alt="" style="max-width:100%;"></a></p>
+<p><a href="resource/quick-start-getmaplist.png" target="_blank"><img data-src="resource/quick-start-getmaplist.png" alt="" style="max-width:100%;"></a></p>
 
 <p>2）如果您已经编写了结果集对应的实体类，则只需要在上述接口中增加一个<code>实体类.class</code>参数，并调用<code>DB.getList(...)</code>查询出包含实体类的<code>List</code>对象，如图所示：</p>
 
-<p><a href="resource/quick-start-getlist.png" target="_blank"><img src="resource/quick-start-getlist.png" alt="" style="max-width:100%;"></a></p>
+<p><a href="resource/quick-start-getlist.png" target="_blank"><img data-src="resource/quick-start-getlist.png" alt="" style="max-width:100%;"></a></p>
 
-<h2><div id="get">查询单行记录</div></h2>
+<h2><div id="user-content-get">查询单行记录</div></h2>
 
 <p>Rexdb提供了一系列查询单行记录的接口，例如，如果您希望只查询一行记录，并获取实体类时，可以使用如下接口：</p>
 
@@ -339,13 +336,13 @@ CREATE_TIME         createTime
 
 <p>1）如果您没有编写结果集对应的实体类，可以调用<code>DB.getMap(...)</code>接口查询<code>RMap</code>对象：</p>
 
-<p><a href="resource/quick-start-getmap.png" target="_blank"><img src="resource/quick-start-getmap.png" alt="" style="max-width:100%;"></a></p>
+<p><a href="resource/quick-start-getmap.png" target="_blank"><img data-src="resource/quick-start-getmap.png" alt="" style="max-width:100%;"></a></p>
 
 <p>2）如果您已经编写了结果集对应的实体类，则只需要在上述接口中增加一个<code>实体类.class</code>参数，并调用<code>DB.get(...)</code>接口查询实体类的实例，如图所示：</p>
 
-<p><a href="resource/quick-start-get.png" target="_blank"><img src="resource/quick-start-get.png" alt="" style="max-width:100%;"></a></p>
+<p><a href="resource/quick-start-get.png" target="_blank"><img data-src="resource/quick-start-get.png" alt="" style="max-width:100%;"></a></p>
 
-<h2><div id="transaction">启用事物</div></h2>
+<h2><div id="user-content-transaction">启用事物</div></h2>
 
 <p>编写类<strong>TestTransaction</strong>，内容如下：</p>
 
@@ -377,7 +374,7 @@ CREATE_TIME         createTime
 <span class="pl-c1">DB</span><span class="pl-k">.</span>rollbackJta();
 <span class="pl-c1">DB</span><span class="pl-k">.</span>commitJta();</pre></div>
 
-<h2><div id="call">调用函数和存储过程</div></h2>
+<h2><div id="user-content-call">调用函数和存储过程</div></h2>
 
 <p>Rexdb支持函数和存储过程调用，可以处理函数或存储过程中的输入、输出、输入输出参数和返回结果。</p>
 
@@ -422,9 +419,9 @@ ps<span class="pl-k">.</span>addOutInt();<span class="pl-c">//声明为输出参
 
 <p>有返回值的存储过程，在调用后也会被解析并转换为Java对象，并封装在返回的<code>RMap</code>对象中，且键为<code>result_返回值序号</code>。</p>
 
-<p><a href="resource/quick-start-call.png" target="_blank"><img src="resource/quick-start-call.png" alt="" style="max-width:100%;"></a></p>
+<p><a href="resource/quick-start-call.png" target="_blank"><img data-src="resource/quick-start-call.png" alt="" style="max-width:100%;"></a></p>
 
-<h2><div id="datasource">定义多个数据源</div></h2>
+<h2><div id="user-content-datasource">定义多个数据源</div></h2>
 
 <p>如果您的应用程序需要使用多个数据库，可以在Rexdb全局配置文件<strong>rexdb.xml</strong>中配置多个数据源，例如：</p>
 
@@ -454,7 +451,7 @@ ps<span class="pl-k">.</span>addOutInt();<span class="pl-c">//声明为输出参
 
 <p><code>org.rex.DB</code>类的更新、查询、调用、事物等接口均可以指定数据源，只需要将接口的第一个参数设置为配置文件中声明的<code>id</code>值即可。</p>
 
-<h2><div id="jndi">使用其它数据源或JNDI</div></h2>
+<h2><div id="user-content-jndi">使用其它数据源或JNDI</div></h2>
 
 <p>Rexdb内置了连接池和数据源，默认情况下使用的是默认数据源。如果您希望使用其它数据源，例如DBCP、C3P0等，可以在配置文件中进行如下定义：</p>
 
@@ -481,11 +478,11 @@ ps<span class="pl-k">.</span>addOutInt();<span class="pl-c">//声明为输出参
 
 <p>其中，JNDI的定义格式可能会因应用所在的容器而有所不同，如果出现找不到JNDI的错误时，请检查容器的名称定义规则。</p>
 
-<h2><div id="more">更多功能</div></h2>
+<h2><div id="user-content-more">更多功能</div></h2>
 
 <p>除本文档中提及的功能外，Rexdb还有更多用法和设置选项，详情请参见Rexb用户手册。</p>
 
-<h2><div id="thirdparty">附录：Rexdb可选配的第三方包</div></h2>
+<h2><div id="user-content-thirdparty">附录：Rexdb可选配的第三方包</div></h2>
 
 <p>Rexdb没有必须依赖的第三方包，但在运行环境中导入如下第三方包后，可以启用更多功能：</p>
 

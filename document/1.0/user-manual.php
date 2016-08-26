@@ -1,30 +1,27 @@
 
-<h1 id="top">用户手册</h1>
+<h1>用户手册</h1>
 
+<h2><div id="user-content-summary">概述</div></h2>
 
+<h3><div id="user-content-summary-intro">简介</div></h3>
 
-<h2><div id="summary">概述</div></h2>
-
-<h3><div id="summary-intro">简介</div></h3>
-
-<p>Rexdb是一款使用Java语言编写的，开放源代码的持久层框架。它具有管理数据源、执行SQL、调用函数和存储过程、处理事务等功能。使用Rexdb时，不需要像JDBC一样编写繁琐的代码，也不需要编写映射文件，只要将SQL和Java对象等参数传递至框架接口，即可获取需要的结果。</p>
+<p>Rexdb是一款使用Java语言编写的，开放源代码的持久层框架。提供了查询、调用、（JTA）事务、数据源管理等功能。使用Rexdb时，不需要像JDBC一样编写繁琐的代码，也不需要编写映射文件，只要将SQL和Java对象等参数传递至框架接口，即可获取需要的结果。</p>
 
 <p>Rexdb的官方网站地址为：<a href="http://db.rex-soft.org">http://db.rex-soft.org</a></p>
 
-<h3><div id="summary-feature">功能</div></h3>
+<h3><div id="user-content-summary-feature">功能</div></h3>
 
 <p>Rexdb具有如下功能：</p>
 
 <ul>
-<li>数据库查询、更新、批量处理、调用、事物和JTA事物等，支持<code>数组</code>、<code>Map</code>、自定义的<code>Java对象</code>作为预编译参数；</li>
-<li>O/R映射，自动将结果集转换为<code>Map</code>、<code>Java对象</code>；</li>
-<li>数据源管理，拥有内置的连接池和数据源，支持第三方数据源和JNDI；</li>
-<li>数据库方言，自动封装分页查询和常用函数，支持Oracle、DB2、SQL Server、Mysql、达梦等数据库；</li>
-<li>支持对框架初始化、SQL执行、事物等事件的监听；</li>
-<li>统一的异常管理、异常信息的国际化支持等；</li>
+<li>数据库操作：查询、更新、批处理、调用、（JTA）事物等；</li>
+<li>ORM映射：支持数组、Map和任意Java对象；</li>
+<li>数据源：内置连接池，支持第三方数据源和JNDI；</li>
+<li>方言：自动分页，支持Oracle、DB2、SQL Server、Mysql、达梦等数据库；</li>
+<li>高级功能：监听、国际化、异常管理等；</li>
 </ul>
 
-<h2><div id="environment">开发环境</div></h2>
+<h2><div id="user-content-environment">开发环境</div></h2>
 
 <p>Rexdb的官方网站提供了下载衔接，下载并解压后，可以得到编译好的jar包和全局配置文件的示例：</p>
 
@@ -34,13 +31,13 @@
 <li><strong>rexdb.xml</strong></li>
 </ul>
 
-<p><strong>rexdb-1.0.0.jar</strong>（或其它版本）是运行Rexdb必须的包，请确保它在开发/运行环境的<code>classpath</code>中。由于Rexdb直接调用JDBC的接口，所以您还需要在<code>classpath</code>中设置好待连接数据库的驱动。如果要使用Rexdb的扩展功能，还需在运行环境中增加其它jar包。具体请参考<a href="#express">扩展</a>。</p>
+<p><strong>rexdb-1.0.0.jar</strong>（或其它版本）是运行Rexdb必须的包，请确保它在开发/运行环境的<code>classpath</code>中。由于Rexdb直接调用JDBC的接口，所以您还需要在<code>classpath</code>中设置好待连接数据库的驱动。如果要使用Rexdb的扩展功能，还需在运行环境中增加其它jar包。具体请参考<a href="#user-content-express">扩展</a>。</p>
 
-<p><strong>rexdb.xml</strong>是Rexdb的全局配置文件，默认需要放置在开发/运行环境的<code>classpath</code>中。如果需要放置在其它位置，需要编写程序加载指定位置的文件。具体请参考<a href="#config-load">全局配置文件-加载配置文件</a>。</p>
+<p><strong>rexdb.xml</strong>是Rexdb的全局配置文件，默认需要放置在开发/运行环境的<code>classpath</code>中。如果需要放置在其它位置，需要编写程序加载指定位置的文件。具体请参考<a href="#user-content-config-load">全局配置文件-加载配置文件</a>。</p>
 
-<p>例如，在JavaEE Web应用中，<strong>rexdb-1.0.0.jar</strong>（或其它版本）应当放置在应用根目录下的“<code>/WEB-INF/lib</code>”文件夹中，<strong>rexdb.xml</strong>默认应当放置在“<code>/WEB-INF/classes</code>”中。</p>
+<p>例如，在JavaEE应用中，<strong>rexdb-1.0.0.jar</strong>（或其它版本）应当放置在应用根目录下的“<code>/WEB-INF/lib</code>”文件夹中，<strong>rexdb.xml</strong>默认应当放置在“<code>/WEB-INF/classes</code>”中。</p>
 
-<h2><div id="config">全局配置文件</div></h2>
+<h2><div id="user-content-config">全局配置文件</div></h2>
 
 <p>Rexdb需要一个XML格式的全局配置文件<strong>rexdb.xml</strong>，用于配置运行选项、数据源、监听程序等。各节点的含义如下：</p>
 
@@ -81,7 +78,7 @@
 
 <p>配置文件中引用了一个外部资源文件<strong>rexdb-settings.properties</strong>，并设置了异常信息语言、禁用了日志输出等全局选项；配置了一个默认数据源和一个<code>oracleDs</code>数据源；启用了Rexdb内置的<code>SqlDebugListener</code>监听。各节点的详细含义和配置方法请参见下面的章节。</p>
 
-<h3><div id="config-load">加载配置文件</div></h3>
+<h3><div id="user-content-config-load">加载配置文件</div></h3>
 
 <p><strong>rexdb.xml</strong>的默认存放路径是运行环境的<code>classpath</code>根目录。Rexdb会在类加载时自动读取该文件，并完成框架的初始化工作。如果您启用了日志，将在日志输出中看到类似如下内容（输出格式取决于您的日志配置）：</p>
 
@@ -94,9 +91,9 @@
 <div class="highlight highlight-source-shell"><pre>[INFO][2016-02-23 22:18:36] configuration.Configuration[main] - loading default configuration rexdb.xml.
 [WARN][2016-02-23 22:18:36] configuration.Configuration[main] - could not load default configuration rexdb.xml from classpath, rexdb is not initialized, cause (DB-URS01) resource rexdb.xml not found.</pre></div>
 
-<p>在配置未被加载时调用Rexdb的接口，Rexdb会再次尝试从默认路径中加载配置，如果仍然无法加载，将会抛出异常信息。如果Rexdb的全局配置文件放置在其它位置，或者使用了其它的命名，可以使用类<a href="#class-Configuration">org.rex.db.configuration.Configuration</a>类加载指定目录下的配置文件。该类有如下加载配置文件的接口：</p>
+<p>在配置未被加载时调用Rexdb的接口，Rexdb会再次尝试从默认路径中加载配置，如果仍然无法加载，将会抛出异常信息。如果Rexdb的全局配置文件放置在其它位置，或者使用了其它的命名，可以使用类<a href="#user-content-class-Configuration">org.rex.db.configuration.Configuration</a>类加载指定目录下的配置文件。该类有如下加载配置文件的接口：</p>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -129,11 +126,11 @@
 
 <p>需要注意到是，Rexdb在加载配置文件时具备容错机制，当某节点不符合配置要求，或无法根据配置完成初始化时，该节点将会被忽略，并继续加载下一个节点。所以，您通常需要留意日志的输出，检查是否有未被成功加载的配置。</p>
 
-<h3><div id="config-properties">外部资源文件</div></h3>
+<h3><div id="user-content-config-properties">外部资源文件</div></h3>
 
 <p>全局配置文件的<code>/configuration/properties</code>节点用于引用一个外部资源文件，在该文件中定义的<code>key-value</code>配置可以被其它节点以<code>#{key}</code>的格式引用。该节点有如下可选属性：</p>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">属性</th>
@@ -181,11 +178,11 @@
 
 <p>Rexdb在初始化时会首先读取<strong>rexdb-database-sample.properties</strong>文件的内容。在解析<strong>rexdb.xml</strong>时，如果发现其内容符合<code>#{...}</code>的格式，则会替换为资源文件中配置的值。在上面的示例中，<code>dataSource</code>节点的属性<code>driverClassName</code>的值是<code>#{driver}</code>，则会被替换为资源文件中<code>driver</code>对应的值<code>com.mysql.jdbc.Driver</code>。</p>
 
-<h3><div id="config-settings">全局设置</div></h3>
+<h3><div id="user-content-config-settings">全局设置</div></h3>
 
 <p>全局配置文件的<code>/configuration/settings</code>节点用于设置Rexdb的运行参数，可用的配置选项有：</p>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">配置项</th>
@@ -316,6 +313,16 @@
             <td><code>true</code></td>
             <td>写入数据时，是否自动将日期类型的参数转换为<code>java.sql.Timestamp</code>类型。开启此选项可以有效避免日期、时间数据的丢失，以及因类型、格式不匹配而产生的异常。</td>
         </tr>
+        <tr>
+            <td><code>batchTransaction</code></td>
+            <td>否</td>
+            <td><code>boolean</code></td>
+            <td>
+<code>true</code>, <code>false</code>
+</td>
+            <td><code>true</code></td>
+            <td>调用批量更新接口时，如果当前没有事物，是否自动开启。在某些数据库中，需要在在事物中执行批量更新，才能获得高效的性能。</td>
+        </tr>
     </tbody>
 </table>
 
@@ -328,11 +335,11 @@
 
 <p>要注意的是，如果设置项不被Rexdb支持，或者值的格式、值域不正确，则该设置会被忽略并使用默认值。</p>
 
-<h3><div id="config-datasource">数据源</div></h3>
+<h3><div id="user-content-config-datasource">数据源</div></h3>
 
 <p><code>/configuration/dataSource</code>节点用于配置数据源。该节点支持如下属性：</p>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">属性</th>
@@ -371,7 +378,7 @@
 
 <p>也可以通过<code>property</code>节点为数据源初始化参数。当不设置<code>class</code>和<code>jndi</code>属性时，Rexdb将使用内置的数据源<code>org.rex.db.datasource.SimpleDataSource</code>。该数据源支持如下初始化参数：</p>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">选项</th>
@@ -562,11 +569,11 @@
     <span class="pl-c1">DB</span><span class="pl-k">.</span>getMap(<span class="pl-s"><span class="pl-pds">"</span>mysqlDs<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SELECT * FROM REX_TEST<span class="pl-pds">"</span></span>); <span class="pl-c">//使用mysqlDs数据源执行查询</span>
     <span class="pl-c1">DB</span><span class="pl-k">.</span>getMap(<span class="pl-s"><span class="pl-pds">"</span>oracleDs<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SELECT * FROM REX_TEST<span class="pl-pds">"</span></span>);<span class="pl-c">//使用oracleDs数据源执行查询</span></pre></div>
 
-<h3><div id="config-listener">监听</div></h3>
+<h3><div id="user-content-config-listener">监听</div></h3>
 
 <p><code>/configuration/listener</code>节点用于设置监听程序。监听程序可以跟踪SQL执行、事物等事件，该节点支持如下属性：</p>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">属性</th>
@@ -592,7 +599,7 @@
 <code>org.rex.db.listener.impl.SqlDebugListener</code>：使用日志接口输出SQL和事物信息。该监听类支持如下配置选项：</li>
 </ul>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">选项</th>
@@ -632,7 +639,7 @@
 <code>org.rex.db.listener.impl.SqlConsolePrinterListener</code>：将SQL和事物信息输出到<code>System.out</code>终端。该监听类支持如下配置选项：</li>
 </ul>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">选项</th>
@@ -657,17 +664,17 @@
     </tbody>
 </table>
 
-<p>例如，一下代码配置了一个监听：</p>
+<p>例如，以下代码配置了一个监听：</p>
 
 <div class="highlight highlight-text-xml"><pre>    &lt;<span class="pl-ent">listener</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>org.rex.db.listener.impl.SqlDebugListener<span class="pl-pds">"</span></span>&gt;
         &lt;<span class="pl-ent">property</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>simple<span class="pl-pds">"</span></span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span>/&gt;
     &lt;/<span class="pl-ent">listener</span>&gt;</pre></div>
 
-<p>上面的配置使用了Rexdb内置的<code>SqlDebugListener</code>监听类，并以DEBUG级别输出简要的日志信息。如果您需要自行定义监听程序，例如记录每个SQL的执行时间，可以编写程序实现监听接口，详情请查看<a href="#express-listener">扩展-监听</a>。</p>
+<p>上面的配置使用了Rexdb内置的<code>SqlDebugListener</code>监听类，并以DEBUG级别输出简要的日志信息。如果您需要自行定义监听程序，例如记录每个SQL的执行时间，可以编写程序实现监听接口，详情请查看<a href="#user-content-express-listener">扩展-监听</a>。</p>
 
 <p>需要注意的是，监听程序并非线程安全，且不运行于独立线程，在编程时需要注意线程安全和性能问题。</p>
 
-<h2><div id="functions">执行数据库操作</div></h2>
+<h2><div id="user-content-functions">执行数据库操作</div></h2>
 
 <p>定义好全局配置文件后，就可以执行数据库操作了。Rexdb将数据库操作接口集中在类<code>org.rex.DB</code>中，且都是静态的，可以直接调用。根据SQL类型的不同，可以将接口分类如下：</p>
 
@@ -683,7 +690,7 @@
 
 <p>如果您在开发时使用了Eclipse等IDE工具，可以方便的由工具提示出可用的接口列表，直接选择需要的接口使用即可。</p>
 
-<h3><div id="functions-update">插入/更新/删除</div></h3>
+<h3><div id="user-content-functions-update">插入/更新/删除</div></h3>
 
 <p>类<code>org.rex.DB</code>的下列接口负责执行数据库的插入/更新/删除操作，以及执行创建表、删除表等DDL SQL：</p>
 
@@ -691,7 +698,7 @@
 <p>使用默认数据源</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -733,7 +740,7 @@
 <p>使用指定的数据源</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -773,7 +780,7 @@
 
 <p>在执行带有预编译参数的SQL时，<code>数组</code>、<code>org.rex.db.Ps</code>、<code>Map</code>和<code>Java对象</code>都可以作为预编译参数。</p>
 
-<p>当使用<code>数组</code>做参数时，SQL语句以<code>?</code>作为预编译参数标记，数组元素按照顺序与其对应。Rexdb还内置了类<code>org.rex.db.Ps</code>，提供了比数组更加丰富的操作接口，可以按照下标赋值，还可以声明输出参数等，详情请参见<a href="#class-ps">类org.rex.db.Ps</a>。<code>Ps</code>对象中内置的元素同样按照顺序与SQL语句中的<code>?</code>标记对应。</p>
+<p>当使用<code>数组</code>做参数时，SQL语句以<code>?</code>作为预编译参数标记，数组元素按照顺序与其对应。Rexdb还内置了类<code>org.rex.db.Ps</code>，提供了比数组更加丰富的操作接口，可以按照下标赋值，还可以声明输出参数等，详情请参见<a href="#user-content-class-ps">类org.rex.db.Ps</a>。<code>Ps</code>对象中内置的元素同样按照顺序与SQL语句中的<code>?</code>标记对应。</p>
 
 <p>Rexdb支持<code>java.util.Map</code>作为执行SQL的参数。此时，SQL语句中的预编译参数需要声明为<code>#{key}</code>的格式，<code>Map</code>中键为<code>key</code>的值将作为对应的预编译参数，当<code>Map</code>中没有键<code>key</code>时，预编译参数将被设置为<code>null</code>。</p>
 
@@ -865,9 +872,9 @@ prameters<span class="pl-k">.</span>put(<span class="pl-s"><span class="pl-pds">
 
 <p>下图展示了<code>DB.update(...)</code>接口中SQL语句和各种类型参数的组合方式：</p>
 
-<p><a href="resource/quick-start-update.png" target="_blank"><img src="resource/quick-start-update.png" alt="" style="max-width:100%;"></a></p>
+<p><a href="resource/quick-start-update.png" target="_blank"><img data-src="resource/quick-start-update.png" alt="" style="max-width:100%;"></a></p>
 
-<h3><div id="functions-batch">批量更新</div></h3>
+<h3><div id="user-content-functions-batch">批量更新</div></h3>
 
 <p>当插入多条记录时，使用批量更新接口可以获得更好的执行效率。类<code>org.rex.DB</code>中的批量更新接口如下：</p>
 
@@ -875,7 +882,7 @@ prameters<span class="pl-k">.</span>put(<span class="pl-s"><span class="pl-pds">
 <p>使用默认数据源</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -921,7 +928,7 @@ prameters<span class="pl-k">.</span>put(<span class="pl-s"><span class="pl-pds">
 <p>使用指定的数据源</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -977,13 +984,13 @@ prameters<span class="pl-k">.</span>put(<span class="pl-s"><span class="pl-pds">
 
 <p>下图展示了<code>DB.batchUpdate(...)</code>系列接口的SQL语句和参数组合方式：</p>
 
-<p><a href="resource/quick-start-batchupdate.png" target="_blank"><img src="resource/quick-start-batchupdate.png" alt="" style="max-width:100%;"></a></p>
+<p><a href="resource/quick-start-batchupdate.png" target="_blank"><img data-src="resource/quick-start-batchupdate.png" alt="" style="max-width:100%;"></a></p>
 
-<h3><div id="functions-getlist">查询多行记录</div></h3>
+<h3><div id="user-content-functions-getlist">查询多行记录</div></h3>
 
 <p>类<code>org.rex.DB</code>中的<code>getList(...)</code>系列接口用于查询多条记录。返回值是一个<code>java.util.ArrayList</code>列表，列表中的元素为调用接口时指定类型的<code>Java对象</code>，每个元素对应一条数据库记录。如果没有找到符合条件的记录，将返回一个空的<code>ArrayList</code>。</p>
 
-<p>如果没有编写结果集对应的<code>Java对象</code>，也可以使用<code>getMapList(...)</code>系列方法查询一个包含<code>java.util.Map</code>的列表。列表中的元素类型为<code>org.rex.RMap</code>，是<code>java.util.HashMap</code>的子类，该类的具体接口请查阅类<a href="#class-rmap">org.rex.RMap</a>。</p>
+<p>如果没有编写结果集对应的<code>Java对象</code>，也可以使用<code>getMapList(...)</code>系列方法查询一个包含<code>java.util.Map</code>的列表。列表中的元素类型为<code>org.rex.RMap</code>，是<code>java.util.HashMap</code>的子类，该类的具体接口请查阅类<a href="#user-content-class-rmap">org.rex.RMap</a>。</p>
 
 <p>Rexdb在进行O/R映射时，会读取结果集中元数据，并将标签（Label）名称转换为Java风格的命名（具体的转换规则为“分析小写的标签名称，将字符<code>_</code>后的首字母转换为大写后，再移除字符<code>_</code>”），再根据转换后的名称为<code>Java对象</code>或<code>Map</code>赋值。例如：</p>
 
@@ -993,7 +1000,7 @@ ABC_DE      -&gt;  abcDe
 ABC_DE_F    -&gt;  abcDeF
 </code></pre>
 
-<p>Rexdb内置了数据库方言，在查询指定偏移量和条目的记录时（以下称为分页查询），会根据方言自动封装相应的SQL语句，详情请见<a href="#express-dialect">扩展-方言</a>和<a href="#class-dialect">接口org.rex.db.dialect.Dialect</a>。</p>
+<p>Rexdb内置了数据库方言，在查询指定偏移量和条目的记录时（以下称为分页查询），会根据方言自动封装相应的SQL语句，详情请见<a href="#express-dialect">扩展-方言</a>和<a href="#user-content-class-dialect">接口org.rex.db.dialect.Dialect</a>。</p>
 
 <ul>
 <li>如果希望查询指定类型的<code>Java对象</code>，可以使用如下接口：</li>
@@ -1003,7 +1010,7 @@ ABC_DE_F    -&gt;  abcDeF
 <p>使用默认数据源</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -1069,7 +1076,7 @@ ABC_DE_F    -&gt;  abcDeF
 <p>使用指定的数据源</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -1139,7 +1146,7 @@ ABC_DE_F    -&gt;  abcDeF
 <p>使用默认数据源</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -1205,7 +1212,7 @@ ABC_DE_F    -&gt;  abcDeF
 <p>使用指定的数据源</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -1327,13 +1334,13 @@ rexTest<span class="pl-k">.</span>setId(<span class="pl-c1">10</span>);
 
 <p><code>DB.getMapList(...)</code>接口的SQL语句和参数组合如下：</p>
 
-<p><a href="resource/quick-start-getmaplist.png" target="_blank"><img src="resource/quick-start-getmaplist.png" alt="" style="max-width:100%;"></a></p>
+<p><a href="resource/quick-start-getmaplist.png" target="_blank"><img data-src="resource/quick-start-getmaplist.png" alt="" style="max-width:100%;"></a></p>
 
 <p><code>DB.getList(...)</code>接口的SQL语句和参数组合如下：</p>
 
-<p><a href="resource/quick-start-getlist.png" target="_blank"><img src="resource/quick-start-getlist.png" alt="" style="max-width:100%;"></a></p>
+<p><a href="resource/quick-start-getlist.png" target="_blank"><img data-src="resource/quick-start-getlist.png" alt="" style="max-width:100%;"></a></p>
 
-<h3><div id="functions-get">查询单行记录</div></h3>
+<h3><div id="user-content-functions-get">查询单行记录</div></h3>
 
 <p>与查询多行记录类似，类<code>org.rex.DB</code>的<code>get(...)</code>和<code>getMap(...)</code>方法分别用于查询指定类型的<code>Java对象</code>和<code>Map</code>对象。要注意的是，如果未查询到记录，查询接口将返回<code>null</code>；如果查询出了多条记录，由于无法确定需要哪一条，因此会抛出异常。</p>
 
@@ -1345,7 +1352,7 @@ rexTest<span class="pl-k">.</span>setId(<span class="pl-c1">10</span>);
 <p>使用默认数据源</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -1386,7 +1393,7 @@ rexTest<span class="pl-k">.</span>setId(<span class="pl-c1">10</span>);
 <p>使用指定的数据源</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -1431,7 +1438,7 @@ rexTest<span class="pl-k">.</span>setId(<span class="pl-c1">10</span>);
 <p>使用默认数据源</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -1472,7 +1479,7 @@ rexTest<span class="pl-k">.</span>setId(<span class="pl-c1">10</span>);
 <p>使用指定的数据源</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -1559,13 +1566,13 @@ rexTest<span class="pl-k">.</span>setId(<span class="pl-c1">10</span>);
 
 <p><code>DB.getMap(...)</code>接口的SQL语句和参数组合如下：</p>
 
-<p><a href="resource/quick-start-getmap.png" target="_blank"><img src="resource/quick-start-getmap.png" alt="" style="max-width:100%;"></a></p>
+<p><a href="resource/quick-start-getmap.png" target="_blank"><img data-src="resource/quick-start-getmap.png" alt="" style="max-width:100%;"></a></p>
 
 <p><code>DB.get(...)</code>接口的SQL语句和参数组合如下：</p>
 
-<p><a href="resource/quick-start-get.png" target="_blank"><img src="resource/quick-start-get.png" alt="" style="max-width:100%;"></a></p>
+<p><a href="resource/quick-start-get.png" target="_blank"><img data-src="resource/quick-start-get.png" alt="" style="max-width:100%;"></a></p>
 
-<h3><div id="functions-call">调用</div></h3>
+<h3><div id="user-content-functions-call">调用</div></h3>
 
 <p>类<code>org.rex.DB</code>的<code>call(...)</code>系列方法用于执行存储过程和函数调用，接口列表如下：</p>
 
@@ -1573,7 +1580,7 @@ rexTest<span class="pl-k">.</span>setId(<span class="pl-c1">10</span>);
 <p>使用默认数据源</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -1614,7 +1621,7 @@ rexTest<span class="pl-k">.</span>setId(<span class="pl-c1">10</span>);
 <p>使用指定的数据源</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -1653,7 +1660,7 @@ rexTest<span class="pl-k">.</span>setId(<span class="pl-c1">10</span>);
 
 <p>当调用有返回值时，Rexdb会自动遍历，并按照顺序存放在接口返回的<code>RMap</code>对象中，键分别为"<code>return_0</code>"、"<code>return_1</code>"等。当使用<code>org.rex.db.Ps</code>对象作为参数时，可以使用其<code>addReturnType(Class beanClass)</code>和<code>setReturnType(index, Class beanClass)</code>方法为每个返回值声明Java类型。如果声明了返回值类型<code>T</code>，<code>RMap</code>对象中的相应的结果将是<code>List&lt;T&gt;</code>；当不声明返回值类型时，每个返回结果都将是<code>List&lt;RMap&gt;</code>。</p>
 
-<p>当调用有输出参数时，需要使用<code>org.rex.db.Ps</code>对象作为调用的参数，并使用其<code>addOut(...)</code>和<code>setOut(...)</code>系列方法声明输出参数，或者使用<code>addInOut(...)</code>和<code>setInOut(...)</code>系列方法声明输入输出参数。调用成功后，可以在返回的<code>RMap</code>对象中获取输出参数的值，键分别为"<code>out_0</code>"、"<code>out_1</code>"等。此外，<code>Ps</code>对象还支持对输出参数设置别名，在设置了别名后，返回的<code>RMap</code>对象中还可以按照别名取值。<code>org.rex.db.Ps</code>的接口详情请参见<a href="#class-ps">类org.rex.db.Ps</a>。</p>
+<p>当调用有输出参数时，需要使用<code>org.rex.db.Ps</code>对象作为调用的参数，并使用其<code>addOut(...)</code>和<code>setOut(...)</code>系列方法声明输出参数，或者使用<code>addInOut(...)</code>和<code>setInOut(...)</code>系列方法声明输入输出参数。调用成功后，可以在返回的<code>RMap</code>对象中获取输出参数的值，键分别为"<code>out_0</code>"、"<code>out_1</code>"等。此外，<code>Ps</code>对象还支持对输出参数设置别名，在设置了别名后，返回的<code>RMap</code>对象中还可以按照别名取值。<code>org.rex.db.Ps</code>的接口详情请参见<a href="#user-content-class-ps">类org.rex.db.Ps</a>。</p>
 
 <p>例如，以下代码调用了存储过程<code>test_proc</code>，并获取了第1个返回值：</p>
 
@@ -1681,9 +1688,9 @@ ps<span class="pl-k">.</span>addOutInt();                                     <s
 
 <p>DB.call(...)接口的SQL语句和参数组合如下：</p>
 
-<p><a href="resource/quick-start-call.png" target="_blank"><img src="resource/quick-start-call.png" alt="" style="max-width:100%;"></a></p>
+<p><a href="resource/quick-start-call.png" target="_blank"><img data-src="resource/quick-start-call.png" alt="" style="max-width:100%;"></a></p>
 
-<h3><div id="functions-transaction">事物</div></h3>
+<h3><div id="user-content-functions-transaction">事物</div></h3>
 
 <p>Rexdb支持事物和标准的JTA事物，类<code>org.rex.DB</code>的事物接口有：</p>
 
@@ -1691,7 +1698,7 @@ ps<span class="pl-k">.</span>addOutInt();                                     <s
 <p>使用默认数据源的事物</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -1732,7 +1739,7 @@ ps<span class="pl-k">.</span>addOutInt();                                     <s
 <p>使用指定的数据源的事物</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -1773,7 +1780,7 @@ ps<span class="pl-k">.</span>addOutInt();                                     <s
 <p>分布式事物</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -1800,7 +1807,7 @@ ps<span class="pl-k">.</span>addOutInt();                                     <s
     </tbody>
 </table>
 
-<p>在启用事物前，可以为事物设置超时时间、隔离级别等。首先实例化一个<code>org.rex.db.transaction.DefaultDefinition</code>对象，并在调用开启事物方法时将其作为参数，详情请见类<a href="#class-defaultDefinition">DefaultDefinition</a>。</p>
+<p>在启用事物前，可以为事物设置超时时间、隔离级别等。首先实例化一个<code>org.rex.db.transaction.DefaultDefinition</code>对象，并在调用开启事物方法时将其作为参数，详情请见类<a href="#user-content-class-defaultDefinition">DefaultDefinition</a>。</p>
 
 <p>需要注意的是，在使用Rexdb事物接口时，需要遵循<code>try...catch...</code>的写法，以防事物开启后未被提交或回滚。</p>
 
@@ -1822,13 +1829,13 @@ definition<span class="pl-k">.</span>setTimeout(<span class="pl-c1">10</span>); 
 definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">DefaultDefinition</span><span class="pl-c1"><span class="pl-k">.</span>ISOLATION_READ_COMMITTED</span>);   <span class="pl-c">//设置事物的隔离级别为"READ_COMMITTED"</span>
 <span class="pl-c1">DB</span><span class="pl-k">.</span>beginTransaction(definition);</pre></div>
 
-<h2><div id="express">扩展</div></h2>
+<h2><div id="user-content-express">扩展</div></h2>
 
-<h3><div id="express-listener">监听</div></h3>
+<h3><div id="user-content-express-listener">监听</div></h3>
 
-<p>可以通过配置监听程序，实现SQL、事物执行事件的捕获。Rexdb已经内置了以下监听类（详情请查看<a href="#config-listener">全局配置文件-监听</a>）：</p>
+<p>可以通过配置监听程序，实现SQL、事物执行事件的捕获。Rexdb已经内置了以下监听类（详情请查看<a href="#user-content-config-listener">全局配置文件-监听</a>）：</p>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="300">监听类</th>
@@ -1847,7 +1854,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
     </tbody>
 </table>
 
-<p>当需要实现一个新的监听时，首先编写监听程序，实现<a href="#class-listener">接口org.rex.db.listener.DBListener</a>。例如，如果希望打印出执行时间超过10秒的所有SQL语句，则可以编写如下监听类：</p>
+<p>当需要实现一个新的监听时，首先编写监听程序，实现<a href="#user-content-class-listener">接口org.rex.db.listener.DBListener</a>。例如，如果希望打印出执行时间超过10秒的所有SQL语句，则可以编写如下监听类：</p>
 
 <div class="highlight highlight-source-java"><pre><span class="pl-k">package</span> <span class="pl-smi">test</span>;
 
@@ -1878,11 +1885,11 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
 
 <div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">listener</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>test.CustomListener<span class="pl-pds">"</span></span> /&gt;</pre></div>
 
-<h3><div id="express-dialect">方言</div></h3>
+<h3><div id="user-content-express-dialect">方言</div></h3>
 
 <p>Rexdb支持数据库方言功能，用于支持自动的分页查询等功能。已经内置的方言有：</p>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="120">数据库</th>
@@ -1935,16 +1942,16 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
     </tbody>
 </table>
 
-<p>Rexdb会根据数据库的类型和版本选择合适的方言。如果您使用的数据库不在列表中，可以编写一个实现<a href="#class-dialect">接口org.rex.db.dialect.Dialect</a>的方言类，并将其增加到<a href="#config-datasource">全局配置文件-数据源</a>中。</p>
+<p>Rexdb会根据数据库的类型和版本选择合适的方言。如果您使用的数据库不在列表中，可以编写一个实现<a href="#user-content-class-dialect">接口org.rex.db.dialect.Dialect</a>的方言类，并将其增加到<a href="#user-content-config-datasource">全局配置文件-数据源</a>中。</p>
 
-<h3><div id="express-logger">日志</div></h3>
+<h3><div id="user-content-express-logger">日志</div></h3>
 
 <p>Rexdb支持如下日志包：</p>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
-            <th width="40">顺序号</th>
+            <th width="80">顺序号</th>
             <th width="120">日志</th>
             <th width="">官方网址</th>
         </tr>
@@ -1981,23 +1988,23 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
     </tbody>
 </table>
 
-<p>当Rexdb在加载类时，会按照上面的顺序检测日志支持环境，并使用首个可用的日志接口。如果希望禁用日志，可以在<a href="#config-settings">全局配置文件-全局设置</a>中将<code>nolog</code>属性设置为<code>true</code>。</p>
+<p>当Rexdb在加载类时，会按照上面的顺序检测日志支持环境，并使用首个可用的日志接口。如果希望禁用日志，可以在<a href="#user-content-config-settings">全局配置文件-全局设置</a>中将<code>nolog</code>属性设置为<code>true</code>。</p>
 
-<h3><div id="express-dynamic">动态字节码</div></h3>
+<h3><div id="user-content-express-dynamic">动态字节码</div></h3>
 
-<p>Rexdb支持jboss javassist（官方网址：<a href="http://jboss-javassist.github.io/javassist/">http://jboss-javassist.github.io/javassist/</a>）的动态字节码功能。当<a href="#config-settings">全局配置文件-全局设置</a>中的<code>dynamicClass</code>属性为<code>true</code>，且检测到javassist环境可用时，Rexdb框架将会启动动态字节码功能。</p>
+<p>Rexdb支持jboss javassist（官方网址：<a href="http://jboss-javassist.github.io/javassist/">http://jboss-javassist.github.io/javassist/</a>）的动态字节码功能。当<a href="#user-content-config-settings">全局配置文件-全局设置</a>中的<code>dynamicClass</code>属性为<code>true</code>，且检测到javassist环境可用时，Rexdb框架将会启动动态字节码功能。</p>
 
 <p>启用动态字节码后，在查询指定类型的<code>Java对象</code>系列接口时将有大幅的性能提升，因此建议开启此扩展功能。</p>
 
 <p>另外，我们注意到，在javassist的官方网站下载的编译包均是基于新版的JDK编译。因此，如果您的JDK运行环境较低，建议下载javassist的源代码，并使用低版本JDK重新编译。同时，我们在Rexdb的下载包中也内置了一个基于JDK1.5编译的新版javassist，您可以根据实际情况选用。</p>
 
-<h2><div id="class">接口列表</div></h2>
+<h2><div id="user-content-class">接口列表</div></h2>
 
-<h3><div id="class-Configuration">类org.rex.db.configuration.Configuration</div></h3>
+<h3><div id="user-content-class-Configuration">类org.rex.db.configuration.Configuration</div></h3>
 
 <p>该类用于加载Rexdb的全局配置文件，有如下接口：</p>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -2028,11 +2035,11 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
 
 <p>需要注意的是，在类加载器加载<code>org.rex.db.configuration.Configuration</code>时，会自动调用<code>loadDefaultConfiguration()</code>方法加载默认配置文件<strong>rexdb.xml</strong>，当该文件不存在时，才能调用接口加载其它位置的配置。</p>
 
-<h3><div id="class-dialect">接口org.rex.db.dialect.Dialect</div></h3>
+<h3><div id="user-content-class-dialect">接口org.rex.db.dialect.Dialect</div></h3>
 
 <p>该接口用于定义数据库的方言，而数据库方言类用于定义数据库个性化的语句，例如分页查询SQL、测试SQL等。Rexdb在执行分页查询、测试活跃连接等操作时调用数据库方言接口。接口定义如下：</p>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -2066,7 +2073,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
 
 <p>其中，抽象类<code>org.rex.db.dialect.LimitHandler</code>用于封装分页查询语句。抽象接口接口定义如下：</p>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -2088,11 +2095,11 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
     </tbody>
 </table>
 
-<h3><div id="class-listener">接口org.rex.db.listener.DBListener</div></h3>
+<h3><div id="user-content-class-listener">接口org.rex.db.listener.DBListener</div></h3>
 
 <p>该接口用于定义一个数据库监听类，可以用于监听SQL执行、事物的启用、提交等事件。接口如下：</p>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -2130,7 +2137,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
 <p>类<code>org.rex.db.listener.SqlContext</code>的常量</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">类型</th>
@@ -2166,7 +2173,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
 <p>类<code>org.rex.db.listener.SqlContext</code>的方法</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -2224,7 +2231,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
 <p>类<code>org.rex.db.listener.TransactionContext</code>的常量</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">类型</th>
@@ -2255,7 +2262,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
 <p>类<code>org.rex.db.listener.TransactionContext</code>的方法</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -2287,7 +2294,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
     </tbody>
 </table>
 
-<h3><div id="class-ps">类org.rex.db.Ps</div></h3>
+<h3><div id="user-content-class-ps">类org.rex.db.Ps</div></h3>
 
 <p>类<code>org.rex.db.Ps</code>用于封装预编译参数，它可以设置执行SQL时的输入、输出和输入输出参数。与<code>数组</code>相比，提供了更多实用的接口，大致可分为如下几类：</p>
 
@@ -2302,7 +2309,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
 <li><p>该类中定义的常量有：</p></li>
 </ul>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">类型</th>
@@ -2330,7 +2337,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
 <li>构造函数有：</li>
 </ul>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="200">构造函数</th>
@@ -2357,7 +2364,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
 <p>按顺序设置预编译参数</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -2453,7 +2460,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
 <p>设置指定索引的预编译参数</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -2553,7 +2560,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
 <p>按顺序声明输出参数</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -2639,7 +2646,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
 <p>按顺序声明输出参数，并为参数设置别名</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -2725,7 +2732,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
 <p>声明指定索引的输出参数</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -2811,7 +2818,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
 <p>声明指定索引的输出参数，并为参数设置别名</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -2901,7 +2908,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
 <p>按顺序声明输入输出参数</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -2997,7 +3004,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
 <p>按顺序声明输入输出参数，并设置别名</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -3093,7 +3100,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
 <p>声明指定索引的输入输出参数</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -3189,7 +3196,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
 <p>声明指定索引的输入输出参数，并设置别名</p>
 </blockquote>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -3285,7 +3292,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
 <li>声明返回值映射类</li>
 </ul>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -3311,7 +3318,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
 <li>其它方法</li>
 </ul>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -3338,11 +3345,11 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
     </tbody>
 </table>
 
-<h3><div id="class-rmap">类org.rex.RMap</div></h3>
+<h3><div id="user-content-class-rmap">类org.rex.RMap</div></h3>
 
 <p>类<code>org.rex.RMap</code>是<code>java.util.HashMap</code>的子类，额外提供了获取指定Java类型值的接口，更便于开发人员使用。类<code>org.rex.DB</code>的<code>getMap(...)</code>、<code>getMapList(...)</code>等方法均返回该类型的对象。接口如下：</p>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -3438,7 +3445,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
 
 <p>在获取日期类型的值时，Rexdb可以自动识别日期格式的字符串，如果识别成功，将自动进行类型转换。支持的日期格式如下：</p>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="150">日期格式</th>
@@ -3518,7 +3525,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
     </tbody>
 </table>
 
-<h3><div id="class-defaultDefinition">类org.rex.db.transaction.DefaultDefinition</div></h3>
+<h3><div id="user-content-class-defaultDefinition">类org.rex.db.transaction.DefaultDefinition</div></h3>
 
 <p>类<code>org.rex.db.transaction.DefaultDefinition</code>用于设置事物选项。</p>
 
@@ -3526,7 +3533,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
 <li>该类声明了如下常量：</li>
 </ul>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">类型</th>
@@ -3572,7 +3579,7 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
 <li>该类有如下接口：</li>
 </ul>
 
-<table class="table table-bordered table-striped">
+<table>
     <thead>
         <tr>
             <th width="80">返回值</th>
@@ -3628,4 +3635,3 @@ definition<span class="pl-k">.</span>setIsolationLevel(<span class="pl-smi">Defa
         </tr>
     </tbody>
 </table>
-
