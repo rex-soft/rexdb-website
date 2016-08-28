@@ -1,5 +1,5 @@
 		<dl id="learning">
-			<dt><a href="document.php?version=1.0&doc=intro">1. 简介 <span>- Rexdb框架的功能和特点</span></a></dt><dd></dd>
+			<dt><a href="document.php?version=1.0&doc=intro">1. 简介 <span> - Rexdb框架的功能和特点</span></a></dt><dd></dd>
 			<dt><a href="document.php?version=1.0&doc=download">2. 下载 <span> - 如何获取Rexdb</span></a></dt><dd></dd>
 			<dt><a href="document.php?version=1.0&doc=quick-start-beginner">3. 快速入门（初学者） <span> - 面向初学者的快速入门教程</span></a></dt><dd></dd>
 			<dt><a href="document.php?version=1.0&doc=quick-start">4. 快速入门<span> - 面向初学者的快速入门教程</span></a></dt><dd></dd>

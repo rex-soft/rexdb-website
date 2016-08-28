@@ -46,7 +46,7 @@ include_once('include/navbar.php');
 		
 			<div class="media dl">
 		      <div class="media-left">
-		      	<span class="media-object iconfont icon-java iconmain"></span>
+		      	<span class="media-object iconfont icon-java iconmain iconmain-prim"></span>
 		      </div>
 		      <div class="media-body">
 		        <h4 class="media-heading">编译好的程序</h4>
@@ -144,7 +144,13 @@ include_once('include/navbar.php');
 	<div id="download-github" class="row">
 		<div class="col-md-12">
 			<h3>Git</h3>
-			<p>Rexdb的源代码托管在Github和Oschina码云中。如果您不了解Github，请参考<a href="https://help.github.com/index.html" target="_blank">Help</a>（英文）。</p>
+			<p>Rexdb的源代码托管在Github和Oschina码云中。如果您不了解如何使用，请参考<a href="https://help.github.com/index.html" target="_blank">Github Help（英文）</a>或者<a href="http://git.mydoc.io/" target="_blank">Oschina码云帮助文档</a>。</p>
+			
+			<blockquote>Github</blockquote>
+			<pre>clone https://github.com/rex-soft/rexdb.git
+clone https://github.com/rex-soft/rexdb-tester.git</pre>
+
+			<blockquote>Oschina码云</blockquote>
 			<pre>clone https://github.com/rex-soft/rexdb.git
 clone https://github.com/rex-soft/rexdb-tester.git</pre>
 		</div>
@@ -168,6 +174,7 @@ clone https://github.com/rex-soft/rexdb-tester.git</pre>
 			          <p>
 			          	<ol>
 			          		<li>增加对其它开源框架的支持插件，例如对Spring事物模板的支持</li>
+			          		<li>支持配置文件内容加密</li>
 			          	</ol>
 			          </p>
 			        </div>
@@ -185,7 +192,8 @@ clone https://github.com/rex-soft/rexdb-tester.git</pre>
 			          <p>
 			          	<ol>
 			          		<li>强化方言和SQL分析模块，支持关键字和函数标记</li>
-			          		<li>支持POJO中的注解，降低更新操作的编码量</li>
+			          		<li>支持POJO中的注解，降低插入/更新操作的编码量</li>
+			          		<li>升级批处理接口，加强List类型参数的兼容性</li>
 			          	</ol>
 			          </p>
 			        </div>
@@ -205,7 +213,7 @@ clone https://github.com/rex-soft/rexdb-tester.git</pre>
 			          <p>这是第一个公开发布版本，已经通过测试，并正在稳定运行于多个生产系统。</p>
 			          <p>
 			          	<ol>
-			          		<li>修复了开启事物后，不进行任何操作，直接提交事物时报错的问题</li>
+			          		<li>简化JTA事物启动接口为beginJta()</li>
 			          		<li>增加支持java.util.List参数类型的批处理接口</li>
 			          	</ol>
 			          </p>

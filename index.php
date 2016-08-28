@@ -38,7 +38,7 @@ include_once('include/navbar.php');
 ?>
 <section id="header" class="top-div">
 <div class="container" >
-	<div class="page-header lead">
+	<div class="lead">
 		<h1 align="center" id="dv">Rexdb是一个开源持久层框架</h1>
 		<p>
 		Rexdb是一款使用Java语言编写的，开放源代码的ORM持久层框架。
