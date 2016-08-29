@@ -45,7 +45,7 @@ include_once('include/navbar.php');
 		它可以处理查询、更新、批处理、调用、事物和JTA事物等数据库操作，支持多种类型的对象作为预编译参数，并自动完成结果集到对象的映射。
 		Rexdb具有功能全面、使用简单、性能良好等特点，适用于大多数开发场景。
 		</p>
-		<div style="margin-top: 50px; text-align:center"><a href="" class="btn-lg btn-primary btn-outline">下载最新版本 （rexdb-1.0.0）</a></div>
+		<div style="margin-top: 50px; text-align:center"><a href="download/1.0/binary/rexdb-1.0.2.zip" class="btn-lg btn-primary btn-outline">下载最新版本 （rexdb-1.0.2）</a></div>
 	</div>
 </div>
 </section>
