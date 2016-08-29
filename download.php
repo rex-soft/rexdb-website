@@ -151,8 +151,8 @@ include_once('include/navbar.php');
 clone https://github.com/rex-soft/rexdb-tester.git</pre>
 
 			<blockquote>Oschina码云</blockquote>
-			<pre>clone https://github.com/rex-soft/rexdb.git
-clone https://github.com/rex-soft/rexdb-tester.git</pre>
+			<pre>clone https://git.oschina.net/rexsoft/rexdb.git
+clone https://git.oschina.net/rexsoft/rexdb-tester.git</pre>
 		</div>
 	</div>
 	
