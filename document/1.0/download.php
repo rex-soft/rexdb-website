@@ -2,7 +2,7 @@
 
 <h2><div id="user-content-package">压缩包</div></h2>
 
-<p>Rexdb的下载地址为<a href="http://db.rex-soft.org/download.php">http://db.rex-soft.org/download.php</a>，您可以下载到：</p>
+<p>Rexdb的下载地址为<a href="http://db.rex-soft.org/download.php">http://db.rex-soft.org/download.php</a>，您可以下载到编译好的程序和源代码：</p>
 
 <ul>
 <li>Rexdb：框架程序</li>
@@ -22,7 +22,7 @@ clone https://github.com/rex-soft/rexdb-tester.git
 </code></pre>
 
 <blockquote>
-<p>Oschina</p>
+<p>Oschina码云</p>
 </blockquote>
 
 <pre><code>clone https://git.oschina.net/rexsoft/rexdb.git
