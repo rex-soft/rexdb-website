@@ -71,7 +71,7 @@ include_once('include/navbar.php');
 				测试程序中的第三方框架和相关数据库均未进行优化，各项数值并不代表其真实能力。
 				</p>
 				<p>
-				若无特殊说明，以下测试均运行于<a href="#" data-toggle="popover" data-placement="auto bottom" data-trigger="hover" title="台式机电脑系统" ref="#env-pc">台式机电脑系统</a>，您可以<a href="#">下载测试程序</a>并在您的环境中运行，以获得相对准确的结果。
+				若无特殊说明，以下测试均运行于<a href="javascript:void(0)" data-toggle="popover" data-placement="auto bottom" data-trigger="hover" title="台式机电脑系统" ref="#env-pc">台式机电脑系统</a>，您可以下载Rexdb性能测试程序并在您的环境中运行，以获得相对准确的结果。
 				</p>
 				<div id="env-pc" style="display: none">
 					<ul style="margin-left: -30px; width: 350px">

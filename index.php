@@ -45,7 +45,7 @@ include_once('include/navbar.php');
 		它可以处理查询、更新、批处理、调用、事物和JTA事物等数据库操作，支持多种类型的对象作为预编译参数，并自动完成结果集到对象的映射。
 		Rexdb具有功能全面、使用简单、性能良好等特点，适用于大多数开发场景。
 		</p>
-		<div style="margin-top: 50px; text-align:center"><a href="download/1.0/binary/rexdb-1.0.2.zip" class="btn-lg btn-primary btn-outline">下载最新版本 （rexdb-1.0.2）</a></div>
+		<div style="margin-top: 50px; text-align:center"><a href="download/1.0/binary/rexdb-1.0.2.zip" class="btn-lg btn-primary btn-outline main-btn">下载最新版本 （rexdb-1.0.2）</a></div>
 	</div>
 </div>
 </section>
@@ -177,12 +177,12 @@ include_once('include/navbar.php');
 			<div class="col-md-4">
 				<span alt="bug" class="media-object iconfont icon-5ca6292aappcrash iconmain"></span>
 				<h3>发现BUG</h3>
-				<p>Rexdb会对每个版本进行测试，尽管如此，如果您发现了BUG，请<a href="#">点击此处反馈</a>。</p>
+				<p>Rexdb在测试和试运行后才会发布版本，通常不会有严重问题。尽管如此，如果您发现了BUG，请<a href="feedback.php">点击此处反馈</a>。</p>
 			</div>
 			<div class="col-md-4">
 				<span alt="bug" class="media-object iconfont icon-yijianfankui iconmain"></span>
 				<h3>改进建议</h3>
-				<p>如果您有任何意见和建议，请<a href="#">点击此处反馈</a>。</p>
+				<p>如果您有任何意见和建议，请<a href="feedback.php">点击此处反馈</a>。</p>
 			</div>
 		</div>
 	</div>

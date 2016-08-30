@@ -15,8 +15,8 @@ $navFile = $dirPath . '/content/' . $documentId . '.php';
 $basePath = '';
 include_once('include/import.php'); 
 ?>
-<link rel="stylesheet" href="<?=$basePath?>ui/css/document-1.0.0.css" type="text/css"></link>
-<script type="text/javascript" src="<?=$basePath?>ui/js/docs.min-1.0.0.js"></script>
+<link rel="stylesheet" href="<?=$basePath?>ui/css/document-1.0.2.css" type="text/css"></link>
+<script type="text/javascript" src="<?=$basePath?>ui/js/docs.min-1.0.2.js"></script>
 <script>
 var basePath = '<?=$dirPath?>';
 $(document).ready(function(){

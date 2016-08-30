@@ -494,6 +494,11 @@ body>footer #copyright {
 	display: none;
 }
 
+.main-btn,
+.main-btn:focus {
+	text-decoration: none;
+}
+
 /*--------------------------------typed*/
 .typed-window {
     height: 250px;
