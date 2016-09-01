@@ -56,7 +56,7 @@ include_once('include/navbar.php');
 				   	<a href="download/1.0/binary/rexdb-1.0.2.zip"><b>rexdb-1.0.2.zip</b></a>
 				   	(<a href="download/1.0/binary/rexdb-1.0.2.tar.gz">tar.gz</a>)
 				   	
-				    <span class="remark">编译好的程序包，以及文档、第三方包和简单的程序示例</span>
+				    <div class="remark">编译好的程序包，以及文档、第三方包和简单的程序示例</div>
 				  </li>
 				  
 				  <li class="list-group-item">
@@ -64,7 +64,7 @@ include_once('include/navbar.php');
 				   	<a href="download/1.0/binary/rexdb-tester-1.0.2.zip"><b>rexdb-tester-1.0.2.zip</b></a>
 					(<a href="download/1.0/binary/rexdb-tester-1.0.2.tar.gz">tar.gz</a>)
 					
-				    <span class="remark">性能测试程序，用于测试Rexdb和其它开源框架的性能</span>
+				    <div class="remark">性能测试程序，用于测试Rexdb和其它开源框架的性能</div>
 				  </li>
 				</ul>
 		      </div>
@@ -82,7 +82,7 @@ include_once('include/navbar.php');
 				   	<a href="download/1.0/source/rexdb-1.0.2-source.zip">rexdb-1.0.2-source.zip</a>
 				   	(<a href="download/1.0/source/rexdb-1.0.2-source.tar.gz">tar.gz</a>)
 				   	
-				    <span class="remark">Rexdb的源代码，以及编译时依赖的包</span>
+				    <div class="remark">Rexdb的源代码，以及编译时依赖的包</div>
 				  </li>
 				  
 				  <li class="list-group-item">
@@ -90,7 +90,7 @@ include_once('include/navbar.php');
 				   	<a href="download/1.0/source/rexdb-tester-1.0.2-source.zip">rexdb-tester-1.0.2-source.zip</a>
 				    (<a href="download/1.0/source/rexdb-tester-1.0.2-source.tar.gz">tar.gz</a>)
 				    
-				    <span class="remark">性能测试程序的源代码，以及编译时依赖的包</span>
+				    <div class="remark">性能测试程序的源代码，以及编译时依赖的包</div>
 				  </li>
 				</ul>
 		      </div>
@@ -106,33 +106,33 @@ include_once('include/navbar.php');
 				  <li class="list-group-item">
 				  	<i class="iconfont icon-cspdf"></i>
 				   	<a href="download/1.0/doc/1.intro.pdf" target="_blank">简介</a>
-				    <span class="remark">Rexdb框架的功能和特点</span>
+				    <div class="remark">Rexdb框架的功能和特点</div>
 				  </li>
 				  <li class="list-group-item">
 				  	<i class="iconfont icon-cspdf"></i>
 				   	<a href="download/1.0/doc/2.download.pdf" target="_blank">下载</a>
-				    <span class="remark">如何获取Rexdb</span>
+				    <div class="remark">如何获取Rexdb</div>
 				  </li>
 				  <li class="list-group-item">
 				  	<i class="iconfont icon-cspdf"></i>
 				   	<a href="download/1.0/doc/3.quick-start-beginner.pdf" target="_blank">快速入门（初学者）</a>
-				    <span class="remark">面向初学者的快速入门教程</span>
+				    <div class="remark">面向初学者的快速入门教程</div>
 				  </li>
 				  <li class="list-group-item">
 				  	<i class="iconfont icon-cspdf"></i>
 				   	<a href="download/1.0/doc/4.quick-start.pdf" target="_blank">快速入门</a>
-				    <span class="remark">面向大部分开发人员的快速入门教程</span>
+				    <div class="remark">面向大部分开发人员的快速入门教程</div>
 				  </li>
 				  <li class="list-group-item">
 				  	<i class="iconfont icon-cspdf"></i>
 				   	<a href="download/1.0/doc/5.user-manual.pdf" target="_blank">用户手册</a>
-				    <span class="remark">完整的开发人员参考文档，包含详细的示例、配置和接口说明</span>
+				    <div class="remark">完整的开发人员参考文档，包含详细的示例、配置和接口说明</div>
 				  </li>
 				  
 				  <li class="list-group-item">
 				  	<i class="iconfont icon-cspdf"></i>
 				   	<a href="download/1.0/doc/6.user-manual-tester.pdf" target="_blank">用户手册 - Rexdb性能测试程序</a>
-				    <span class="remark">性能测试程序的使用文档</span>
+				    <div class="remark">性能测试程序的使用文档</div>
 				  </li>
 				</ul>
 		      </div>
