@@ -53,16 +53,16 @@ include_once('include/navbar.php');
 		        <ul class="list-group">
 				  <li class="list-group-item">
 				  	<i class="iconfont icon-zip"></i>
-				   	<a href="http://dl.rex-soft.org/rexdb/rexdb-1.0.2.zip"><b>rexdb-1.0.2.zip</b></a>
-				   	(<a href="http://dl.rex-soft.org/rexdb/rexdb-1.0.2.tar.gz">tar.gz</a>)
+				   	<a href="http://dl.rex-soft.org/rexdb/rexdb-1.0.3.zip"><b>rexdb-1.0.3.zip</b></a>
+				   	(<a href="http://dl.rex-soft.org/rexdb/rexdb-1.0.3.tar.gz">tar.gz</a>)
 				   	
 				    <div class="remark">编译好的程序包，以及文档、第三方包和简单的程序示例</div>
 				  </li>
 				  
 				  <li class="list-group-item">
 				  	<i class="iconfont icon-zip"></i>
-				   	<a href="http://dl.rex-soft.org/rexdb/rexdb-tester-1.0.2.zip"><b>rexdb-tester-1.0.2.zip</b></a>
-					(<a href="http://dl.rex-soft.org/rexdb/rexdb-tester-1.0.2.tar.gz">tar.gz</a>)
+				   	<a href="http://dl.rex-soft.org/rexdb/rexdb-tester-1.0.3.zip"><b>rexdb-tester-1.0.3.zip</b></a>
+					(<a href="http://dl.rex-soft.org/rexdb/rexdb-tester-1.0.3.tar.gz">tar.gz</a>)
 					
 				    <div class="remark">性能测试程序，用于测试Rexdb和其它开源框架的性能</div>
 				  </li>
@@ -79,16 +79,16 @@ include_once('include/navbar.php');
 		        <ul class="list-group">
 				  <li class="list-group-item">
 				  	<i class="iconfont icon-zip"></i>
-				   	<a href="http://dl.rex-soft.org/rexdb/rexdb-1.0.2-source.zip">rexdb-1.0.2-source.zip</a>
-				   	(<a href="http://dl.rex-soft.org/rexdb/rexdb-1.0.2-source.tar.gz">tar.gz</a>)
+				   	<a href="http://dl.rex-soft.org/rexdb/rexdb-1.0.3-source.zip">rexdb-1.0.3-source.zip</a>
+				   	(<a href="http://dl.rex-soft.org/rexdb/rexdb-1.0.3-source.tar.gz">tar.gz</a>)
 				   	
 				    <div class="remark">Rexdb的源代码，以及编译时依赖的包</div>
 				  </li>
 				  
 				  <li class="list-group-item">
 				  	<i class="iconfont icon-zip"></i>
-				   	<a href="http://dl.rex-soft.org/rexdb/rexdb-tester-1.0.2-source.zip">rexdb-tester-1.0.2-source.zip</a>
-				    (<a href="http://dl.rex-soft.org/rexdb/rexdb-tester-1.0.2-source.tar.gz">tar.gz</a>)
+				   	<a href="http://dl.rex-soft.org/rexdb/rexdb-tester-1.0.3-source.zip">rexdb-tester-1.0.3-source.zip</a>
+				    (<a href="http://dl.rex-soft.org/rexdb/rexdb-tester-1.0.3-source.tar.gz">tar.gz</a>)
 				    
 				    <div class="remark">性能测试程序的源代码，以及编译时依赖的包</div>
 				  </li>
@@ -158,9 +158,11 @@ clone https://git.oschina.net/rexsoft/rexdb-tester.git</pre>
 	
 	<div id="download-history" class="row">
 		<div class="col-md-12">
-			<h3>版本</h3>
+			<h3>版本历史</h3>
 			<p>当前最新的发布版本是Rexdb-1.0.2。</p>
 			  <ul class="timeline">
+			  
+			  	<!-- 
 			    <li><div class="tldate">版本升级计划</div></li>
 			    
 			    <li>
@@ -199,9 +201,20 @@ clone https://git.oschina.net/rexsoft/rexdb-tester.git</pre>
 			        </div>
 			      </div>
 			    </li>
-			    
+			     -->
 			    <li><div class="tldate text-primary">已发布版本</div></li>
-			    
+			    <li class="timeline-inverted">
+			      <div class="tl-circ"></div>
+			      <div class="timeline-panel">
+			        <div class="tl-heading">
+			          <h4>Rexdb-1.0.3</h4>
+			          <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 2017-05-16 </small></p>
+			        </div>
+			        <div class="tl-body">
+			          <p>修复了多线程并发时，动态创建类生成器可能抛出异常的BUG。</p>
+			        </div>
+			      </div>
+			    </li>
 			    <li>
 			      <div class="tl-circ"></div>
 			      <div class="timeline-panel">
