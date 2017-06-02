@@ -159,7 +159,7 @@ clone https://git.oschina.net/rexsoft/rexdb-tester.git</pre>
 	<div id="download-history" class="row">
 		<div class="col-md-12">
 			<h3>版本历史</h3>
-			<p>当前最新的发布版本是Rexdb-1.0.2。</p>
+			<p></p>
 			  <ul class="timeline">
 			  
 			  	<!-- 
