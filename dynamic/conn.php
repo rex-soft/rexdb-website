@@ -1,10 +1,12 @@
-<?php 
+<?php
 function getConn(){
-	$url = 'localhost';
-	$u = 'root';
-	$p = '12345678';
-	$db = 'rexdb-website';
-	
-	return new MySQLi($url, $u, $p, $db);
+	$url = 'qdm112527347.my3w.com';
+	$u = 'qdm112527347';
+	$p = 'activezz1983';
+	$db = 'qdm112527347_db';
+
+	$mysqli = new MySQLi($url, $u, $p, $db);
+	$mysqli->query("SET NAMES utf8");
+	return $mysqli;
 }
 ?>
