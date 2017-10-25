@@ -2,7 +2,7 @@
 <html lang="zh-cn" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Rexdb ORM</title>
-<?
+<?php
 $basePath = './';
 include_once('include/import.php'); 
 ?>
@@ -33,7 +33,7 @@ $(function(){
 </script>
 </head>
 <body>
-<? 
+<?php 
 include_once('include/navbar.php'); 
 ?>
 <section id="header" class="top-div">
@@ -157,7 +157,7 @@ include_once('include/navbar.php');
 		<div class="col-md-12">
 			<h2>继续了解</h2>
 
-			<?
+			<?php
 			$docPath = 'document/1.0/';
 			include_once('document/1.0/_contents.php'); 
 			?>
@@ -187,6 +187,6 @@ include_once('include/navbar.php');
 		</div>
 	</div>
 </section>
-<? include_once('include/footer.php'); ?>
+<?php include_once('include/footer.php'); ?>
 </body>
 </html>

@@ -2,11 +2,11 @@
 <html>
 <head>
 <title>反馈 - Rexdb ORM</title>
-<?
+<?php
 $basePath = '';
 include_once('include/import.php'); 
 ?>
-<script type="text/javascript" src="<?=$basePath?>ui/js/bootstrapValidator.mix-0.5.1.js"></script>
+<script type="text/javascript" src="<?php echo $basePath;?>ui/js/bootstrapValidator.mix-0.5.1.js"></script>
 <style>
 p {
 	font-size: 16px;
@@ -22,7 +22,7 @@ li {
 </style>
 </head>
 <body>
-<? 
+<?php
 $activeMenu = 'feedback';
 include_once('include/navbar.php'); 
 ?>
@@ -321,6 +321,6 @@ include_once('include/navbar.php');
 		</div>
 	</div>
 
-<? include_once('include/footer.php'); ?>
+<?php include_once('include/footer.php'); ?>
 </body>
 </html>

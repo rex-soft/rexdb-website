@@ -11,14 +11,14 @@ $navFile = $dirPath . '/content/' . $documentId . '.php';
 <html>
 <head>
 <title>文档 - Rexdb ORM</title>
-<?
+<?php
 $basePath = '';
 include_once('include/import.php'); 
 ?>
-<link rel="stylesheet" href="<?=$basePath?>ui/css/document-1.0.2.css" type="text/css"></link>
-<script type="text/javascript" src="<?=$basePath?>ui/js/docs.min-1.0.2.js"></script>
+<link rel="stylesheet" href="<?php echo $basePath;?>ui/css/document-1.0.2.css" type="text/css"></link>
+<script type="text/javascript" src="<?php $basePath;?>ui/js/docs.min-1.0.2.js"></script>
 <script>
-var basePath = '<?=$dirPath?>';
+var basePath = '<?php $dirPath;?>';
 $(document).ready(function(){
 	//调整图片资源URI
 	$('div[role=\'main\'] img').each(function(){
@@ -38,7 +38,7 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-<? 
+<?php
 $activeMenu = 'document';
 include_once('include/navbar.php'); 
 ?>
@@ -47,7 +47,7 @@ include_once('include/navbar.php');
 		<div class="row" style="margin-top: 20px; margin-bottom: 30px">
 			<div class="col-md-12">
 				<h3>文档目录</h3>
-				<? include_once($contentFile); ?>
+				<?php include_once($contentFile); ?>
 			</div>
 		</div>
 	</div>
@@ -56,7 +56,7 @@ include_once('include/navbar.php');
 <div class="row">
 
 <div class="col-md-9" role="main">
-<?
+<?php
 	include_once($pathFile);
 ?>
 </div>
@@ -64,7 +64,7 @@ include_once('include/navbar.php');
       <div class="col-md-3" role="complementary">
           <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm">
 
-<?
+<?php
 	include_once($navFile);
 ?>
 
@@ -77,6 +77,6 @@ include_once('include/navbar.php');
 
 </div>
 </div>
-<? include_once('include/footer.php'); ?>
+<?php include_once('include/footer.php'); ?>
 </body>
 </html>

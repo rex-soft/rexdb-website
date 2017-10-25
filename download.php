@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>下载 - Rexdb ORM</title>
-<?
+<?php
 $basePath = '';
 include_once('include/import.php'); 
 ?>
@@ -19,7 +19,7 @@ li {
 </style>
 </head>
 <body>
-<? 
+<?php
 $activeMenu = 'download';
 include_once('include/navbar.php'); 
 ?>
@@ -317,6 +317,6 @@ clone https://git.oschina.net/rexsoft/rexdb-tester.git</pre>
 	</div>
 </div>
 
-<? include_once('include/footer.php'); ?>
+<?php include_once('include/footer.php'); ?>
 </body>
 </html>

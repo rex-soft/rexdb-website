@@ -7,7 +7,7 @@
 					 <span class="icon-bar"></span>
 					 <span class="icon-bar"></span>
 					 <span class="icon-bar"></span>
-				 </button><a class="navbar-brand" href="http://db.rex-soft.org"><img src="<?=$basePath?>ui/images/logo.png" width="175" height="40" alt="Rexdb"/></a>
+				 </button><a class="navbar-brand" href="http://db.rex-soft.org"><img src="<?php echo $basePath;?>ui/images/logo.png" width="175" height="40" alt="Rexdb"/></a>
 	  		 </div>
 			<div id="nav" class="collapse navbar-collapse" aria-expanded="true">
 				<ul class="nav navbar-nav navbar-right">
@@ -18,7 +18,7 @@
 				</ul>
 			</div>
 			<script type="text/javascript">
-				var activeMenu = '<?=$activeMenu?>';
+				var activeMenu = '<?php echo $activeMenu;?>';
 				if(activeMenu != '')
 					$('#nav li[menuid=\''+activeMenu+'\']').addClass('active');
 			</script>

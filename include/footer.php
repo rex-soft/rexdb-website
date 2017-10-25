@@ -39,7 +39,7 @@
 			</div>
 			
 			<div id ="copyright" class="col-md-2">
-				<a href="http://www.rex-soft.org"><img alt="rex-soft.org" src="<?=$basePath?>ui/images/rex.png"></a>
+				<a href="http://www.rex-soft.org"><img alt="rex-soft.org" src="<?php echo $basePath;?>ui/images/rex.png"></a>
 				<h5>© rex-soft.org</h5>
 			</div>
 		</div>

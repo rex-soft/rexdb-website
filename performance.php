@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>性能 - Rexdb ORM</title>
-<?
+<?php
 $basePath = '';
 include_once('include/import.php'); 
 ?>
@@ -52,7 +52,7 @@ input[type="radio"], input[type="checkbox"] {
 </style>
 </head>
 <body>
-<? 
+<?php
 $activeMenu = 'performance';
 include_once('include/navbar.php'); 
 ?>
@@ -215,6 +215,6 @@ include_once('include/navbar.php');
 		
 	</div>
 
-<? include_once('include/footer.php'); ?>
+<?php include_once('include/footer.php'); ?>
 </body>
 </html>
