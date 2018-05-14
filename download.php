@@ -53,16 +53,16 @@ include_once('include/navbar.php');
 		        <ul class="list-group">
 				  <li class="list-group-item">
 				  	<i class="iconfont icon-zip"></i>
-				   	<a href="http://dl.rex-soft.org/rexdb/rexdb-1.0.3.zip"><b>rexdb-1.0.3.zip</b></a>
-				   	(<a href="http://dl.rex-soft.org/rexdb/rexdb-1.0.3.tar.gz">tar.gz</a>)
+				   	<a href="http://dl.rex-soft.org/rexdb/rexdb-1.0.4.zip"><b>rexdb-1.0.4.zip</b></a>
+				   	(<a href="http://dl.rex-soft.org/rexdb/rexdb-1.0.4.tar.gz">tar.gz</a>)
 				   	
 				    <div class="remark">编译好的程序包，以及文档、第三方包和简单的程序示例</div>
 				  </li>
 				  
 				  <li class="list-group-item">
 				  	<i class="iconfont icon-zip"></i>
-				   	<a href="http://dl.rex-soft.org/rexdb/rexdb-tester-1.0.3.zip"><b>rexdb-tester-1.0.3.zip</b></a>
-					(<a href="http://dl.rex-soft.org/rexdb/rexdb-tester-1.0.3.tar.gz">tar.gz</a>)
+				   	<a href="http://dl.rex-soft.org/rexdb/rexdb-tester-1.0.4.zip"><b>rexdb-tester-1.0.4.zip</b></a>
+					(<a href="http://dl.rex-soft.org/rexdb/rexdb-tester-1.0.4.tar.gz">tar.gz</a>)
 					
 				    <div class="remark">性能测试程序，用于测试Rexdb和其它开源框架的性能</div>
 				  </li>
@@ -79,16 +79,16 @@ include_once('include/navbar.php');
 		        <ul class="list-group">
 				  <li class="list-group-item">
 				  	<i class="iconfont icon-zip"></i>
-				   	<a href="http://dl.rex-soft.org/rexdb/rexdb-1.0.3-source.zip">rexdb-1.0.3-source.zip</a>
-				   	(<a href="http://dl.rex-soft.org/rexdb/rexdb-1.0.3-source.tar.gz">tar.gz</a>)
+				   	<a href="http://dl.rex-soft.org/rexdb/rexdb-1.0.4-source.zip">rexdb-1.0.4-source.zip</a>
+				   	(<a href="http://dl.rex-soft.org/rexdb/rexdb-1.0.4-source.tar.gz">tar.gz</a>)
 				   	
 				    <div class="remark">Rexdb的源代码，以及编译时依赖的包</div>
 				  </li>
 				  
 				  <li class="list-group-item">
 				  	<i class="iconfont icon-zip"></i>
-				   	<a href="http://dl.rex-soft.org/rexdb/rexdb-tester-1.0.3-source.zip">rexdb-tester-1.0.3-source.zip</a>
-				    (<a href="http://dl.rex-soft.org/rexdb/rexdb-tester-1.0.3-source.tar.gz">tar.gz</a>)
+				   	<a href="http://dl.rex-soft.org/rexdb/rexdb-tester-1.0.4-source.zip">rexdb-tester-1.0.4-source.zip</a>
+				    (<a href="http://dl.rex-soft.org/rexdb/rexdb-tester-1.0.4-source.tar.gz">tar.gz</a>)
 				    
 				    <div class="remark">性能测试程序的源代码，以及编译时依赖的包</div>
 				  </li>
@@ -203,6 +203,18 @@ clone https://git.oschina.net/rexsoft/rexdb-tester.git</pre>
 			    </li>
 			     -->
 			    <li><div class="tldate text-primary">已发布版本</div></li>
+			    <li class="">
+			      <div class="tl-circ"></div>
+			      <div class="timeline-panel">
+			        <div class="tl-heading">
+			          <h4>Rexdb-1.0.4</h4>
+			          <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 2018-05-14 </small></p>
+			        </div>
+			        <div class="tl-body">
+			          <p>调整批量更新接口，当非null的参数集合长度为0时，不再抛出异常，而是直接返回int[0]。</p>
+			        </div>
+			      </div>
+			    </li>
 			    <li class="timeline-inverted">
 			      <div class="tl-circ"></div>
 			      <div class="timeline-panel">
